@@ -73,6 +73,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blackwood {
+            get {
+                object obj = ResourceManager.GetObject("blackwood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bricks_brickwork {
             get {
                 object obj = ResourceManager.GetObject("bricks_brickwork", resourceCulture);
@@ -117,6 +127,26 @@ namespace RascalApp.Properties {
             get {
                 object obj = ResourceManager.GetObject("rascalicon_yeZ_icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaper2you {
+            get {
+                object obj = ResourceManager.GetObject("wallpaper2you", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap woman_silhueta {
+            get {
+                object obj = ResourceManager.GetObject("woman_silhueta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RascalApp.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +47,21 @@ namespace RascalApp
         {
             //Minimizar
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length == 4)
+            {
+                if (Funcionalidades.MD5Hash(textBox1.Text) == Funcionalidades.MD5Hash("3302"))
+                {
+                    this.Hide();
+                    FormInicio _Ini = new FormInicio();
+                    _Ini.ShowDialog();
+                    this.Close();
+                }
+                    
+            }
         }
     }
 }

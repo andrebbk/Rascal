@@ -45,15 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormSeguranca.cs">
+    <Compile Include="Forms\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSeguranca.Designer.cs">
+    <Compile Include="Forms\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSeguranca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSeguranca.Designer.cs">
       <DependentUpon>FormSeguranca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidades.cs" />
+    <Compile Include="Models\Foto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormSeguranca.resx">
+    <Compile Include="UserControls\UserControlInicio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlInicio.Designer.cs">
+      <DependentUpon>UserControlInicio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSeguranca.resx">
       <DependentUpon>FormSeguranca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -66,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\UserControlInicio.resx">
+      <DependentUpon>UserControlInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,6 +116,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minimize-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaper2you.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blackwood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman-silhueta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
