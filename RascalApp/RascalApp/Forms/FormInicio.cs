@@ -24,7 +24,7 @@ namespace RascalApp.Forms
 
             panelContainer.Controls.Add(new UserControlInicio());
 
-            Funcionalidades.GuardarNovoModelo("", "");
+            Funcionalidades.GuardarNovoModelo("André", "Xpto");
         }
 
         //Form drag
