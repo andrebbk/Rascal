@@ -211,6 +211,7 @@
             this.buttonNovoModelo.Text = "    Novo Modelo";
             this.buttonNovoModelo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNovoModelo.UseVisualStyleBackColor = true;
+            this.buttonNovoModelo.Click += new System.EventHandler(this.buttonNovoModelo_Click);
             this.buttonNovoModelo.MouseLeave += new System.EventHandler(this.buttonNovoModelo_MouseLeave);
             this.buttonNovoModelo.MouseHover += new System.EventHandler(this.buttonNovoModelo_MouseHover);
             // 
@@ -250,6 +251,7 @@
             this.buttonInicio.Text = "    Início";
             this.buttonInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonInicio.UseVisualStyleBackColor = true;
+            this.buttonInicio.Click += new System.EventHandler(this.buttonInicio_Click);
             this.buttonInicio.MouseLeave += new System.EventHandler(this.buttonInicio_MouseLeave);
             this.buttonInicio.MouseHover += new System.EventHandler(this.buttonInicio_MouseHover);
             // 

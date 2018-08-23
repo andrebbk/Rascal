@@ -111,5 +111,17 @@ namespace RascalApp.Forms
         {
             buttonClubes.ForeColor = Color.White;
         }
+
+        private void buttonNovoModelo_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear();
+            panelContainer.Controls.Add(new UserControlNovoModelo());
+        }
+
+        private void buttonInicio_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear();
+            panelContainer.Controls.Add(new UserControlInicio());
+        }
     }
 }

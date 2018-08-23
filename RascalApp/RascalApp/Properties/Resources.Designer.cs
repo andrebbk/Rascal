@@ -113,6 +113,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap portret {
+            get {
+                object obj = ResourceManager.GetObject("portret", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RascaLIcon {
             get {
                 object obj = ResourceManager.GetObject("RascaLIcon", resourceCulture);
