@@ -23,6 +23,8 @@ namespace RascalApp.Forms
             this.WindowState = FormWindowState.Maximized;
 
             panelContainer.Controls.Add(new UserControlInicio());
+
+            Funcionalidades.GuardarNovoModelo("", "");
         }
 
         //Form drag

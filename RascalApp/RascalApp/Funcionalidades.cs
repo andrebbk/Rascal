@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.OleDb;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -28,6 +30,13 @@ namespace RascalApp
             }
 
             return strBuilder.ToString();
+        }
+
+        public static void GuardarNovoModelo(string Nome, string Foto)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
         }
     }
 }
