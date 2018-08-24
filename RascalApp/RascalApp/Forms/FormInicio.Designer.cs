@@ -34,6 +34,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSideBar = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelConsola = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonClubes = new System.Windows.Forms.Button();
@@ -44,9 +47,6 @@
             this.buttonInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.labelConsola = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -126,6 +126,36 @@
             this.panelSideBar.Size = new System.Drawing.Size(286, 1084);
             this.panelSideBar.TabIndex = 9;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(0, 992);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Output:";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.panel3.Location = new System.Drawing.Point(0, 971);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(288, 18);
+            this.panel3.TabIndex = 16;
+            // 
+            // labelConsola
+            // 
+            this.labelConsola.AutoSize = true;
+            this.labelConsola.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConsola.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelConsola.Location = new System.Drawing.Point(3, 1012);
+            this.labelConsola.Name = "labelConsola";
+            this.labelConsola.Size = new System.Drawing.Size(106, 18);
+            this.labelConsola.TabIndex = 17;
+            this.labelConsola.Text = "Bem vindo! ";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::RascalApp.Properties.Resources.woman_silhueta;
@@ -160,6 +190,7 @@
             this.buttonClubes.Text = "    Clubes";
             this.buttonClubes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClubes.UseVisualStyleBackColor = true;
+            this.buttonClubes.Click += new System.EventHandler(this.buttonClubes_Click);
             this.buttonClubes.MouseLeave += new System.EventHandler(this.buttonClubes_MouseLeave);
             this.buttonClubes.MouseHover += new System.EventHandler(this.buttonClubes_MouseHover);
             // 
@@ -279,36 +310,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1614, 987);
             this.panelContainer.TabIndex = 11;
-            // 
-            // labelConsola
-            // 
-            this.labelConsola.AutoSize = true;
-            this.labelConsola.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelConsola.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelConsola.Location = new System.Drawing.Point(3, 1012);
-            this.labelConsola.Name = "labelConsola";
-            this.labelConsola.Size = new System.Drawing.Size(106, 18);
-            this.labelConsola.TabIndex = 17;
-            this.labelConsola.Text = "Bem vindo! ";
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
-            this.panel3.Location = new System.Drawing.Point(0, 971);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(288, 18);
-            this.panel3.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(0, 992);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Output:";
             // 
             // FormInicio
             // 

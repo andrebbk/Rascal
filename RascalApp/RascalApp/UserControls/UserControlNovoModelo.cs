@@ -61,10 +61,9 @@ namespace RascalApp.UserControls
                 _FormInicio.EscreverNaConsola("Erro ao registar o modelo!");
                 Console.WriteLine(ex.ToString());
                 return;
-            }
-            
+            }            
 
-            _FormInicio.EscreverNaConsola("Novo modelo registado!");
+            _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " registada!");
         
             LimparFormNovoModelo();
         }

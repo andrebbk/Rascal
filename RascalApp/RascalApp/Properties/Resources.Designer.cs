@@ -93,6 +93,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap if_HP_Pictures_Folder_Dock_512_17259 {
+            get {
+                object obj = ResourceManager.GetObject("if_HP_Pictures_Folder_Dock_512_17259", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap letter_x_icon {
             get {
                 object obj = ResourceManager.GetObject("letter_x_icon", resourceCulture);
