@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -106,6 +107,16 @@ namespace RascalApp
             }
 
             return listClubes;
+        }
+
+        public static byte[] GetImageAsByteArray(string urlImage)
+        {
+            return File.ReadAllBytes(urlImage);
+        }
+
+        public static void EliminarTodosClubes()
+        {
+
         }
     }
 }

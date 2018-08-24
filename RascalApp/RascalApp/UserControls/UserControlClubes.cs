@@ -42,14 +42,14 @@ namespace RascalApp.UserControls
             //Nome
             if (String.IsNullOrEmpty(textBoxNovoNome.Text) || textBoxNovoNome.Text == " ")
             {
-                _FormInicio.EscreverNaConsola("Nome em falta!");
+                _FormInicio.EscreverNaConsola("Nome em falta...");
                 return;
             }
 
             //Fotografia
             if (Foto == "nada")
             {
-                _FormInicio.EscreverNaConsola("Foto em falta!");
+                _FormInicio.EscreverNaConsola("Foto em falta...");
                 return;
             }
 
@@ -107,7 +107,68 @@ namespace RascalApp.UserControls
 
         private void CarregarListaClubes()
         {
-            listaCLubes = Funcionalidades.BuscarClubes();
+            listViewCLubes.View = View.LargeIcon;
+
+            try
+            {
+                //Listas de clubes
+                listaCLubes = Funcionalidades.BuscarClubes();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                _FormInicio.EscreverNaConsola("Erro ao carregar os clubes...");
+                return;
+            }
+
+            ImageList ListaImagens = new ImageList();
+            ListaImagens.ImageSize = new Size(192, 192);
+            ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
+
+            foreach (Clube clb in listaCLubes)
+            {
+                ListaImagens.Images.Add(Bitmap.FromFile("E:\\Rascal\\Clubes\\" + clb.NomeFoto));
+            }
+            
+            listViewCLubes.LargeImageList = ListaImagens;
+
+            foreach (Clube clb in listaCLubes)
+            {
+                ListViewItem lst = new ListViewItem();
+                lst.Text = clb.Nome;
+                lst.ImageIndex = clb.ID;
+                listViewCLubes.Items.Add(lst);
+            }
+
+
+        }
+
+        private void listViewCLubes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewCLubes.SelectedIndices.Count <= 0)
+                return;
+
+            int _ID = listViewCLubes.GetSelectedItem().ImageIndex;
+        }
+
+        private void pictureBoxButtonReset_Click(object sender, EventArgs e)
+        {
+            FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+            DialogResult resultado = PopupConfirmation.ShowDialog();
+
+            if (resultado == DialogResult.Yes)
+            {
+                Funcionalidades.EliminarTodosClubes();
+            }
         }
     }
+
+    internal static class ListViewEx
+    {
+        internal static ListViewItem GetSelectedItem(this ListView listViewCLubes)
+        {
+            return (listViewCLubes.SelectedItems.Count > 0 ? listViewCLubes.SelectedItems[0] : null);
+        }
+    }
+
 }

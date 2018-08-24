@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBoxButtonReset = new System.Windows.Forms.PictureBox();
+            this.listViewCLubes = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxNovaFota = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonRegistarClube = new System.Windows.Forms.Button();
             this.textBoxNovoNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.listViewCLubes = new System.Windows.Forms.ListView();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +54,43 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Novo Clube";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Khaki;
+            this.label4.Location = new System.Drawing.Point(38, 239);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(159, 45);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Clubes";
+            // 
+            // pictureBoxButtonReset
+            // 
+            this.pictureBoxButtonReset.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
+            this.pictureBoxButtonReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxButtonReset.Location = new System.Drawing.Point(193, 239);
+            this.pictureBoxButtonReset.Name = "pictureBoxButtonReset";
+            this.pictureBoxButtonReset.Size = new System.Drawing.Size(29, 28);
+            this.pictureBoxButtonReset.TabIndex = 19;
+            this.pictureBoxButtonReset.TabStop = false;
+            this.pictureBoxButtonReset.Click += new System.EventHandler(this.pictureBoxButtonReset_Click);
+            // 
+            // listViewCLubes
+            // 
+            this.listViewCLubes.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.listViewCLubes.BackgroundImageTiled = true;
+            this.listViewCLubes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewCLubes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewCLubes.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewCLubes.HideSelection = false;
+            this.listViewCLubes.Location = new System.Drawing.Point(24, 287);
+            this.listViewCLubes.Name = "listViewCLubes";
+            this.listViewCLubes.Size = new System.Drawing.Size(1568, 667);
+            this.listViewCLubes.TabIndex = 0;
+            this.listViewCLubes.UseCompatibleStateImageBehavior = false;
+            this.listViewCLubes.SelectedIndexChanged += new System.EventHandler(this.listViewCLubes_SelectedIndexChanged);
+            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
@@ -65,6 +104,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1568, 129);
             this.panel1.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(962, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 14);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Clica para mudar a foto";
             // 
             // pictureBoxNovaFota
             // 
@@ -114,46 +164,12 @@
             this.textBoxNovoNome.Size = new System.Drawing.Size(386, 29);
             this.textBoxNovoNome.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(962, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 14);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Clica para mudar a foto";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Khaki;
-            this.label4.Location = new System.Drawing.Point(38, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 45);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Clubes";
-            // 
-            // listViewCLubes
-            // 
-            this.listViewCLubes.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
-            this.listViewCLubes.BackgroundImageTiled = true;
-            this.listViewCLubes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewCLubes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewCLubes.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewCLubes.Location = new System.Drawing.Point(24, 287);
-            this.listViewCLubes.Name = "listViewCLubes";
-            this.listViewCLubes.Size = new System.Drawing.Size(1568, 667);
-            this.listViewCLubes.TabIndex = 0;
-            this.listViewCLubes.UseCompatibleStateImageBehavior = false;
-            // 
             // UserControlClubes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.pictureBoxButtonReset);
             this.Controls.Add(this.listViewCLubes);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -161,6 +177,7 @@
             this.Name = "UserControlClubes";
             this.Size = new System.Drawing.Size(1614, 987);
             this.Load += new System.EventHandler(this.UserControlClubes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).EndInit();
@@ -180,5 +197,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listViewCLubes;
+        private System.Windows.Forms.PictureBox pictureBoxButtonReset;
     }
 }
