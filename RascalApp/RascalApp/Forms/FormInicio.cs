@@ -24,7 +24,6 @@ namespace RascalApp.Forms
 
             panelContainer.Controls.Add(new UserControlInicio());
 
-            Funcionalidades.GuardarNovoModelo("André", "Xpto");
         }
 
         //Form drag
@@ -52,6 +51,7 @@ namespace RascalApp.Forms
             this.WindowState = FormWindowState.Minimized;
         }
 
+        //BOTOES HOVER/LEAVE
         private void buttonInicio_MouseHover(object sender, EventArgs e)
         {
             buttonInicio.ForeColor = Color.Blue;
@@ -111,17 +111,23 @@ namespace RascalApp.Forms
         {
             buttonClubes.ForeColor = Color.White;
         }
-
+        //BOTOES HOVER/LEAVE
+        
         private void buttonNovoModelo_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(new UserControlNovoModelo());
+            panelContainer.Controls.Add(new UserControlNovoModelo(this));
         }
 
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear();
             panelContainer.Controls.Add(new UserControlInicio());
+        }
+
+        public void EscreverNaConsola(string texto)
+        {
+            labelConsola.Text = texto;
         }
     }
 }

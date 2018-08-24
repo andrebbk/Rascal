@@ -44,6 +44,9 @@
             this.buttonInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.labelConsola = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +107,9 @@
             this.panelSideBar.BackColor = System.Drawing.Color.Transparent;
             this.panelSideBar.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.panelSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelSideBar.Controls.Add(this.label2);
+            this.panelSideBar.Controls.Add(this.panel3);
+            this.panelSideBar.Controls.Add(this.labelConsola);
             this.panelSideBar.Controls.Add(this.pictureBox2);
             this.panelSideBar.Controls.Add(this.panel1);
             this.panelSideBar.Controls.Add(this.buttonClubes);
@@ -124,9 +130,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::RascalApp.Properties.Resources.woman_silhueta;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(64, 728);
+            this.pictureBox2.Location = new System.Drawing.Point(106, 688);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(146, 326);
+            this.pictureBox2.Size = new System.Drawing.Size(132, 270);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -274,6 +280,36 @@
             this.panelContainer.Size = new System.Drawing.Size(1614, 987);
             this.panelContainer.TabIndex = 11;
             // 
+            // labelConsola
+            // 
+            this.labelConsola.AutoSize = true;
+            this.labelConsola.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConsola.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelConsola.Location = new System.Drawing.Point(3, 1012);
+            this.labelConsola.Name = "labelConsola";
+            this.labelConsola.Size = new System.Drawing.Size(106, 18);
+            this.labelConsola.TabIndex = 17;
+            this.labelConsola.Text = "Bem vindo! ";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.panel3.Location = new System.Drawing.Point(0, 971);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(288, 18);
+            this.panel3.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(0, 992);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Output:";
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,5 +353,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelContainer;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label labelConsola;
+        private System.Windows.Forms.Label label2;
     }
 }
