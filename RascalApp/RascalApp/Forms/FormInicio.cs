@@ -132,8 +132,17 @@ namespace RascalApp.Forms
 
         private void buttonClubes_Click(object sender, EventArgs e)
         {
-            panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(new UserControlClubes(this));
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlClubes(this));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);                
+            }
+            
         }
     }
 }

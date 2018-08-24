@@ -36,6 +36,12 @@ namespace RascalApp
             return strBuilder.ToString();
         }
 
+        public static byte[] GetImageAsByteArray(string urlImage)
+        {
+            return File.ReadAllBytes(urlImage);
+        }
+
+        //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)
         {
             OleDbConnection _connection = new OleDbConnection();
@@ -68,11 +74,12 @@ namespace RascalApp
             _connection.Close();
         }
 
+        //CLUBE
         public static List<Clube> BuscarClubes()
         {
             List<Clube> listClubes = new List<Clube>();
 
-            CultureInfo PTCultureInfo = new CultureInfo("de-DE");
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -107,16 +114,48 @@ namespace RascalApp
             }
 
             return listClubes;
-        }
-
-        public static byte[] GetImageAsByteArray(string urlImage)
-        {
-            return File.ReadAllBytes(urlImage);
-        }
+        }        
 
         public static void EliminarTodosClubes()
-        {
+        {            
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
 
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Clube";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            string[] IMGfiles = Directory.GetFiles("E:\\Rascal\\Clubes");
+
+            foreach(string str in IMGfiles)
+            {
+                File.Delete(str);
+            }
+        }
+
+        public static void EliminarClube(Clube _este)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Clube WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //apagar foto
+            File.Delete("E:\\Rascal\\CLubes\\" + _este.NomeFoto);
         }
     }
 }

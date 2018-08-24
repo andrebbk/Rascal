@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormEditarClube.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditarClube.Designer.cs">
+      <DependentUpon>FormEditarClube.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="UserControls\UserControlNovoModelo.Designer.cs">
       <DependentUpon>UserControlNovoModelo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\FormEditarClube.resx">
+      <DependentUpon>FormEditarClube.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>

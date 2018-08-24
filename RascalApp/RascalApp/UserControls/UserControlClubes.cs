@@ -32,11 +32,6 @@ namespace RascalApp.UserControls
 
         }
 
-        private void UserControlClubes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonRegistarClube_Click(object sender, EventArgs e)
         {
             //Nome
@@ -77,6 +72,9 @@ namespace RascalApp.UserControls
             _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " registado!");
 
             LimparFormNovoClube();
+
+            //Refresh list view
+            CarregarListaClubes();
         }
 
         private void LimparFormNovoClube()
@@ -107,48 +105,48 @@ namespace RascalApp.UserControls
 
         private void CarregarListaClubes()
         {
-            listViewCLubes.View = View.LargeIcon;
+            listViewClubes_.Items.Clear();
 
             try
             {
                 //Listas de clubes
                 listaCLubes = Funcionalidades.BuscarClubes();
+
+                ImageList ListaImagens = new ImageList();
+                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
+
+                foreach (Clube clb in listaCLubes)
+                {
+                    byte[] buff = System.IO.File.ReadAllBytes("E:\\Rascal\\Clubes\\" + clb.NomeFoto);
+                    using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
+                    {
+                        ListaImagens.Images.Add(clb.Nome, Image.FromStream(ms));
+                    }
+                }
+
+                listViewClubes_.View = View.LargeIcon;
+                listViewClubes_.LargeImageList = ListaImagens;
+
+                foreach (Clube clb in listaCLubes)
+                {
+                    ListViewItem lst = new ListViewItem();
+                    lst.Text = clb.Nome;
+                    lst.Name = clb.Nome;
+                    lst.Tag = clb.ID.ToString();
+                    lst.ImageIndex = 0;
+                    lst.ImageKey = clb.Nome;
+                    listViewClubes_.Items.Add(lst);
+                }                
+
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 _FormInicio.EscreverNaConsola("Erro ao carregar os clubes...");
                 return;
-            }
+            }           
 
-            ImageList ListaImagens = new ImageList();
-            ListaImagens.ImageSize = new Size(192, 192);
-            ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
-
-            foreach (Clube clb in listaCLubes)
-            {
-                ListaImagens.Images.Add(Bitmap.FromFile("E:\\Rascal\\Clubes\\" + clb.NomeFoto));
-            }
-            
-            listViewCLubes.LargeImageList = ListaImagens;
-
-            foreach (Clube clb in listaCLubes)
-            {
-                ListViewItem lst = new ListViewItem();
-                lst.Text = clb.Nome;
-                lst.ImageIndex = clb.ID;
-                listViewCLubes.Items.Add(lst);
-            }
-
-
-        }
-
-        private void listViewCLubes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewCLubes.SelectedIndices.Count <= 0)
-                return;
-
-            int _ID = listViewCLubes.GetSelectedItem().ImageIndex;
         }
 
         private void pictureBoxButtonReset_Click(object sender, EventArgs e)
@@ -158,7 +156,77 @@ namespace RascalApp.UserControls
 
             if (resultado == DialogResult.Yes)
             {
-                Funcionalidades.EliminarTodosClubes();
+                try
+                {
+                    Funcionalidades.EliminarTodosClubes();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao eliminar os clubes...");
+                }
+
+                _FormInicio.EscreverNaConsola("Clubes elimidados...");
+                CarregarListaClubes();
+            }
+        }
+
+        private void listViewClubes__DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewClubes_.SelectedIndices.Count <= 0)
+                return;
+
+            int _ID = Convert.ToInt32(listViewClubes_.GetSelectedItem().Tag);
+
+            foreach (Clube clb in listaCLubes)
+            {
+                if (clb.ID == _ID)
+                {
+                    FormEditarClube PopupEditar = new FormEditarClube(clb);
+                    DialogResult resultado = PopupEditar.ShowDialog();
+
+                    if (resultado == DialogResult.OK)
+                    {                        
+                        string NovoNome = PopupEditar.NomeEditado;
+                        string NovaFoto = PopupEditar.FotoEditada;
+
+                        //Verificar se os dados foram editados
+                        if (NovoNome == "nop" && NovaFoto == "nop")
+                            return;
+
+                        string[] parts = NovaFoto.Split('\\');
+                        if (clb.Nome == NovoNome && clb.NomeFoto == parts[parts.Count() - 1])
+                            return;
+
+                        //Editar
+
+                        _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " editado!");
+                        CarregarListaClubes();
+                    }
+                    else if (resultado == DialogResult.Ignore)
+                    {
+                        //Apagar
+                        FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+                        DialogResult resultadoPopup = PopupConfirmation.ShowDialog();
+
+                        if (resultadoPopup == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                Funcionalidades.EliminarClube(clb);
+                                _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " eliminado!");
+                                CarregarListaClubes();
+                            }
+                            catch
+                            {
+                                _FormInicio.EscreverNaConsola("Erro ao eliminar o clube...");
+                            }
+                           
+                        }
+                        
+                    }
+
+                    break;
+                }
             }
         }
     }

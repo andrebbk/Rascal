@@ -30,8 +30,9 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.listViewClubes_ = new System.Windows.Forms.ListView();
+            this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBoxButtonReset = new System.Windows.Forms.PictureBox();
-            this.listViewCLubes = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxNovaFota = new System.Windows.Forms.PictureBox();
@@ -65,6 +66,22 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Clubes";
             // 
+            // listViewClubes_
+            // 
+            this.listViewClubes_.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.listViewClubes_.BackgroundImageTiled = true;
+            this.listViewClubes_.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewClubes_.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colummImagens});
+            this.listViewClubes_.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewClubes_.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewClubes_.Location = new System.Drawing.Point(24, 297);
+            this.listViewClubes_.Name = "listViewClubes_";
+            this.listViewClubes_.Size = new System.Drawing.Size(1568, 687);
+            this.listViewClubes_.TabIndex = 20;
+            this.listViewClubes_.UseCompatibleStateImageBehavior = false;
+            this.listViewClubes_.DoubleClick += new System.EventHandler(this.listViewClubes__DoubleClick);
+            // 
             // pictureBoxButtonReset
             // 
             this.pictureBoxButtonReset.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
@@ -75,21 +92,6 @@
             this.pictureBoxButtonReset.TabIndex = 19;
             this.pictureBoxButtonReset.TabStop = false;
             this.pictureBoxButtonReset.Click += new System.EventHandler(this.pictureBoxButtonReset_Click);
-            // 
-            // listViewCLubes
-            // 
-            this.listViewCLubes.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
-            this.listViewCLubes.BackgroundImageTiled = true;
-            this.listViewCLubes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewCLubes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewCLubes.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewCLubes.HideSelection = false;
-            this.listViewCLubes.Location = new System.Drawing.Point(24, 287);
-            this.listViewCLubes.Name = "listViewCLubes";
-            this.listViewCLubes.Size = new System.Drawing.Size(1568, 667);
-            this.listViewCLubes.TabIndex = 0;
-            this.listViewCLubes.UseCompatibleStateImageBehavior = false;
-            this.listViewCLubes.SelectedIndexChanged += new System.EventHandler(this.listViewCLubes_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -169,14 +171,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.listViewClubes_);
             this.Controls.Add(this.pictureBoxButtonReset);
-            this.Controls.Add(this.listViewCLubes);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Name = "UserControlClubes";
             this.Size = new System.Drawing.Size(1614, 987);
-            this.Load += new System.EventHandler(this.UserControlClubes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -196,7 +197,8 @@
         private System.Windows.Forms.PictureBox pictureBoxNovaFota;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listViewCLubes;
         private System.Windows.Forms.PictureBox pictureBoxButtonReset;
+        private System.Windows.Forms.ListView listViewClubes_;
+        private System.Windows.Forms.ColumnHeader colummImagens;
     }
 }
