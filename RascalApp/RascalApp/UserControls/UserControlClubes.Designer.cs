@@ -39,9 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonRegistarClube = new System.Windows.Forms.Button();
             this.textBoxNovoNome = new System.Windows.Forms.TextBox();
+            this.labelContadorClubes = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -166,11 +169,33 @@
             this.textBoxNovoNome.Size = new System.Drawing.Size(386, 29);
             this.textBoxNovoNome.TabIndex = 0;
             // 
+            // labelContadorClubes
+            // 
+            this.labelContadorClubes.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContadorClubes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelContadorClubes.Location = new System.Drawing.Point(3, 7);
+            this.labelContadorClubes.Name = "labelContadorClubes";
+            this.labelContadorClubes.Size = new System.Drawing.Size(205, 36);
+            this.labelContadorClubes.TabIndex = 21;
+            this.labelContadorClubes.Text = "0 clubes";
+            this.labelContadorClubes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.labelContadorClubes);
+            this.panel2.Location = new System.Drawing.Point(1384, 241);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(208, 50);
+            this.panel2.TabIndex = 22;
+            // 
             // UserControlClubes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.listViewClubes_);
             this.Controls.Add(this.pictureBoxButtonReset);
             this.Controls.Add(this.label4);
@@ -182,6 +207,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +226,7 @@
         private System.Windows.Forms.PictureBox pictureBoxButtonReset;
         private System.Windows.Forms.ListView listViewClubes_;
         private System.Windows.Forms.ColumnHeader colummImagens;
+        private System.Windows.Forms.Label labelContadorClubes;
+        private System.Windows.Forms.Panel panel2;
     }
 }

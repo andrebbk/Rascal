@@ -37,14 +37,14 @@ namespace RascalApp.UserControls
             //Nome
             if (String.IsNullOrEmpty(textBoxNovoNome.Text) || textBoxNovoNome.Text == " ")
             {
-                _FormInicio.EscreverNaConsola("Nome em falta...");
+                _FormInicio.EscreverNaConsola("Nome em falta!");
                 return;
             }
 
             //Fotografia
             if (Foto == "nada")
             {
-                _FormInicio.EscreverNaConsola("Foto em falta...");
+                _FormInicio.EscreverNaConsola("Foto em falta!");
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace RascalApp.UserControls
             }
             catch (Exception ex)
             {
-                _FormInicio.EscreverNaConsola("Erro ao registar o clube!");
+                _FormInicio.EscreverNaConsola("Erro ao registar o clube...");
                 Console.WriteLine(ex.ToString());
                 return;
             }
@@ -137,7 +137,9 @@ namespace RascalApp.UserControls
                     lst.ImageIndex = 0;
                     lst.ImageKey = clb.Nome;
                     listViewClubes_.Items.Add(lst);
-                }                
+                }
+
+                labelContadorClubes.Text = listaCLubes.Count().ToString() + " CLUBES";
 
             }
             catch(Exception ex)
@@ -165,7 +167,7 @@ namespace RascalApp.UserControls
                     _FormInicio.EscreverNaConsola("Erro ao eliminar os clubes...");
                 }
 
-                _FormInicio.EscreverNaConsola("Clubes elimidados...");
+                _FormInicio.EscreverNaConsola("Clubes elimidados!");
                 CarregarListaClubes();
             }
         }
