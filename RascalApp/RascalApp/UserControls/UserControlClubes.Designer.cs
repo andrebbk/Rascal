@@ -35,8 +35,8 @@
             this.buttonRegistarClube = new System.Windows.Forms.Button();
             this.textBoxNovoNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.listViewCLubes = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).BeginInit();
             this.SuspendLayout();
@@ -125,15 +125,6 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Clica para mudar a foto";
             // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(24, 287);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1568, 669);
-            this.panel2.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -145,13 +136,26 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Clubes";
             // 
+            // listViewCLubes
+            // 
+            this.listViewCLubes.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.listViewCLubes.BackgroundImageTiled = true;
+            this.listViewCLubes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewCLubes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewCLubes.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewCLubes.Location = new System.Drawing.Point(24, 287);
+            this.listViewCLubes.Name = "listViewCLubes";
+            this.listViewCLubes.Size = new System.Drawing.Size(1568, 667);
+            this.listViewCLubes.TabIndex = 0;
+            this.listViewCLubes.UseCompatibleStateImageBehavior = false;
+            // 
             // UserControlClubes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.listViewCLubes);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Name = "UserControlClubes";
@@ -174,7 +178,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBoxNovaFota;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView listViewCLubes;
     }
 }

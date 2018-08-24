@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using RascalApp.Forms;
 using System.IO;
 using RascalApp.Properties;
+using System.Drawing.Imaging;
+using RascalApp.Models;
 
 namespace RascalApp.UserControls
 {
@@ -17,12 +19,17 @@ namespace RascalApp.UserControls
     {
         FormInicio _FormInicio;
         private string Foto = "nada";
+        private List<Clube> listaCLubes;
 
         public UserControlClubes(FormInicio _formIni)
-        {
-            InitializeComponent();
+        {            
+            InitializeComponent();            
 
             _FormInicio = _formIni;
+            listaCLubes = new List<Clube>();
+
+            CarregarListaClubes();
+
         }
 
         private void UserControlClubes_Load(object sender, EventArgs e)
@@ -96,6 +103,11 @@ namespace RascalApp.UserControls
 
                 Foto = open.FileName;
             }
+        }
+
+        private void CarregarListaClubes()
+        {
+            listaCLubes = Funcionalidades.BuscarClubes();
         }
     }
 }

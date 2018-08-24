@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using RascalApp.Models;
 
 namespace RascalApp
 {
@@ -63,6 +65,47 @@ namespace RascalApp
             _command.ExecuteNonQuery();
 
             _connection.Close();
+        }
+
+        public static List<Clube> BuscarClubes()
+        {
+            List<Clube> listClubes = new List<Clube>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("de-DE");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Clube", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {                   
+                    listClubes.Add(new Clube
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Nome = reader.GetString(1),
+                        NomeFoto = reader.GetString(2),
+                        DateCreated = DateTime.Parse(reader.GetValue(3).ToString(), PTCultureInfo)
+                    });
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listClubes;
         }
     }
 }
