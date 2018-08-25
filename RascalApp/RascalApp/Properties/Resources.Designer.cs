@@ -63,6 +63,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddOutrasLogo {
+            get {
+                object obj = ResourceManager.GetObject("AddOutrasLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap backImage {
             get {
                 object obj = ResourceManager.GetObject("backImage", resourceCulture);
@@ -93,6 +103,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClubesLogo {
+            get {
+                object obj = ResourceManager.GetObject("ClubesLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_HP_Pictures_Folder_Dock_512_17259 {
             get {
                 object obj = ResourceManager.GetObject("if_HP_Pictures_Folder_Dock_512_17259", resourceCulture);
@@ -116,6 +136,46 @@ namespace RascalApp.Properties {
         internal static System.Drawing.Bitmap minimize_icon {
             get {
                 object obj = ResourceManager.GetObject("minimize_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ModelosLogo {
+            get {
+                object obj = ResourceManager.GetObject("ModelosLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NovoClubeLogo {
+            get {
+                object obj = ResourceManager.GetObject("NovoClubeLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NovoModeloLogo {
+            get {
+                object obj = ResourceManager.GetObject("NovoModeloLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OutrasLogo {
+            get {
+                object obj = ResourceManager.GetObject("OutrasLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

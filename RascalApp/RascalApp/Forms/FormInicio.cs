@@ -144,5 +144,19 @@ namespace RascalApp.Forms
             }
             
         }
+
+        private void buttonOutras_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlOutras(this));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

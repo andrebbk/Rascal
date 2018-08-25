@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelContadorClubes = new System.Windows.Forms.Label();
             this.listViewClubes_ = new System.Windows.Forms.ListView();
             this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBoxButtonReset = new System.Windows.Forms.PictureBox();
@@ -39,35 +39,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonRegistarClube = new System.Windows.Forms.Button();
             this.textBoxNovoNome = new System.Windows.Forms.TextBox();
-            this.labelContadorClubes = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label3
+            // panel2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(38, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 45);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Novo Clube";
+            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.labelContadorClubes);
+            this.panel2.Location = new System.Drawing.Point(1425, 252);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(167, 39);
+            this.panel2.TabIndex = 22;
             // 
-            // label4
+            // labelContadorClubes
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Khaki;
-            this.label4.Location = new System.Drawing.Point(38, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 45);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Clubes";
+            this.labelContadorClubes.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContadorClubes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelContadorClubes.Location = new System.Drawing.Point(0, 4);
+            this.labelContadorClubes.Name = "labelContadorClubes";
+            this.labelContadorClubes.Size = new System.Drawing.Size(168, 32);
+            this.labelContadorClubes.TabIndex = 21;
+            this.labelContadorClubes.Text = "0 clubes";
+            this.labelContadorClubes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listViewClubes_
             // 
@@ -89,7 +90,7 @@
             // 
             this.pictureBoxButtonReset.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
             this.pictureBoxButtonReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxButtonReset.Location = new System.Drawing.Point(193, 239);
+            this.pictureBoxButtonReset.Location = new System.Drawing.Point(212, 237);
             this.pictureBoxButtonReset.Name = "pictureBoxButtonReset";
             this.pictureBoxButtonReset.Size = new System.Drawing.Size(29, 28);
             this.pictureBoxButtonReset.TabIndex = 19;
@@ -169,47 +170,47 @@
             this.textBoxNovoNome.Size = new System.Drawing.Size(386, 29);
             this.textBoxNovoNome.TabIndex = 0;
             // 
-            // labelContadorClubes
+            // pictureBox1
             // 
-            this.labelContadorClubes.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContadorClubes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelContadorClubes.Location = new System.Drawing.Point(3, 7);
-            this.labelContadorClubes.Name = "labelContadorClubes";
-            this.labelContadorClubes.Size = new System.Drawing.Size(205, 36);
-            this.labelContadorClubes.TabIndex = 21;
-            this.labelContadorClubes.Text = "0 clubes";
-            this.labelContadorClubes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureBox1.BackgroundImage = global::RascalApp.Properties.Resources.NovoClubeLogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(46, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 51);
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
             // 
-            // panel2
+            // pictureBox2
             // 
-            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.labelContadorClubes);
-            this.panel2.Location = new System.Drawing.Point(1384, 241);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(208, 50);
-            this.panel2.TabIndex = 22;
+            this.pictureBox2.BackgroundImage = global::RascalApp.Properties.Resources.ClubesLogo;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(46, 237);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(164, 54);
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
             // 
             // UserControlClubes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.listViewClubes_);
             this.Controls.Add(this.pictureBoxButtonReset);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Name = "UserControlClubes";
             this.Size = new System.Drawing.Size(1614, 987);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonReset)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNovaFota)).EndInit();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -219,14 +220,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonRegistarClube;
         private System.Windows.Forms.TextBox textBoxNovoNome;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBoxNovaFota;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBoxButtonReset;
         private System.Windows.Forms.ListView listViewClubes_;
         private System.Windows.Forms.ColumnHeader colummImagens;
         private System.Windows.Forms.Label labelContadorClubes;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -210,6 +210,7 @@
             this.buttonOutras.Text = "    Outras";
             this.buttonOutras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonOutras.UseVisualStyleBackColor = true;
+            this.buttonOutras.Click += new System.EventHandler(this.buttonOutras_Click);
             this.buttonOutras.MouseLeave += new System.EventHandler(this.buttonOutras_MouseLeave);
             this.buttonOutras.MouseHover += new System.EventHandler(this.buttonOutras_MouseHover);
             // 

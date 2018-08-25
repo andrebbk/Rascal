@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormAdicionarOutras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAdicionarOutras.Designer.cs">
+      <DependentUpon>FormAdicionarOutras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormEditarClube.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,15 @@
     <Compile Include="UserControls\UserControlNovoModelo.Designer.cs">
       <DependentUpon>UserControlNovoModelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlOutras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlOutras.Designer.cs">
+      <DependentUpon>UserControlOutras.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\FormAdicionarOutras.resx">
+      <DependentUpon>FormAdicionarOutras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarClube.resx">
       <DependentUpon>FormEditarClube.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlNovoModelo.resx">
       <DependentUpon>UserControlNovoModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlOutras.resx">
+      <DependentUpon>UserControlOutras.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +199,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red-restart-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OutrasLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClubesLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NovoClubeLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModelosLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NovoModeloLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddOutrasLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,8 +58,6 @@ namespace RascalApp
             _connection.Close();
         }
 
-
-
         //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
@@ -204,6 +202,31 @@ namespace RascalApp
 
             //apagar foto
             File.Delete("E:\\Rascal\\CLubes\\" + _este.NomeFoto);
+        }
+
+        //OUTRAS
+        public static void GuardarNovaOutra(string caminhoFoto)
+        {
+            string[] parts = caminhoFoto.Split('\\');
+            string NovoCaminho = "E:\\Rascal\\Outras\\" + parts[parts.Count() - 1];
+
+            if (!Directory.Exists("E:\\Rascal\\Outras"))
+                Directory.CreateDirectory("E:\\Rascal\\Outras");
+
+            File.Move(caminhoFoto, NovoCaminho);
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Outras (CaminhoFoto, DateCreated) VALUES ('" + NovoCaminho + "', '" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
         }
     }
 }
