@@ -139,7 +139,10 @@ namespace RascalApp.UserControls
                     listViewClubes_.Items.Add(lst);
                 }
 
-                labelContadorClubes.Text = listaCLubes.Count().ToString() + " CLUBES";
+                if(listaCLubes.Count() == 1)
+                    labelContadorClubes.Text = " 1 CLUBE";
+                else
+                    labelContadorClubes.Text = listaCLubes.Count().ToString() + " CLUBES";
 
             }
             catch(Exception ex)
