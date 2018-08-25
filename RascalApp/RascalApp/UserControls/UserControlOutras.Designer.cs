@@ -31,7 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxAddOutras = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelContadorClubes = new System.Windows.Forms.Label();
+            this.labelContadorOutras = new System.Windows.Forms.Label();
             this.listViewOutras = new System.Windows.Forms.ListView();
             this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,22 +64,22 @@
             // 
             this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.labelContadorClubes);
+            this.panel2.Controls.Add(this.labelContadorOutras);
             this.panel2.Location = new System.Drawing.Point(1491, 23);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(120, 36);
             this.panel2.TabIndex = 23;
             // 
-            // labelContadorClubes
+            // labelContadorOutras
             // 
-            this.labelContadorClubes.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContadorClubes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelContadorClubes.Location = new System.Drawing.Point(-5, 7);
-            this.labelContadorClubes.Name = "labelContadorClubes";
-            this.labelContadorClubes.Size = new System.Drawing.Size(131, 22);
-            this.labelContadorClubes.TabIndex = 21;
-            this.labelContadorClubes.Text = "32535";
-            this.labelContadorClubes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelContadorOutras.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContadorOutras.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelContadorOutras.Location = new System.Drawing.Point(-5, 7);
+            this.labelContadorOutras.Name = "labelContadorOutras";
+            this.labelContadorOutras.Size = new System.Drawing.Size(131, 22);
+            this.labelContadorOutras.TabIndex = 21;
+            this.labelContadorOutras.Text = "32535";
+            this.labelContadorOutras.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listViewOutras
             // 
@@ -118,7 +118,7 @@
         private System.Windows.Forms.ListView listViewOutras;
         private System.Windows.Forms.ColumnHeader colummImagens;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelContadorClubes;
+        private System.Windows.Forms.Label labelContadorOutras;
         private System.Windows.Forms.PictureBox pictureBoxAddOutras;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

@@ -41,6 +41,19 @@ namespace RascalApp
             return File.ReadAllBytes(urlImage);
         }
 
+        public static string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_')
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)
         {
@@ -207,13 +220,13 @@ namespace RascalApp
         //OUTRAS
         public static void GuardarNovaOutra(string caminhoFoto)
         {
-            string[] parts = caminhoFoto.Split('\\');
-            string NovoCaminho = "E:\\Rascal\\Outras\\" + parts[parts.Count() - 1];
+            string[] parts = caminhoFoto.Split('\\');            
+            string[] nnome = parts[parts.Count() - 1].Split('.');
+            nnome[0] = RemoveSpecialCharacters(nnome[0]);
+            string NovoCaminho = "E:\\Rascal\\Outras\\" + nnome[0] + "." + nnome[1];
 
             if (!Directory.Exists("E:\\Rascal\\Outras"))
-                Directory.CreateDirectory("E:\\Rascal\\Outras");
-
-            File.Move(caminhoFoto, NovoCaminho);
+                Directory.CreateDirectory("E:\\Rascal\\Outras");            
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -223,10 +236,54 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "INSERT INTO Outras (CaminhoFoto, DateCreated) VALUES ('" + NovoCaminho + "', '" + DateTime.Now + "')";
+            _command.CommandText = "INSERT INTO Outras (CaminhoFoto, DateCreated, Visualizacoes) VALUES ('" + NovoCaminho + "', '" + DateTime.Now + "', 0)";
             _command.ExecuteNonQuery();
 
             _connection.Close();
+
+            File.Move(caminhoFoto, NovoCaminho);
+        }
+
+        public static List<Outras> BuscarOutras()
+        {
+            List<Outras> listOutras = new List<Outras>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Outras", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listOutras.Add(new Outras
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        CaminhoFoto = reader.GetString(1),                        
+                        DateCreated = DateTime.Parse(reader.GetValue(2).ToString(), PTCultureInfo),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(3))
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listOutras;
         }
     }
 }

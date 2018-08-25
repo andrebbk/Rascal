@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RascalApp.Forms;
+using RascalApp.Models;
 
 namespace RascalApp.UserControls
 {
     public partial class UserControlOutras : UserControl
     {
         FormInicio _FormInicio;
+        List<Outras> ListaOutras;
 
         public UserControlOutras(FormInicio formInicio)
         {
             InitializeComponent();
 
             _FormInicio = formInicio;
+            ListaOutras = new List<Outras>();
+
+            CarregarOutras();
         }
 
         private void pictureBoxAddOutras_Click(object sender, EventArgs e)
@@ -38,6 +43,8 @@ namespace RascalApp.UserControls
                     }
 
                     _FormInicio.EscreverNaConsola("Adicionadas " + PopupAddFotos.CaminhoFotos.Count() + " fotos!");
+
+                    CarregarOutras();
                 }
                 catch(Exception ex)
                 {
@@ -50,7 +57,54 @@ namespace RascalApp.UserControls
 
         private void CarregarOutras()
         {
+            listViewOutras.Items.Clear();
 
+            try
+            {
+                //Listas das outras
+                ListaOutras = Funcionalidades.BuscarOutras();
+
+                ImageList ListaImagens = new ImageList();
+                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
+
+                int contador = 0;
+
+                foreach (Outras trs in ListaOutras)
+                {
+                    byte[] buff = System.IO.File.ReadAllBytes(trs.CaminhoFoto);
+                    using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
+                    {
+                        ListaImagens.Images.Add("IMG" + contador, Image.FromStream(ms));
+                    }
+
+                    contador++;
+                }
+
+                listViewOutras.View = View.LargeIcon;
+                listViewOutras.LargeImageList = ListaImagens;
+
+                contador = 0;
+
+                foreach (Outras trs in ListaOutras)
+                {
+                    ListViewItem lst = new ListViewItem();
+                    lst.ImageIndex = 0;
+                    lst.ImageKey = "IMG" + contador;
+                    listViewOutras.Items.Add(lst);
+
+                    contador++;
+                }
+
+                labelContadorOutras.Text = ListaOutras.Count().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                _FormInicio.EscreverNaConsola("Erro ao carregar as outras...");
+                return;
+            }
         }
     }
 }
