@@ -76,6 +76,12 @@
     <Compile Include="Forms\FormSeguranca.Designer.cs">
       <DependentUpon>FormSeguranca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVerImagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVerImagem.Designer.cs">
+      <DependentUpon>FormVerImagem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="Models\Clube.cs" />
     <Compile Include="Models\Ermo.cs" />
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSeguranca.resx">
       <DependentUpon>FormSeguranca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVerImagem.resx">
+      <DependentUpon>FormVerImagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -217,6 +226,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddOutrasLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full-trash-container.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

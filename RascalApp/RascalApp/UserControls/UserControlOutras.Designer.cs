@@ -95,6 +95,7 @@
             this.listViewOutras.Size = new System.Drawing.Size(1608, 910);
             this.listViewOutras.TabIndex = 21;
             this.listViewOutras.UseCompatibleStateImageBehavior = false;
+            this.listViewOutras.DoubleClick += new System.EventHandler(this.listViewOutras_DoubleClick);
             // 
             // UserControlOutras
             // 

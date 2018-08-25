@@ -106,5 +106,16 @@ namespace RascalApp.UserControls
                 return;
             }
         }
+
+        private void listViewOutras_DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewOutras.SelectedIndices.Count <= 0)
+                return;
+
+            int _ID = Convert.ToInt32(listViewOutras.GetSelectedItem().Tag);
+
+            FormVerImagem _VerPic = new FormVerImagem(_ID, 2);
+            _VerPic.Show();
+        }
     }
 }
