@@ -58,6 +58,9 @@ namespace RascalApp
             _connection.Close();
         }
 
+
+
+        //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
             OleDbConnection _connection = new OleDbConnection();
@@ -74,7 +77,52 @@ namespace RascalApp
             _connection.Close();
         }
 
-        //CLUBE
+        public static void EditarClube(string NNome, string NNomeFoto, Clube _este)
+        {
+            string[] parts = NNomeFoto.Split('.');
+            string[] parts2 = _este.NomeFoto.Split('.');
+
+            string NovoCaminhoFoto = NNomeFoto;
+
+            //Verificacao 'nop'
+            if (NNome == "nop")
+                NNome = _este.Nome;
+
+            if (NNomeFoto == "nop")
+                NNomeFoto = NNome + "." + parts2[parts2.Count() - 1];
+            else
+                NNomeFoto = NNome + "." + parts[parts.Count() - 1];
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Clube SET Nome='" + NNome + "', NomeFoto='" + NNomeFoto + "' WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Se for para atualizar a foto
+            if(NovoCaminhoFoto != "nop")
+            {
+                //apagar foto
+                File.Delete("E:\\Rascal\\Clubes\\" + _este.NomeFoto);
+
+                //Guardar nova foto
+                string NovaFoto = "E:\\Rascal\\Clubes\\" + NNomeFoto;
+                File.Move(NovoCaminhoFoto, NovaFoto);
+            } 
+            else
+            {
+                //Atualizar nome da foto existente
+                File.Move("E:\\Rascal\\Clubes\\" + _este.NomeFoto, "E:\\Rascal\\Clubes\\" + NNomeFoto);
+            }
+        }
+
         public static List<Clube> BuscarClubes()
         {
             List<Clube> listClubes = new List<Clube>();

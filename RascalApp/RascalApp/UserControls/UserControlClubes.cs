@@ -200,9 +200,13 @@ namespace RascalApp.UserControls
                             return;
 
                         //Editar
-
-                        _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " editado!");
-                        CarregarListaClubes();
+                        if((NovoNome != "nop" && NovoNome != clb.Nome) || (clb.NomeFoto != parts[parts.Count() - 1] && NovaFoto != "nop"))
+                        {
+                            Funcionalidades.EditarClube(NovoNome, NovaFoto, clb);
+                            _FormInicio.EscreverNaConsola(NovoNome + " editado!");
+                            CarregarListaClubes();
+                        }
+                        
                     }
                     else if (resultado == DialogResult.Ignore)
                     {
@@ -215,7 +219,7 @@ namespace RascalApp.UserControls
                             try
                             {
                                 Funcionalidades.EliminarClube(clb);
-                                _FormInicio.EscreverNaConsola(textBoxNovoNome.Text + " eliminado!");
+                                _FormInicio.EscreverNaConsola(clb.Nome + " eliminado!");
                                 CarregarListaClubes();
                             }
                             catch
