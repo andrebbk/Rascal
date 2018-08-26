@@ -117,6 +117,12 @@
     <Compile Include="UserControls\UserControlErmos.Designer.cs">
       <DependentUpon>UserControlErmos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlGaleria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlGaleria.Designer.cs">
+      <DependentUpon>UserControlGaleria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlInicio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlErmos.resx">
       <DependentUpon>UserControlErmos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlGaleria.resx">
+      <DependentUpon>UserControlGaleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlInicio.resx">
       <DependentUpon>UserControlInicio.cs</DependentUpon>
@@ -277,6 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EditarErmo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Galeria.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

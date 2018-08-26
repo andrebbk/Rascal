@@ -140,7 +140,8 @@ namespace RascalApp.Forms
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                Console.WriteLine(ex.Message);                
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nos Clubes!");
             }
             
         }
@@ -156,6 +157,7 @@ namespace RascalApp.Forms
             {
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nas Outras!");
             }
         }
 
@@ -170,6 +172,22 @@ namespace RascalApp.Forms
             {
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nos Ermos!");
+            }
+        }
+
+        private void buttonGaleria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlGaleria(this));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar na Galeria!");
             }
         }
     }

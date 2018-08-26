@@ -12,5 +12,6 @@ namespace RascalApp.Models
         public string Nome { get; set; }
         public string CaminhoFoto { get; set; }
         public DateTime DateCreated { get; set; }
+        public int Visualizacoes { get; set; }
     }
 }

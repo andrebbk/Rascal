@@ -270,6 +270,7 @@
             this.buttonGaleria.Text = "    Galeria";
             this.buttonGaleria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGaleria.UseVisualStyleBackColor = true;
+            this.buttonGaleria.Click += new System.EventHandler(this.buttonGaleria_Click);
             this.buttonGaleria.MouseLeave += new System.EventHandler(this.buttonGaleria_MouseLeave);
             this.buttonGaleria.MouseHover += new System.EventHandler(this.buttonGaleria_MouseHover);
             // 

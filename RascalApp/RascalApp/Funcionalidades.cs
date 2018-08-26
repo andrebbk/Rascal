@@ -85,6 +85,48 @@ namespace RascalApp
             _connection.Close();
         }
 
+        public static List<Modelo> BuscarModelos()
+        {
+            List<Modelo> listaModelos = new List<Modelo>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Modelo", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaModelos.Add(new Modelo
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Nome = reader.GetString(1),
+                        CaminhoFoto = reader.GetString(2),
+                        DateCreated = DateTime.Parse(reader.GetValue(3).ToString(), PTCultureInfo),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(4))
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listaModelos;
+        }
+
         //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
