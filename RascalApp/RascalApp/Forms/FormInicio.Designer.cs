@@ -230,6 +230,7 @@
             this.buttonErmos.Text = "    Ermos";
             this.buttonErmos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonErmos.UseVisualStyleBackColor = true;
+            this.buttonErmos.Click += new System.EventHandler(this.buttonErmos_Click);
             this.buttonErmos.MouseLeave += new System.EventHandler(this.buttonErmos_MouseLeave);
             this.buttonErmos.MouseHover += new System.EventHandler(this.buttonErmos_MouseHover);
             // 

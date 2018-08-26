@@ -114,8 +114,10 @@ namespace RascalApp.UserControls
 
             int _ID = Convert.ToInt32(listViewOutras.GetSelectedItem().Tag);
 
-            FormVerImagem _VerPic = new FormVerImagem(_ID, 2);
+            FormVerImagem _VerPic = new FormVerImagem(_ID, 3);
+
             _VerPic.Show();
+
         }
     }
 }

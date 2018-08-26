@@ -17,7 +17,7 @@ namespace RascalApp.UserControls
 {
     public partial class UserControlClubes : UserControl
     {
-        FormInicio _FormInicio;
+        private FormInicio _FormInicio;
         private string Foto = "nada";
         private List<Clube> listaCLubes;
 

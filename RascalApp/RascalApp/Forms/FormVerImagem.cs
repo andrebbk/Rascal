@@ -13,12 +13,15 @@ namespace RascalApp.Forms
 {
     public partial class FormVerImagem : Form
     {
-        public FormVerImagem(int Ide, int tipo)
+        private int tipo;
+        private int PicID;
+        //Tipo 1 -> Galerias
+        //Tipo 2 -> Outras
+        public FormVerImagem(int Ide, int _tipo)
         {
             InitializeComponent();
-
-            //Tipo 1 -> Galerias
-            //Tipo 2 -> Outras
+            tipo = _tipo;
+            PicID = Ide;
         }
 
         private void pictureBoxExit_Click(object sender, EventArgs e)
@@ -59,6 +62,12 @@ namespace RascalApp.Forms
             {
 
             }
+        }
+
+        private void FormVerImagem_Load(object sender, EventArgs e)
+        {
+            if (tipo != 1 && tipo != 2)
+                this.Close();
         }
     }
 }

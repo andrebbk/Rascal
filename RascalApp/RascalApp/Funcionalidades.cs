@@ -54,6 +54,20 @@ namespace RascalApp
             return sb.ToString();
         }
 
+        public static string RemoveWhitespace(string input)
+        {
+            return new string(input.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
+        }
+
+        public static bool EqualsUpToSeconds(DateTime dt1, DateTime dt2)
+        {
+            return dt1.Year == dt2.Year && dt1.Month == dt2.Month && dt1.Day == dt2.Day &&
+                   dt1.Hour == dt2.Hour && dt1.Minute == dt2.Minute && dt1.Second == dt2.Second;
+        }
+
+
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)
         {
@@ -284,6 +298,140 @@ namespace RascalApp
             }
 
             return listOutras;
+        }
+
+        //ERMOS
+        public static DateTime GuardarNovoErmo(string designacao)
+        {
+            DateTime MesmoAgora = DateTime.Now;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Ermo (Designacao, DateCreated) VALUES ('" + designacao + "', '" + MesmoAgora + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Criar novo diretório
+            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(designacao));
+
+            return MesmoAgora;
+        }
+
+        public static Ermo BuscarUltimoErmo(DateTime DatetimeRegistado)
+        {
+            Ermo este = new Ermo();
+           
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Ermo", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DateTime x = DateTime.Parse(reader.GetValue(2).ToString());
+
+                    if (EqualsUpToSeconds(x, DatetimeRegistado))
+                    {
+                        este.ID = Convert.ToInt32(reader.GetValue(0));
+                        este.Designacao = reader.GetString(1);
+                        este.DateCreated = DateTime.Parse(reader.GetValue(2).ToString());
+                    }                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return este;
+        }
+
+        public static List<Ermo> BuscarErmos()
+        {
+            List<Ermo> listErmos = new List<Ermo>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Ermo", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listErmos.Add(new Ermo
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Designacao = reader.GetString(1),
+                        DateCreated = DateTime.Parse(reader.GetValue(2).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listErmos;
+        }
+
+        //Fotos
+        public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
+        {
+            //Verificar diretório
+            if (!Directory.Exists("E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao)))
+                Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao));
+
+            //Novo caminho
+            string[] parts = caminhoFoto.Split('\\');
+            string[] parts2 = parts[parts.Count() - 1].Split('.');
+            string NovoCaminho = "E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao) + "\\" + RemoveWhitespace(EsteErmo.Designacao) + index + "." + parts2[1];
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Foto (IdGaleria, CaminhoFoto, Visualizacoes, DateCreated) VALUES (" + EsteErmo.ID + ", '" + NovoCaminho + "', " + 0  +", '" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Deslocar foto
+            File.Move(caminhoFoto, NovoCaminho);
         }
     }
 }

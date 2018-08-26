@@ -109,7 +109,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVerImagem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormVerImagem";
+            this.Text = "Rascal";
+            this.Load += new System.EventHandler(this.FormVerImagem_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormVerImagem_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLeftArrow)).EndInit();

@@ -187,4 +187,13 @@
   <data name="full_trash_container" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\full-trash-container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddErmo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddErmo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErmosLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErmosLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cooltext296692341141078" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cooltext296692341141078.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

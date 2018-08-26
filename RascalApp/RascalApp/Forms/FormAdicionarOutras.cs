@@ -24,10 +24,18 @@ namespace RascalApp.Forms
             CaminhoFotos = new List<string>();
         }
 
-        private void buttonSair_Click(object sender, EventArgs e)
+        //Form drag
+        protected override void WndProc(ref Message m)
         {
-
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
         }
+
+        //Form drag
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
 
         private void buttonCarregarFotos_Click(object sender, EventArgs e)
         {
@@ -40,6 +48,7 @@ namespace RascalApp.Forms
             if (open.ShowDialog() == DialogResult.OK)
             {
                 listViewNovasOutras.Items.Clear();
+                CaminhoFotos.Clear();
 
                 ImageList ListaImagens = new ImageList();
                 ListaImagens.ImageSize = new Size(256, 190);
@@ -74,6 +83,6 @@ namespace RascalApp.Forms
                 }
                     
             }
-        }
+        }       
     }
 }
