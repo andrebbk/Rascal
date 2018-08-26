@@ -15,6 +15,7 @@ namespace RascalApp.Forms
     {
         private FormInicio _FormInicio;
         private List<string> CaminhoFotos;
+        public bool AtualizarLista;
 
         public FormAdicionarErmo(FormInicio _formIni)
         {
@@ -22,6 +23,7 @@ namespace RascalApp.Forms
 
             CaminhoFotos = new List<string>();
             _FormInicio = _formIni;
+            AtualizarLista = false;
         }
 
         //Form drag
@@ -140,6 +142,8 @@ namespace RascalApp.Forms
                 _FormInicio.EscreverNaConsola("Ermo registado com " + contador + " fotos!");
                 listViewNovoErmo.Items.Clear();
                 textBoxDesignacao.Clear();
+
+                AtualizarLista = true; 
 
             }
             catch (Exception ex)

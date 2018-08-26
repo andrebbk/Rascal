@@ -106,6 +106,7 @@ namespace RascalApp.UserControls
         private void CarregarListaClubes()
         {
             listViewClubes_.Items.Clear();
+            listaCLubes.Clear();
 
             try
             {
