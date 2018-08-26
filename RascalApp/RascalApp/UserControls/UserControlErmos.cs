@@ -90,5 +90,29 @@ namespace RascalApp.UserControls
                 _FormInicio.EscreverNaConsola("Erro ao carregar os Ermos!");                
             }
         }
+
+        private void pictureBoxButtonResetErmos_Click(object sender, EventArgs e)
+        {
+            if (ListaErmos.Count < 1)
+                return;
+
+            FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+            DialogResult resultado = PopupConfirmation.ShowDialog();
+
+            if (resultado == DialogResult.Yes)
+            {
+                try
+                {
+                    Funcionalidades.ApagarTodosErmos();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao eliminar os ermos...");
+                }
+
+                _FormInicio.EscreverNaConsola("Ermos elimidados!");
+                CarregarErmos();
+            }
+        }
     }
 }

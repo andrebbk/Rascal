@@ -405,7 +405,78 @@ namespace RascalApp
             return listErmos;
         }
 
-        //Fotos
+        public static void EditarErmo(string novaDesignacao, Ermo _este)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Ermo SET Designacao='" + novaDesignacao + "' WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Criar novo Directorio
+            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(novaDesignacao));
+            string NovoCaminho = "E:\\Rascal\\Ermos\\" + RemoveWhitespace(novaDesignacao) + "\\";
+
+            //Atualizar fotos
+            List<Foto> _pics = BuscarFotos();
+            string[] CaminhosAntigos = Directory.GetFiles("E:\\Rascal\\Ermos\\" + RemoveWhitespace(_este.Designacao));
+
+            foreach (Foto ft in _pics)
+            {
+                foreach (string Acaminho in CaminhosAntigos)
+                {
+                    if (ft.CaminhoFoto == Acaminho)
+                    {
+                        string[] Nomes = Acaminho.Split('\\');
+
+                        //Editar
+                        ft.CaminhoFoto = NovoCaminho + Nomes[Nomes.Count() - 1];
+                        EditarFoto(ft);
+
+                        //Move-la
+                        File.Move(Acaminho, NovoCaminho + Nomes[Nomes.Count() - 1]);
+                    }
+                }
+            }
+
+            //Apagar Diretorio antigo
+            Directory.Delete("E:\\Rascal\\Ermos\\" + RemoveWhitespace(_este.Designacao));
+        }
+
+        public static void ApagarTodosErmos()
+        {
+            //Buscar todos os Ermos
+            List<Ermo> TodosErmos = BuscarErmos();
+
+            //Apagar todos os diretórios e todas as suas fotos
+            foreach(Ermo rm in TodosErmos)
+            {
+                Directory.Delete("E:\\Rascal\\Ermos\\" + RemoveWhitespace(rm.Designacao), true);
+            }
+
+            //Apagar dados da tabela
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Ermo";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        //FOTOS
         public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
         {
             //Verificar diretório
@@ -433,5 +504,66 @@ namespace RascalApp
             //Deslocar foto
             File.Move(caminhoFoto, NovoCaminho);
         }
+
+        public static List<Foto> BuscarFotos()
+        {
+            List<Foto> listFotos = new List<Foto>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Foto", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listFotos.Add(new Foto
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        IdGaleria = Convert.ToInt32(reader.GetValue(1)),
+                        CaminhoFoto = reader.GetString(2),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(3)),
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listFotos;
+        }
+
+        public static void EditarFoto(Foto _esta)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Editar foto
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Foto SET CaminhoFoto='" + _esta.CaminhoFoto + "' WHERE ID=" + _esta.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        
     }
 }

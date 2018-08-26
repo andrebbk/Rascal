@@ -34,9 +34,11 @@
             this.pictureBoxAddErmo = new System.Windows.Forms.PictureBox();
             this.listViewErmos = new System.Windows.Forms.ListView();
             this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBoxButtonResetErmos = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddErmo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -96,11 +98,23 @@
             this.listViewErmos.TabIndex = 26;
             this.listViewErmos.UseCompatibleStateImageBehavior = false;
             // 
+            // pictureBoxButtonResetErmos
+            // 
+            this.pictureBoxButtonResetErmos.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
+            this.pictureBoxButtonResetErmos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxButtonResetErmos.Location = new System.Drawing.Point(206, 5);
+            this.pictureBoxButtonResetErmos.Name = "pictureBoxButtonResetErmos";
+            this.pictureBoxButtonResetErmos.Size = new System.Drawing.Size(29, 28);
+            this.pictureBoxButtonResetErmos.TabIndex = 31;
+            this.pictureBoxButtonResetErmos.TabStop = false;
+            this.pictureBoxButtonResetErmos.Click += new System.EventHandler(this.pictureBoxButtonResetErmos_Click);
+            // 
             // UserControlErmos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.pictureBoxButtonResetErmos);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxAddErmo);
@@ -110,6 +124,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddErmo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,5 +137,6 @@
         private System.Windows.Forms.ColumnHeader colummImagens;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelContadorErmos;
+        private System.Windows.Forms.PictureBox pictureBoxButtonResetErmos;
     }
 }

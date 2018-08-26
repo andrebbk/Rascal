@@ -29,27 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditarClube));
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNovoNome = new System.Windows.Forms.TextBox();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonSair = new System.Windows.Forms.Button();
             this.pictureBoxClubePic = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClubePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(35, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(274, 45);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Editar Clube";
             // 
             // label2
             // 
@@ -137,6 +126,17 @@
             this.pictureBoxClubePic.TabStop = false;
             this.pictureBoxClubePic.Click += new System.EventHandler(this.pictureBoxClubePic_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::RascalApp.Properties.Resources.EditarClube;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(43, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 51);
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormEditarClube
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,32 +144,32 @@
             this.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.ClientSize = new System.Drawing.Size(810, 464);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxClubePic);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNovoNome);
-            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEditarClube";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rascal";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClubePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNovoNome;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.PictureBox pictureBoxClubePic;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

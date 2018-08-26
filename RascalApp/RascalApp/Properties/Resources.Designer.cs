@@ -133,9 +133,19 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cooltext296692341141078 {
+        internal static System.Drawing.Bitmap EditarClube {
             get {
-                object obj = ResourceManager.GetObject("cooltext296692341141078", resourceCulture);
+                object obj = ResourceManager.GetObject("EditarClube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditarErmo {
+            get {
+                object obj = ResourceManager.GetObject("EditarErmo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

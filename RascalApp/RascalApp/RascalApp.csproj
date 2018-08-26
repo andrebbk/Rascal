@@ -266,5 +266,11 @@
   <ItemGroup>
     <None Include="Resources\cooltext296692341141078.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditarClube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditarErmo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
