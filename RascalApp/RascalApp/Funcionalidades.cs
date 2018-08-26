@@ -476,6 +476,25 @@ namespace RascalApp
             _connection.Close();
         }
 
+        public static void EliminarErmo(Ermo _este)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Ermo WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Apagar fotos e directorio
+            Directory.Delete("E:\\Rascal\\Ermos\\" + _este.Designacao, true);
+        }
+
         //FOTOS
         public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
         {

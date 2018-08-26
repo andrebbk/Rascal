@@ -65,5 +65,10 @@ namespace RascalApp.Forms
                 FotoEditada = open.FileName;
             }
         }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -73,6 +73,7 @@ namespace RascalApp.UserControls
                     ListViewItem lst = new ListViewItem();
                     lst.Text = rm.Designacao;
                     lst.ImageIndex = 0;
+                    lst.Tag = rm.ID;
                     lst.ImageKey = rm.Designacao;
                     listViewErmos.Items.Add(lst);
                 }
@@ -112,6 +113,65 @@ namespace RascalApp.UserControls
 
                 _FormInicio.EscreverNaConsola("Ermos elimidados!");
                 CarregarErmos();
+            }
+        }
+
+        private void listViewErmos_DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewErmos.SelectedIndices.Count <= 0)
+                return;
+
+            int _ID = Convert.ToInt32(listViewErmos.GetSelectedItem().Tag);
+
+            foreach (Ermo rm in ListaErmos)
+            {
+                if (rm.ID == _ID)
+                {
+                    FormEditarErmo PopupEditar = new FormEditarErmo(rm.Designacao);
+                    DialogResult resultado = PopupEditar.ShowDialog();
+
+                    if (resultado == DialogResult.OK)
+                    {
+                        string NovoNome = PopupEditar.NomeEditado;
+
+                        //Verificar se os dados foram editados
+                        if (NovoNome == rm.Designacao)
+                            return;
+
+                        //Editar
+                        if (!String.IsNullOrEmpty(NovoNome))
+                        {
+                            Funcionalidades.EditarErmo(NovoNome, rm);
+                            _FormInicio.EscreverNaConsola("Ermo editado!");
+                            CarregarErmos();
+                        }
+
+                    }
+                    else if (resultado == DialogResult.Ignore)
+                    {
+                        //Apagar
+                        FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+                        DialogResult resultadoPopup = PopupConfirmation.ShowDialog();
+
+                        if (resultadoPopup == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                Funcionalidades.EliminarErmo(rm);
+                                _FormInicio.EscreverNaConsola("Ermo eliminado!");
+                                CarregarErmos();
+                            }
+                            catch
+                            {
+                                _FormInicio.EscreverNaConsola("Erro ao eliminar o Ermo...");
+                            }
+
+                        }
+
+                    }
+
+                    break;
+                }
             }
         }
     }

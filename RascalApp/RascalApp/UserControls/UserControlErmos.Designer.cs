@@ -28,18 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBoxButtonResetErmos = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelContadorErmos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxAddErmo = new System.Windows.Forms.PictureBox();
             this.listViewErmos = new System.Windows.Forms.ListView();
             this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBoxButtonResetErmos = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddErmo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBoxButtonResetErmos
+            // 
+            this.pictureBoxButtonResetErmos.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
+            this.pictureBoxButtonResetErmos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxButtonResetErmos.Location = new System.Drawing.Point(206, 5);
+            this.pictureBoxButtonResetErmos.Name = "pictureBoxButtonResetErmos";
+            this.pictureBoxButtonResetErmos.Size = new System.Drawing.Size(29, 28);
+            this.pictureBoxButtonResetErmos.TabIndex = 31;
+            this.pictureBoxButtonResetErmos.TabStop = false;
+            this.pictureBoxButtonResetErmos.Click += new System.EventHandler(this.pictureBoxButtonResetErmos_Click);
             // 
             // panel2
             // 
@@ -97,17 +108,7 @@
             this.listViewErmos.Size = new System.Drawing.Size(1608, 910);
             this.listViewErmos.TabIndex = 26;
             this.listViewErmos.UseCompatibleStateImageBehavior = false;
-            // 
-            // pictureBoxButtonResetErmos
-            // 
-            this.pictureBoxButtonResetErmos.BackgroundImage = global::RascalApp.Properties.Resources.red_restart_icon;
-            this.pictureBoxButtonResetErmos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxButtonResetErmos.Location = new System.Drawing.Point(206, 5);
-            this.pictureBoxButtonResetErmos.Name = "pictureBoxButtonResetErmos";
-            this.pictureBoxButtonResetErmos.Size = new System.Drawing.Size(29, 28);
-            this.pictureBoxButtonResetErmos.TabIndex = 31;
-            this.pictureBoxButtonResetErmos.TabStop = false;
-            this.pictureBoxButtonResetErmos.Click += new System.EventHandler(this.pictureBoxButtonResetErmos_Click);
+            this.listViewErmos.DoubleClick += new System.EventHandler(this.listViewErmos_DoubleClick);
             // 
             // UserControlErmos
             // 
@@ -121,10 +122,10 @@
             this.Controls.Add(this.listViewErmos);
             this.Name = "UserControlErmos";
             this.Size = new System.Drawing.Size(1614, 987);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddErmo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonResetErmos)).EndInit();
             this.ResumeLayout(false);
 
         }
