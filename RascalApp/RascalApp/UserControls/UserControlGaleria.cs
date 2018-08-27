@@ -93,7 +93,23 @@ namespace RascalApp.UserControls
 
             //Se for para abrir
             if (!_FormInicio.VerificarEditarInstrucao())
+            {
+                try
+                {
+                    //Mostrar Modelo
+                    Modelo esteMdl = Funcionalidades.BuscarModelo(_ID);
+                    _FormInicio.MostrarModelo(esteMdl);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.Message);
+                    _FormInicio.EscreverNaConsola("Erro ao ver Modelo");
+                }
+
                 return;
+            }
+               
 
             foreach (Modelo mdl in ListaModelos)
             {

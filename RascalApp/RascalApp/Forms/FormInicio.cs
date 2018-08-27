@@ -1,4 +1,5 @@
-﻿using RascalApp.UserControls;
+﻿using RascalApp.Models;
+using RascalApp.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,7 +117,7 @@ namespace RascalApp.Forms
             buttonClubes.ForeColor = Color.White;
         }
         //BOTOES HOVER/LEAVE
-        
+
         private void buttonNovoModelo_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear();
@@ -127,7 +128,7 @@ namespace RascalApp.Forms
         {
             panelContainer.Controls.Clear();
             panelContainer.Controls.Add(new UserControlInicio());
-        }        
+        }
 
         private void buttonClubes_Click(object sender, EventArgs e)
         {
@@ -142,7 +143,7 @@ namespace RascalApp.Forms
                 Console.WriteLine(ex.Message);
                 EscreverNaConsola("Erro ao entrar nos Clubes!");
             }
-            
+
         }
 
         private void buttonOutras_Click(object sender, EventArgs e)
@@ -209,6 +210,21 @@ namespace RascalApp.Forms
         public bool VerificarEditarInstrucao()
         {
             return EParaEditar;
+        }
+
+        public void MostrarModelo(Modelo x)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlVerModelo(this, x));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar no Modelo!");
+            }
         }
     }
 }

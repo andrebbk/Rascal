@@ -56,11 +56,11 @@ namespace RascalApp.UserControls
 
                 //Guardar Foto
                 string[] parts = Foto.Split('.');
-                string NovaFoto = "E:\\Rascal\\Clubes\\" + textBoxNovoNome.Text + "." + parts[parts.Count() - 1];
+                string NovaFoto = "E:\\Rascal\\Clubes\\" + Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(textBoxNovoNome.Text)) + "." + parts[parts.Count() - 1];
                 File.Move(Foto, NovaFoto);
 
                 //Registar novo clube
-                Funcionalidades.GuardarNovoClube(textBoxNovoNome.Text, textBoxNovoNome.Text + "." + parts[parts.Count() - 1]);
+                Funcionalidades.GuardarNovoClube(textBoxNovoNome.Text, Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(textBoxNovoNome.Text)) + "." + parts[parts.Count() - 1]);
             }
             catch (Exception ex)
             {

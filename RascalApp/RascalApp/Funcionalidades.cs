@@ -127,6 +127,49 @@ namespace RascalApp
             return listaModelos;
         }
 
+        public static Modelo BuscarModelo(int _ID)
+        {
+            List<Modelo> listaGalerias = new List<Modelo>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Modelo WHERE ID=" + _ID, _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaGalerias.Add(new Modelo
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Nome = reader.GetString(1),
+                        CaminhoFoto = reader.GetString(2),                        
+                        DateCreated = DateTime.Parse(reader.GetValue(3).ToString(), PTCultureInfo),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(4)),
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listaGalerias.FirstOrDefault();
+        }
+
         public static void EditarModelo(string NNome, string NcaminhoFoto, Modelo _este)
         {
             string NovoCaminho = "nada";
@@ -274,9 +317,9 @@ namespace RascalApp
                 NNome = _este.Nome;
 
             if (NNomeFoto == "nop")
-                NNomeFoto = NNome + "." + parts2[parts2.Count() - 1];
+                NNomeFoto = RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "." + parts2[parts2.Count() - 1];
             else
-                NNomeFoto = NNome + "." + parts[parts.Count() - 1];
+                NNomeFoto = RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "." + parts[parts.Count() - 1];
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -347,7 +390,91 @@ namespace RascalApp
             }
 
             return listClubes;
-        }        
+        }
+
+        public static Clube BuscarClube(int _ID)
+        {
+            List<Clube> listClubes = new List<Clube>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Clube WHERE ID=" + _ID, _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listClubes.Add(new Clube
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Nome = reader.GetString(1),
+                        NomeFoto = reader.GetString(2),
+                        DateCreated = DateTime.Parse(reader.GetValue(3).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listClubes.FirstOrDefault();
+        }
+
+        public static List<PertenceA> BuscarClubesModelo(int _ID)
+        {
+            List<PertenceA> listClubesPertence = new List<PertenceA>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM PertenceA WHERE Identificador=" + _ID + "AND Tipo=1", _connection);
+                 
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listClubesPertence.Add(new PertenceA
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Identificador = Convert.ToInt32(reader.GetValue(1)),
+                        IdClube = Convert.ToInt32(reader.GetValue(2)),
+                        Tipo = Convert.ToInt32(reader.GetValue(3)),
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listClubesPertence;
+        }
 
         public static void EliminarTodosClubes()
         {            
