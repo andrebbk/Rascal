@@ -74,7 +74,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(39, 92);
+            this.label2.Location = new System.Drawing.Point(20, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 18);
             this.label2.TabIndex = 29;
@@ -83,9 +83,9 @@
             // textBoxNovoNome
             // 
             this.textBoxNovoNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNovoNome.Location = new System.Drawing.Point(42, 113);
+            this.textBoxNovoNome.Location = new System.Drawing.Point(23, 110);
             this.textBoxNovoNome.Name = "textBoxNovoNome";
-            this.textBoxNovoNome.Size = new System.Drawing.Size(330, 29);
+            this.textBoxNovoNome.Size = new System.Drawing.Size(472, 29);
             this.textBoxNovoNome.TabIndex = 28;
             // 
             // buttonApagar

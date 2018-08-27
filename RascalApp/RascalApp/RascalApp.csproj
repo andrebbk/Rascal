@@ -113,12 +113,19 @@
     <Compile Include="Forms\FormVerImagem.Designer.cs">
       <DependentUpon>FormVerImagem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormGuardarNovasGalerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGuardarNovasGalerias.Designer.cs">
+      <DependentUpon>FormGuardarNovasGalerias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="Models\Clube.cs" />
     <Compile Include="Models\Ermo.cs" />
     <Compile Include="Models\Foto.cs" />
     <Compile Include="Models\Galeria.cs" />
     <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\ngModel.cs" />
     <Compile Include="Models\Outras.cs" />
     <Compile Include="Models\OutrosNomes.cs" />
     <Compile Include="Models\PertenceA.cs" />
@@ -147,6 +154,12 @@
     </Compile>
     <Compile Include="UserControls\UserControlInicio.Designer.cs">
       <DependentUpon>UserControlInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlNovasGalerias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlNovasGalerias.Designer.cs">
+      <DependentUpon>UserControlNovasGalerias.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlNovoModelo.cs">
       <SubType>UserControl</SubType>
@@ -180,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarModelo.resx">
       <DependentUpon>FormEditarModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGuardarNovasGalerias.resx">
+      <DependentUpon>FormGuardarNovasGalerias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
@@ -220,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlInicio.resx">
       <DependentUpon>UserControlInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNovasGalerias.resx">
+      <DependentUpon>UserControlNovasGalerias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlNovoModelo.resx">
       <DependentUpon>UserControlNovoModelo.cs</DependentUpon>
@@ -338,6 +357,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OutrosNomes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NovasGaleriaslogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

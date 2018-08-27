@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -71,6 +72,117 @@ namespace RascalApp
         {
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
         }
+
+        public static bool IsPathImage(string URL)
+        {
+            if (String.IsNullOrEmpty(URL))
+                return false;
+
+            //separar string pelos pontos finais
+            string[] parts = URL.Split('.');
+
+            //última parte sempre o formato da imagem de for uma url de image
+            switch (parts[parts.Count() - 1].ToLower())
+            {
+                case "jpg":
+                    return true;
+
+                case "jpeg":
+                    return true;
+
+                case "png":
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
+        public static string BuscarNomeGaleria(string gal)
+        {
+            string lastDigit = gal.Substring(gal.Length - 1, 1);
+
+            int aux = 0;
+            bool isNumeric = int.TryParse(lastDigit, out aux);
+
+            if (isNumeric)
+            {
+                return BuscarNomeGaleria(gal.Remove(gal.Length - 1));
+            }
+            else
+                return gal;
+        }
+
+        public static Image getThumbnaiImage(Image img)
+        {
+            int width = 256;
+
+            Image thumb = new Bitmap(width, width);
+            Image tmp = null;
+
+            //If the original image is small than the Thumbnail size, just draw in the center
+            if (img.Width < width && img.Height < width)
+            {
+                using (Graphics g = Graphics.FromImage(thumb))
+                {
+                    int xoffset = (int)((width - img.Width) / 2);
+                    int yoffset = (int)((width - img.Height) / 2);
+                    g.DrawImage(img, xoffset, yoffset, img.Width, img.Height);
+                }
+            }
+
+            else //Otherwise we have to get the thumbnail for drawing
+            {
+                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+
+                if (img.Width == img.Height)
+                {
+                    thumb = img.GetThumbnailImage(
+                             width, width,
+                             myCallback, IntPtr.Zero);
+                }
+                else
+                {
+                    int k = 0;
+                    int xoffset = 0;
+                    int yoffset = 0;
+
+                    if (img.Width < img.Height)
+                    {
+                        k = (int)(width * img.Width / img.Height);
+                        tmp = img.GetThumbnailImage(k, width, myCallback, IntPtr.Zero);
+                        xoffset = (int)((width - k) / 2);
+                    }
+
+                    if (img.Width > img.Height)
+                    {
+                        k = (int)(width * img.Height / img.Width);
+                        tmp = img.GetThumbnailImage(width, k, myCallback, IntPtr.Zero);
+                        yoffset = (int)((width - k) / 2);
+                    }
+
+                    using (Graphics g = Graphics.FromImage(thumb))
+                    {
+                        g.DrawImage(tmp, xoffset, yoffset, tmp.Width, tmp.Height);
+                    }
+                }
+            }
+
+            //Sem rectangulo
+            //using (Graphics g = Graphics.FromImage(thumb)){g.DrawRectangle(Pens.White, 0, 0, thumb.Width - 1, thumb.Height - 1); }
+
+            return thumb;
+
+        }
+
+        public static bool ThumbnailCallback()
+
+        {
+
+            return true;
+
+        }
+
 
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)

@@ -65,7 +65,7 @@ namespace RascalApp.UserControls
                 ListaOutras = Funcionalidades.BuscarOutras();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(256, 256);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 int contador = 0;
@@ -75,7 +75,7 @@ namespace RascalApp.UserControls
                     byte[] buff = System.IO.File.ReadAllBytes(trs.CaminhoFoto);
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
-                        ListaImagens.Images.Add("IMG" + contador, Image.FromStream(ms));
+                        ListaImagens.Images.Add("IMG" + contador, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
                     }
 
                     contador++;

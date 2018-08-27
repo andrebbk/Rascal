@@ -256,5 +256,10 @@ namespace RascalApp.UserControls
         {
             _FormInicio.MudarParaAGaleria();
         }
+
+        private void buttonModeloAddGalerias_Click(object sender, EventArgs e)
+        {
+            _FormInicio.MudarParaAdicionarGalerias(EsteModelo);
+        }
     }
 }

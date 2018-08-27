@@ -114,7 +114,7 @@ namespace RascalApp.UserControls
                 listaCLubes = Funcionalidades.BuscarClubes();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 125);
+                ListaImagens.ImageSize = new Size(256, 256);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 foreach (Clube clb in listaCLubes)
@@ -122,7 +122,7 @@ namespace RascalApp.UserControls
                     byte[] buff = System.IO.File.ReadAllBytes("E:\\Rascal\\Clubes\\" + clb.NomeFoto);
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
-                        ListaImagens.Images.Add(clb.Nome, Image.FromStream(ms));
+                        ListaImagens.Images.Add(clb.Nome, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
                     }
                 }
 

@@ -271,6 +271,7 @@
             this.buttonModeloAddGalerias.TabIndex = 40;
             this.buttonModeloAddGalerias.Text = "Novas Galerias";
             this.buttonModeloAddGalerias.UseVisualStyleBackColor = true;
+            this.buttonModeloAddGalerias.Click += new System.EventHandler(this.buttonModeloAddGalerias_Click);
             // 
             // buttonModeloApagar
             // 

@@ -51,7 +51,7 @@ namespace RascalApp.UserControls
                 ListaErmos = Funcionalidades.BuscarErmos();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(256, 256);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 foreach (Ermo rm in ListaErmos)
@@ -61,7 +61,7 @@ namespace RascalApp.UserControls
 
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
-                        ListaImagens.Images.Add(rm.Designacao, Image.FromStream(ms));
+                        ListaImagens.Images.Add(rm.Designacao, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
                     }
                 }
 

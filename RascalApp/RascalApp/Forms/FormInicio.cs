@@ -231,5 +231,35 @@ namespace RascalApp.Forms
                 EscreverNaConsola("Erro ao entrar na Galeria!");
             }
         }
+
+        public void MudarParaVerModelo(Modelo este)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlVerModelo(this, este));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nas NovasGaleria!");
+            }
+        }
+
+        public void MudarParaAdicionarGalerias(Modelo este)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlNovasGalerias(this, este));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nas NovasGaleria!");
+            }
+        }
     }
 }

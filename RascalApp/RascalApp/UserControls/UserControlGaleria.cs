@@ -43,7 +43,7 @@ namespace RascalApp.UserControls
                 ListaModelos = Funcionalidades.BuscarModelos();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(256, 256);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 foreach (Modelo mdl in ListaModelos)
@@ -52,7 +52,7 @@ namespace RascalApp.UserControls
 
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
-                        ListaImagens.Images.Add(mdl.Nome, Image.FromStream(ms));
+                        ListaImagens.Images.Add(mdl.Nome, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
                     }
                 }
 
