@@ -252,6 +252,7 @@
             this.buttonModeloEditar.TabIndex = 41;
             this.buttonModeloEditar.Text = "Editar";
             this.buttonModeloEditar.UseVisualStyleBackColor = true;
+            this.buttonModeloEditar.Click += new System.EventHandler(this.buttonModeloEditar_Click);
             // 
             // buttonModeloAddGalerias
             // 

@@ -203,5 +203,31 @@ namespace RascalApp.UserControls
                     CarregarOutrosNomes();
             }
         }
+
+        private void buttonModeloEditar_Click(object sender, EventArgs e)
+        {
+            FormEditarModelo PopupEditar = new FormEditarModelo(EsteModelo);
+            DialogResult resultado = PopupEditar.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                string NovoNome = PopupEditar.NomeEditado;
+                string NovaFoto = PopupEditar.FotoEditada;
+
+                //Verificar se os dados foram editados
+                if (NovoNome == EsteModelo.Nome && NovaFoto == EsteModelo.CaminhoFoto)
+                    return;
+
+                //Editar
+                if ((!String.IsNullOrEmpty(NovoNome) && NovoNome != EsteModelo.Nome) || (!String.IsNullOrEmpty(NovaFoto) && NovaFoto != EsteModelo.CaminhoFoto))
+                {
+                    Funcionalidades.EditarModelo(NovoNome, NovaFoto, EsteModelo);
+                    _FormInicio.EscreverNaConsola(NovoNome + " editado!");
+
+                    EsteModelo = Funcionalidades.BuscarModelo(EsteModelo.ID);
+                    CarregarDados();
+                }
+            }
+        }
     }
 }
