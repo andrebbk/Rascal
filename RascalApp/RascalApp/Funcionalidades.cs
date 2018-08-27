@@ -1085,6 +1085,49 @@ namespace RascalApp
             return listFotos;
         }
 
+        public static List<Foto> BuscarFotosGaleria(int GaleriaID)
+        {
+            List<Foto> listFotos = new List<Foto>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Foto WHERE IdGaleria=" + GaleriaID, _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listFotos.Add(new Foto
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        IdGaleria = Convert.ToInt32(reader.GetValue(1)),
+                        CaminhoFoto = reader.GetString(2),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(3)),
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listFotos;
+        }
+
         public static void EditarFoto(string Newpath, int _ID)
         {
             OleDbConnection _connection = new OleDbConnection();

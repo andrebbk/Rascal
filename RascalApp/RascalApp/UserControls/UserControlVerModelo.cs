@@ -56,6 +56,9 @@ namespace RascalApp.UserControls
 
             //Outros nomes
             CarregarOutrosNomes();
+
+            //N Galerias e N Fotos
+            QuantasGaleriasEFotos();
         }
 
         private void CarregarClubes()
@@ -101,6 +104,11 @@ namespace RascalApp.UserControls
                 _FormInicio.EscreverNaConsola("Erro ao carregar os Clubes!");
             }
 
+            if (_listaAssociacoes.Count == 1)
+                labelModeloNClubes.Text = "1 clube";
+            else
+                labelModeloNClubes.Text = _listaAssociacoes.Count + " clubes";
+
             GC.Collect();
         }       
 
@@ -118,6 +126,31 @@ namespace RascalApp.UserControls
             }
 
             labelModeloOutrosNomes.Text = aux;
+        }
+
+        private void QuantasGaleriasEFotos()
+        {
+            int NGalerias = 0;
+            int NFotos = 1;
+
+            List<Galeria> _galerias = Funcionalidades.BuscarGaleriasDELA(EsteModelo.ID);
+            NGalerias = _galerias.Count;
+
+            foreach(Galeria glr in _galerias)
+            {
+                List<Foto> _fotos = Funcionalidades.BuscarFotosGaleria(glr.ID);
+                NFotos += _fotos.Count;
+            }
+
+            if (NFotos == 1)
+                labelModeloNFotos.Text = "1 foto";
+            else
+                labelModeloNFotos.Text = NFotos + " fotos";
+
+            if (NGalerias == 1)
+                labelModeloNGalerias.Text = "1 galeria";
+            else
+                labelModeloNGalerias.Text = NGalerias + " galerias";
         }
 
         private Dictionary<int, PictureBox> DictioPics()
