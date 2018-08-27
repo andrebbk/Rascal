@@ -361,5 +361,8 @@
   <ItemGroup>
     <None Include="Resources\NovasGaleriaslogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NovaGal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
