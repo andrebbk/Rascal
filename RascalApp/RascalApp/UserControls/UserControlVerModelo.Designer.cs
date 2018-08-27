@@ -49,6 +49,7 @@
             this.buttonModeloApagar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxModeloPic = new System.Windows.Forms.PictureBox();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloClube6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloClube5)).BeginInit();
@@ -148,9 +149,9 @@
             this.buttonModeloClubes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModeloClubes.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModeloClubes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModeloClubes.Location = new System.Drawing.Point(897, 494);
+            this.buttonModeloClubes.Location = new System.Drawing.Point(847, 494);
             this.buttonModeloClubes.Name = "buttonModeloClubes";
-            this.buttonModeloClubes.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloClubes.Size = new System.Drawing.Size(226, 49);
             this.buttonModeloClubes.TabIndex = 50;
             this.buttonModeloClubes.Text = "Clubes";
             this.buttonModeloClubes.UseVisualStyleBackColor = true;
@@ -166,9 +167,9 @@
             this.buttonModeloOutrosNomes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModeloOutrosNomes.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModeloOutrosNomes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModeloOutrosNomes.Location = new System.Drawing.Point(623, 494);
+            this.buttonModeloOutrosNomes.Location = new System.Drawing.Point(586, 494);
             this.buttonModeloOutrosNomes.Name = "buttonModeloOutrosNomes";
-            this.buttonModeloOutrosNomes.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloOutrosNomes.Size = new System.Drawing.Size(226, 49);
             this.buttonModeloOutrosNomes.TabIndex = 49;
             this.buttonModeloOutrosNomes.Text = "Outros Nomes";
             this.buttonModeloOutrosNomes.UseVisualStyleBackColor = true;
@@ -246,9 +247,9 @@
             this.buttonModeloEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModeloEditar.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModeloEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModeloEditar.Location = new System.Drawing.Point(348, 494);
+            this.buttonModeloEditar.Location = new System.Drawing.Point(332, 494);
             this.buttonModeloEditar.Name = "buttonModeloEditar";
-            this.buttonModeloEditar.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloEditar.Size = new System.Drawing.Size(226, 49);
             this.buttonModeloEditar.TabIndex = 41;
             this.buttonModeloEditar.Text = "Editar";
             this.buttonModeloEditar.UseVisualStyleBackColor = true;
@@ -266,7 +267,7 @@
             this.buttonModeloAddGalerias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonModeloAddGalerias.Location = new System.Drawing.Point(76, 494);
             this.buttonModeloAddGalerias.Name = "buttonModeloAddGalerias";
-            this.buttonModeloAddGalerias.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloAddGalerias.Size = new System.Drawing.Size(226, 49);
             this.buttonModeloAddGalerias.TabIndex = 40;
             this.buttonModeloAddGalerias.Text = "Novas Galerias";
             this.buttonModeloAddGalerias.UseVisualStyleBackColor = true;
@@ -281,9 +282,9 @@
             this.buttonModeloApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModeloApagar.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonModeloApagar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModeloApagar.Location = new System.Drawing.Point(1170, 494);
+            this.buttonModeloApagar.Location = new System.Drawing.Point(1105, 494);
             this.buttonModeloApagar.Name = "buttonModeloApagar";
-            this.buttonModeloApagar.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloApagar.Size = new System.Drawing.Size(226, 49);
             this.buttonModeloApagar.TabIndex = 39;
             this.buttonModeloApagar.Text = "Apagar";
             this.buttonModeloApagar.UseVisualStyleBackColor = true;
@@ -307,11 +308,29 @@
             this.pictureBoxModeloPic.TabIndex = 34;
             this.pictureBoxModeloPic.TabStop = false;
             // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonVoltar.FlatAppearance.BorderSize = 0;
+            this.buttonVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVoltar.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVoltar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonVoltar.Location = new System.Drawing.Point(1363, 494);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(226, 49);
+            this.buttonVoltar.TabIndex = 51;
+            this.buttonVoltar.Text = "Voltar";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            // 
             // UserControlVerModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.buttonModeloClubes);
             this.Controls.Add(this.buttonModeloOutrosNomes);
@@ -366,5 +385,6 @@
         private System.Windows.Forms.Label labelModeloNFotos;
         private System.Windows.Forms.Label labelModeloNClubes;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button buttonVoltar;
     }
 }
