@@ -99,11 +99,11 @@
             // labelModeloNome
             // 
             this.labelModeloNome.AutoSize = true;
-            this.labelModeloNome.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelModeloNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelModeloNome.Location = new System.Drawing.Point(-5, 0);
+            this.labelModeloNome.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelModeloNome.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.labelModeloNome.Location = new System.Drawing.Point(-5, 19);
             this.labelModeloNome.Name = "labelModeloNome";
-            this.labelModeloNome.Size = new System.Drawing.Size(242, 78);
+            this.labelModeloNome.Size = new System.Drawing.Size(182, 59);
             this.labelModeloNome.TabIndex = 35;
             this.labelModeloNome.Text = "Nome";
             // 
@@ -132,8 +132,8 @@
             // labelModeloOutrosNomes
             // 
             this.labelModeloOutrosNomes.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelModeloOutrosNomes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelModeloOutrosNomes.Location = new System.Drawing.Point(7, 78);
+            this.labelModeloOutrosNomes.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelModeloOutrosNomes.Location = new System.Drawing.Point(8, 78);
             this.labelModeloOutrosNomes.Name = "labelModeloOutrosNomes";
             this.labelModeloOutrosNomes.Size = new System.Drawing.Size(786, 38);
             this.labelModeloOutrosNomes.TabIndex = 42;
@@ -186,7 +186,7 @@
             // pictureBoxModeloClube6
             // 
             this.pictureBoxModeloClube6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxModeloClube6.Location = new System.Drawing.Point(596, 395);
+            this.pictureBoxModeloClube6.Location = new System.Drawing.Point(643, 395);
             this.pictureBoxModeloClube6.Name = "pictureBoxModeloClube6";
             this.pictureBoxModeloClube6.Size = new System.Drawing.Size(228, 77);
             this.pictureBoxModeloClube6.TabIndex = 48;
@@ -195,7 +195,7 @@
             // pictureBoxModeloClube5
             // 
             this.pictureBoxModeloClube5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxModeloClube5.Location = new System.Drawing.Point(329, 395);
+            this.pictureBoxModeloClube5.Location = new System.Drawing.Point(356, 395);
             this.pictureBoxModeloClube5.Name = "pictureBoxModeloClube5";
             this.pictureBoxModeloClube5.Size = new System.Drawing.Size(228, 77);
             this.pictureBoxModeloClube5.TabIndex = 47;
@@ -213,7 +213,7 @@
             // pictureBoxModeloClube3
             // 
             this.pictureBoxModeloClube3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxModeloClube3.Location = new System.Drawing.Point(596, 293);
+            this.pictureBoxModeloClube3.Location = new System.Drawing.Point(643, 293);
             this.pictureBoxModeloClube3.Name = "pictureBoxModeloClube3";
             this.pictureBoxModeloClube3.Size = new System.Drawing.Size(228, 77);
             this.pictureBoxModeloClube3.TabIndex = 45;
@@ -222,7 +222,7 @@
             // pictureBoxModeloClube2
             // 
             this.pictureBoxModeloClube2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxModeloClube2.Location = new System.Drawing.Point(329, 293);
+            this.pictureBoxModeloClube2.Location = new System.Drawing.Point(356, 293);
             this.pictureBoxModeloClube2.Name = "pictureBoxModeloClube2";
             this.pictureBoxModeloClube2.Size = new System.Drawing.Size(228, 77);
             this.pictureBoxModeloClube2.TabIndex = 44;
@@ -324,6 +324,7 @@
             this.buttonVoltar.TabIndex = 51;
             this.buttonVoltar.Text = "Voltar";
             this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // UserControlVerModelo
             // 

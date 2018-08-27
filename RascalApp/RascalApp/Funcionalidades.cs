@@ -67,6 +67,10 @@ namespace RascalApp
                    dt1.Hour == dt2.Hour && dt1.Minute == dt2.Minute && dt1.Second == dt2.Second;
         }
 
+        public static string TitleStyle(string str)
+        {
+            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
 
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)
@@ -79,7 +83,7 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "INSERT INTO Modelo (Nome, CaminhoFoto, DateCreated) VALUES ('" + Nome + "', '" + caminhoFoto + "', '" + DateTime.Now +"')";
+            _command.CommandText = "INSERT INTO Modelo (Nome, CaminhoFoto, DateCreated) VALUES ('" + TitleStyle(Nome) + "', '" + caminhoFoto + "', '" + DateTime.Now +"')";
             _command.ExecuteNonQuery();
 
             _connection.Close();
@@ -220,7 +224,7 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "UPDATE Modelo SET Nome='" + NNome + "', CaminhoFoto='" + NovoCaminho + "' WHERE ID=" + _este.ID;
+            _command.CommandText = "UPDATE Modelo SET Nome='" + TitleStyle(NNome) + "', CaminhoFoto='" + NovoCaminho + "' WHERE ID=" + _este.ID;
             _command.ExecuteNonQuery();
 
             _connection.Close();            
@@ -315,8 +319,8 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "INSERT INTO Clube (Nome, NomeFoto, DateCreated) VALUES (@nomedele, '" + NomeFoto + "', '" + DateTime.Now + "')";
-            _command.Parameters.Add("@nomedele", OleDbType.VarWChar).Value = Nome;
+            _command.CommandText = "INSERT INTO Clube (Nome, NomeFoto, DateCreated) VALUES (@nomedele, '" + TitleStyle(NomeFoto) + "', '" + DateTime.Now + "')";
+            _command.Parameters.Add("@nomedele", OleDbType.VarWChar).Value = TitleStyle(Nome);
             _command.ExecuteNonQuery();
 
             _connection.Close();
@@ -342,11 +346,12 @@ namespace RascalApp
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
             _connection.Open();
 
-            //Inserir novo modelo
+            //Inserir novo clube
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "UPDATE Clube SET Nome='" + NNome + "', NomeFoto='" + NNomeFoto + "' WHERE ID=" + _este.ID;
+            _command.CommandText = "UPDATE Clube SET Nome=@nomedele, NomeFoto='" + NNomeFoto + "' WHERE ID=" + _este.ID;
+            _command.Parameters.Add("@nomedele", OleDbType.VarWChar).Value = TitleStyle(NNome);
             _command.ExecuteNonQuery();
 
             _connection.Close();

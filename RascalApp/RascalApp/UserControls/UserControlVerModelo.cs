@@ -251,5 +251,10 @@ namespace RascalApp.UserControls
 
             }
         }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            _FormInicio.MudarParaAGaleria();
+        }
     }
 }
