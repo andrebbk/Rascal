@@ -35,8 +35,10 @@ namespace RascalApp.Forms
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            RefreshCLubes = true;
+
             //Verificar alterações
-            foreach(ListViewItem item in listViewClubes.Items)
+            foreach (ListViewItem item in listViewClubes.Items)
             {
                 if (listViewClubes.Items[item.Index].Selected)
                 {
@@ -52,8 +54,19 @@ namespace RascalApp.Forms
                 }
             }
 
+            bool TemSelecionados = false;
+
+            foreach (ListViewItem item in listViewClubes.Items)
+            {
+                if (listViewClubes.Items[item.Index].Selected)
+                {
+                    TemSelecionados = true;
+                    break;
+                }
+            }
+
             //Senao houve alterações, sair!
-            if (!RefreshCLubes)
+            if (!RefreshCLubes && !TemSelecionados)
                 return;
 
             try

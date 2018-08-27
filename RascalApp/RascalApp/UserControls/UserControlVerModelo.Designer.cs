@@ -287,6 +287,7 @@
             this.buttonModeloApagar.TabIndex = 39;
             this.buttonModeloApagar.Text = "Apagar";
             this.buttonModeloApagar.UseVisualStyleBackColor = true;
+            this.buttonModeloApagar.Click += new System.EventHandler(this.buttonModeloApagar_Click);
             // 
             // panel1
             // 

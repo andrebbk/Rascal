@@ -229,5 +229,27 @@ namespace RascalApp.UserControls
                 }
             }
         }
+
+        private void buttonModeloApagar_Click(object sender, EventArgs e)
+        {
+            //Apagar
+            FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+            DialogResult resultadoPopup = PopupConfirmation.ShowDialog();
+
+            if (resultadoPopup == DialogResult.Yes)
+            {
+                try
+                {
+                    Funcionalidades.EliminarModelo(EsteModelo);
+                    _FormInicio.EscreverNaConsola(EsteModelo.Nome + " eliminado!");
+                    _FormInicio.MudarParaAGaleria();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao eliminar o Modelo!");
+                }
+
+            }
+        }
     }
 }
