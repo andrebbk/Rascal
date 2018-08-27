@@ -145,7 +145,19 @@ namespace RascalApp.UserControls
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            if(ListaDados.Count < 1)
+            {
+                _FormInicio.EscreverNaConsola("Não existem galerias!");
+                return;
+            }
 
+            FormGuardarNovasGalerias _Guardalas = new FormGuardarNovasGalerias(_FormInicio, ListaDados, EsteModelo);
+            DialogResult resultado = _Guardalas.ShowDialog();
+
+            if(resultado == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

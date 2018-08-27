@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGuardarNovasGalerias));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelNomeA = new System.Windows.Forms.Label();
             this.textBoxGalNovoNome = new System.Windows.Forms.TextBox();
-            this.buttonGaurdar = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.labelCOntador = new System.Windows.Forms.Label();
+            this.buttonSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +49,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // labelNomeA
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(408, 137);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.labelNomeA.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNomeA.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.labelNomeA.Location = new System.Drawing.Point(151, 146);
+            this.labelNomeA.Name = "labelNomeA";
+            this.labelNomeA.Size = new System.Drawing.Size(509, 43);
+            this.labelNomeA.TabIndex = 1;
+            this.labelNomeA.Text = "label1";
+            this.labelNomeA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxGalNovoNome
             // 
@@ -65,22 +69,52 @@
             this.textBoxGalNovoNome.Size = new System.Drawing.Size(509, 40);
             this.textBoxGalNovoNome.TabIndex = 2;
             // 
-            // buttonGaurdar
+            // buttonGuardar
             // 
-            this.buttonGaurdar.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
-            this.buttonGaurdar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonGaurdar.FlatAppearance.BorderSize = 0;
-            this.buttonGaurdar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.buttonGaurdar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.buttonGaurdar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGaurdar.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGaurdar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonGaurdar.Location = new System.Drawing.Point(56, 296);
-            this.buttonGaurdar.Name = "buttonGaurdar";
-            this.buttonGaurdar.Size = new System.Drawing.Size(339, 79);
-            this.buttonGaurdar.TabIndex = 35;
-            this.buttonGaurdar.Text = "Selecionar";
-            this.buttonGaurdar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonGuardar.FlatAppearance.BorderSize = 0;
+            this.buttonGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuardar.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonGuardar.Location = new System.Drawing.Point(51, 304);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(301, 78);
+            this.buttonGuardar.TabIndex = 35;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            // 
+            // labelCOntador
+            // 
+            this.labelCOntador.AutoSize = true;
+            this.labelCOntador.BackColor = System.Drawing.Color.Transparent;
+            this.labelCOntador.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCOntador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelCOntador.Location = new System.Drawing.Point(665, 21);
+            this.labelCOntador.Name = "labelCOntador";
+            this.labelCOntador.Size = new System.Drawing.Size(112, 38);
+            this.labelCOntador.TabIndex = 36;
+            this.labelCOntador.Text = "29/30";
+            // 
+            // buttonSair
+            // 
+            this.buttonSair.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonSair.FlatAppearance.BorderSize = 0;
+            this.buttonSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSair.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSair.Location = new System.Drawing.Point(451, 304);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Size = new System.Drawing.Size(301, 78);
+            this.buttonSair.TabIndex = 37;
+            this.buttonSair.Text = "Sair";
+            this.buttonSair.UseVisualStyleBackColor = true;
             // 
             // FormGuardarNovasGalerias
             // 
@@ -89,9 +123,11 @@
             this.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.ClientSize = new System.Drawing.Size(798, 415);
             this.ControlBox = false;
-            this.Controls.Add(this.buttonGaurdar);
+            this.Controls.Add(this.buttonSair);
+            this.Controls.Add(this.labelCOntador);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.textBoxGalNovoNome);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNomeA);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -107,8 +143,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNomeA;
         private System.Windows.Forms.TextBox textBoxGalNovoNome;
-        private System.Windows.Forms.Button buttonGaurdar;
+        private System.Windows.Forms.Button buttonGuardar;
+        private System.Windows.Forms.Label labelCOntador;
+        private System.Windows.Forms.Button buttonSair;
     }
 }
