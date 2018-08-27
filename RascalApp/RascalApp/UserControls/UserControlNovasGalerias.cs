@@ -44,9 +44,10 @@ namespace RascalApp.UserControls
             {
                 Caminho = folderBrowser.FileName.Replace("Folder Selection", "");
                 labelCaminho.Text = folderBrowser.FileName.Replace("Folder Selection", "");
+                CarregarLista();
             }
             
-            CarregarLista();
+           
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)

@@ -35,7 +35,9 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.labelCOntador = new System.Windows.Forms.Label();
             this.buttonSair = new System.Windows.Forms.Button();
+            this.pictureBoxImagem1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -53,9 +55,9 @@
             // 
             this.labelNomeA.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNomeA.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.labelNomeA.Location = new System.Drawing.Point(151, 146);
+            this.labelNomeA.Location = new System.Drawing.Point(56, 152);
             this.labelNomeA.Name = "labelNomeA";
-            this.labelNomeA.Size = new System.Drawing.Size(509, 43);
+            this.labelNomeA.Size = new System.Drawing.Size(427, 43);
             this.labelNomeA.TabIndex = 1;
             this.labelNomeA.Text = "label1";
             this.labelNomeA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,9 +66,9 @@
             // 
             this.textBoxGalNovoNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxGalNovoNome.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGalNovoNome.Location = new System.Drawing.Point(151, 228);
+            this.textBoxGalNovoNome.Location = new System.Drawing.Point(51, 229);
             this.textBoxGalNovoNome.Name = "textBoxGalNovoNome";
-            this.textBoxGalNovoNome.Size = new System.Drawing.Size(509, 40);
+            this.textBoxGalNovoNome.Size = new System.Drawing.Size(432, 40);
             this.textBoxGalNovoNome.TabIndex = 2;
             // 
             // buttonGuardar
@@ -85,14 +87,15 @@
             this.buttonGuardar.TabIndex = 35;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click_1);
             // 
             // labelCOntador
             // 
             this.labelCOntador.AutoSize = true;
             this.labelCOntador.BackColor = System.Drawing.Color.Transparent;
             this.labelCOntador.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCOntador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelCOntador.Location = new System.Drawing.Point(665, 21);
+            this.labelCOntador.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCOntador.Location = new System.Drawing.Point(665, 28);
             this.labelCOntador.Name = "labelCOntador";
             this.labelCOntador.Size = new System.Drawing.Size(112, 38);
             this.labelCOntador.TabIndex = 36;
@@ -116,6 +119,16 @@
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxImagem1
+            // 
+            this.pictureBoxImagem1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxImagem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxImagem1.Location = new System.Drawing.Point(503, 79);
+            this.pictureBoxImagem1.Name = "pictureBoxImagem1";
+            this.pictureBoxImagem1.Size = new System.Drawing.Size(249, 219);
+            this.pictureBoxImagem1.TabIndex = 38;
+            this.pictureBoxImagem1.TabStop = false;
+            // 
             // FormGuardarNovasGalerias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +136,7 @@
             this.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.ClientSize = new System.Drawing.Size(798, 415);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxImagem1);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.labelCOntador);
             this.Controls.Add(this.buttonGuardar);
@@ -135,6 +149,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rascal";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +163,6 @@
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Label labelCOntador;
         private System.Windows.Forms.Button buttonSair;
+        private System.Windows.Forms.PictureBox pictureBoxImagem1;
     }
 }
