@@ -18,11 +18,17 @@ namespace RascalApp.Forms
         public string NomeEditado;
         public string FotoEditada;
 
-        public FormEditarModelo(Modelo _VenhaEle)
+        public FormEditarModelo(Modelo _VenhaEle, bool PermitirApagar)
         {
             InitializeComponent();
 
             _este = _VenhaEle;
+
+            if (!PermitirApagar)
+            {
+                buttonApagar.Hide();
+                buttonEditar.Location = buttonApagar.Location;
+            }
 
             CarregarForm();
         }
@@ -73,6 +79,11 @@ namespace RascalApp.Forms
 
                 FotoEditada = open.FileName;
             }
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
