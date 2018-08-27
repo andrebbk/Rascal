@@ -186,6 +186,10 @@ namespace RascalApp.UserControls
 
             int _ID = Convert.ToInt32(listViewClubes_.GetSelectedItem().Tag);
 
+            //Se for para abrir
+            if (!_FormInicio.VerificarEditarInstrucao())
+                return;
+
             foreach (Clube clb in listaCLubes)
             {
                 if (clb.ID == _ID)

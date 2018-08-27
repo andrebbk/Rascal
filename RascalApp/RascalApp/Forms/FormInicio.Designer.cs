@@ -47,12 +47,14 @@
             this.buttonInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.pictureBoxEditarCOisas = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditarCOisas)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxButtonMinimize
@@ -299,6 +301,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
+            this.panel2.Controls.Add(this.pictureBoxEditarCOisas);
             this.panel2.Controls.Add(this.pictureBoxButtonMinimize);
             this.panel2.Controls.Add(this.pictureBoxButtonQuit);
             this.panel2.Location = new System.Drawing.Point(285, -4);
@@ -313,6 +316,17 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1614, 987);
             this.panelContainer.TabIndex = 11;
+            // 
+            // pictureBoxEditarCOisas
+            // 
+            this.pictureBoxEditarCOisas.BackgroundImage = global::RascalApp.Properties.Resources.pencil_case;
+            this.pictureBoxEditarCOisas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEditarCOisas.Location = new System.Drawing.Point(146, 11);
+            this.pictureBoxEditarCOisas.Name = "pictureBoxEditarCOisas";
+            this.pictureBoxEditarCOisas.Size = new System.Drawing.Size(37, 31);
+            this.pictureBoxEditarCOisas.TabIndex = 7;
+            this.pictureBoxEditarCOisas.TabStop = false;
+            this.pictureBoxEditarCOisas.Click += new System.EventHandler(this.pictureBoxEditarCOisas_Click);
             // 
             // FormInicio
             // 
@@ -336,6 +350,7 @@
             this.panelSideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditarCOisas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,5 +375,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelConsola;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBoxEditarCOisas;
     }
 }

@@ -302,5 +302,11 @@
   <ItemGroup>
     <None Include="Resources\EditarModelo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Definicoes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-case.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -123,6 +123,10 @@ namespace RascalApp.UserControls
 
             int _ID = Convert.ToInt32(listViewErmos.GetSelectedItem().Tag);
 
+            //Se for para abrir
+            if (!_FormInicio.VerificarEditarInstrucao())
+                return;
+
             foreach (Ermo rm in ListaErmos)
             {
                 if (rm.ID == _ID)

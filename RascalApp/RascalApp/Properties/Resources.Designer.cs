@@ -133,6 +133,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Definicoes {
+            get {
+                object obj = ResourceManager.GetObject("Definicoes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditarClube {
             get {
                 object obj = ResourceManager.GetObject("EditarClube", resourceCulture);
@@ -266,6 +276,16 @@ namespace RascalApp.Properties {
         internal static System.Drawing.Bitmap OutrasLogo {
             get {
                 object obj = ResourceManager.GetObject("OutrasLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil_case {
+            get {
+                object obj = ResourceManager.GetObject("pencil_case", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,6 +13,8 @@ namespace RascalApp.Forms
 {
     public partial class FormInicio : Form
     {
+        private bool EParaEditar;
+
         public FormInicio()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace RascalApp.Forms
             this.WindowState = FormWindowState.Maximized;
 
             panelContainer.Controls.Add(new UserControlInicio());
+
+            EParaEditar = false;
 
         }
 
@@ -123,12 +127,7 @@ namespace RascalApp.Forms
         {
             panelContainer.Controls.Clear();
             panelContainer.Controls.Add(new UserControlInicio());
-        }
-
-        public void EscreverNaConsola(string texto)
-        {
-            labelConsola.Text = texto;
-        }
+        }        
 
         private void buttonClubes_Click(object sender, EventArgs e)
         {
@@ -189,6 +188,27 @@ namespace RascalApp.Forms
                 Console.WriteLine(ex.Message);
                 EscreverNaConsola("Erro ao entrar na Galeria!");
             }
+        }
+
+        private void pictureBoxEditarCOisas_Click(object sender, EventArgs e)
+        {
+            EParaEditar = !EParaEditar;
+
+            if (EParaEditar)
+                pictureBoxEditarCOisas.BorderStyle = BorderStyle.Fixed3D;
+            else
+                pictureBoxEditarCOisas.BorderStyle = BorderStyle.None;
+        }
+
+        //METODOS PUBLICOS
+        public void EscreverNaConsola(string texto)
+        {
+            labelConsola.Text = texto;
+        }
+
+        public bool VerificarEditarInstrucao()
+        {
+            return EParaEditar;
         }
     }
 }
