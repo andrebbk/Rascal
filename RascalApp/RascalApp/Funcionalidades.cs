@@ -476,6 +476,80 @@ namespace RascalApp
             File.Delete("E:\\Rascal\\CLubes\\" + _este.NomeFoto);
         }
 
+        //OUTROS NOMES
+        public static void GuardarNovoOutroNome(int _ID, string Nome)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO OutrosNomes (IdModelo, Nome, DateCreated) VALUES (" + _ID + ", '" + Nome + "', '" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        public static List<OutrosNomes> BuscarOutrosNomesDela(int _ID)
+        {
+            List<OutrosNomes> _lisNomes = new List<OutrosNomes>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM OutrosNomes WHERE IdModelo=" + _ID, _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    _lisNomes.Add(new OutrosNomes
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        IdModelo = Convert.ToInt32(reader.GetValue(1)),
+                        Nome = reader.GetString(2),
+                        DateCreated = DateTime.Parse(reader.GetValue(3).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return _lisNomes;
+        }
+
+        public static void RemoverOutroNome(int _ID)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM OutrosNomes WHERE ID=" + _ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
         //PERTENCE A
         public static List<PertenceA> BuscarClubesModelo(int _ID)
         {

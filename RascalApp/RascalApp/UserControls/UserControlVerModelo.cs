@@ -50,6 +50,9 @@ namespace RascalApp.UserControls
 
             //Clubes
             CarregarClubes();
+
+            //Outros nomes
+            CarregarOutrosNomes();
         }
 
         private void CarregarClubes()
@@ -98,6 +101,22 @@ namespace RascalApp.UserControls
             GC.Collect();
         }       
 
+        private void CarregarOutrosNomes()
+        {
+            List<OutrosNomes> ONomes = Funcionalidades.BuscarOutrosNomesDela(EsteModelo.ID);
+            string aux = "";
+
+            foreach (OutrosNomes nome in ONomes)
+            {
+                if (aux != "")
+                    aux = aux + " | " + nome.Nome;
+                else
+                    aux = nome.Nome;
+            }
+
+            labelModeloOutrosNomes.Text = aux;
+        }
+
         private Dictionary<int, PictureBox> DictioPics()
         {
             Dictionary<int, PictureBox> _d = new Dictionary<int, PictureBox>();
@@ -111,7 +130,7 @@ namespace RascalApp.UserControls
             return _d;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonModeloCLubes_Click(object sender, EventArgs e)
         {
             FormModeloAdicionarClubes addClubes = new FormModeloAdicionarClubes(_FormInicio, EsteModelo.ID);
             DialogResult resultado = addClubes.ShowDialog();
@@ -134,6 +153,19 @@ namespace RascalApp.UserControls
             pictureBoxModeloClube4.BackgroundImage = null;
             pictureBoxModeloClube5.BackgroundImage = null;
             pictureBoxModeloClube6.BackgroundImage = null;
+        }
+
+        private void buttonModeloOutrosNomes_Click(object sender, EventArgs e)
+        {
+            FormModeloOutrosNomes _OutrsN = new FormModeloOutrosNomes(_FormInicio, EsteModelo.ID);
+            DialogResult resultado = _OutrsN.ShowDialog();
+
+            if(resultado == DialogResult.OK)
+            {
+                //Atualizar Outros Nomes
+                if (_OutrsN.FoiAlterado)
+                    CarregarOutrosNomes();
+            }
         }
     }
 }

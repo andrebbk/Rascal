@@ -283,6 +283,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OutrosNomes {
+            get {
+                object obj = ResourceManager.GetObject("OutrosNomes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pencil_case {
             get {
                 object obj = ResourceManager.GetObject("pencil_case", resourceCulture);

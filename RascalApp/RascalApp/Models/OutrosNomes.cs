@@ -11,5 +11,6 @@ namespace RascalApp.Models
         public int ID { get; set; }
         public int IdModelo { get; set; }
         public string Nome { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

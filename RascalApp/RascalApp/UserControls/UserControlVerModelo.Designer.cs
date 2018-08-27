@@ -35,7 +35,7 @@
             this.labelModeloVisualizacoes = new System.Windows.Forms.Label();
             this.labelModeloNGalerias = new System.Windows.Forms.Label();
             this.labelModeloOutrosNomes = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonModeloClubes = new System.Windows.Forms.Button();
             this.buttonModeloOutrosNomes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBoxModeloClube6 = new System.Windows.Forms.PictureBox();
@@ -102,9 +102,9 @@
             this.labelModeloNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelModeloNome.Location = new System.Drawing.Point(-5, 0);
             this.labelModeloNome.Name = "labelModeloNome";
-            this.labelModeloNome.Size = new System.Drawing.Size(496, 78);
+            this.labelModeloNome.Size = new System.Drawing.Size(242, 78);
             this.labelModeloNome.TabIndex = 35;
-            this.labelModeloNome.Text = "Filipa Santos";
+            this.labelModeloNome.Text = "Nome";
             // 
             // labelModeloVisualizacoes
             // 
@@ -130,31 +130,31 @@
             // 
             // labelModeloOutrosNomes
             // 
-            this.labelModeloOutrosNomes.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelModeloOutrosNomes.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelModeloOutrosNomes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelModeloOutrosNomes.Location = new System.Drawing.Point(0, 77);
+            this.labelModeloOutrosNomes.Location = new System.Drawing.Point(7, 78);
             this.labelModeloOutrosNomes.Name = "labelModeloOutrosNomes";
             this.labelModeloOutrosNomes.Size = new System.Drawing.Size(786, 38);
             this.labelModeloOutrosNomes.TabIndex = 42;
             this.labelModeloOutrosNomes.Text = "Eterj | Joan | The Cor";
             // 
-            // button1
+            // buttonModeloClubes
             // 
-            this.button1.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(897, 494);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(248, 49);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Clubes";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonModeloClubes.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonModeloClubes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonModeloClubes.FlatAppearance.BorderSize = 0;
+            this.buttonModeloClubes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonModeloClubes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonModeloClubes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModeloClubes.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModeloClubes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonModeloClubes.Location = new System.Drawing.Point(897, 494);
+            this.buttonModeloClubes.Name = "buttonModeloClubes";
+            this.buttonModeloClubes.Size = new System.Drawing.Size(248, 49);
+            this.buttonModeloClubes.TabIndex = 50;
+            this.buttonModeloClubes.Text = "Clubes";
+            this.buttonModeloClubes.UseVisualStyleBackColor = true;
+            this.buttonModeloClubes.Click += new System.EventHandler(this.buttonModeloCLubes_Click);
             // 
             // buttonModeloOutrosNomes
             // 
@@ -172,6 +172,7 @@
             this.buttonModeloOutrosNomes.TabIndex = 49;
             this.buttonModeloOutrosNomes.Text = "Outros Nomes";
             this.buttonModeloOutrosNomes.UseVisualStyleBackColor = true;
+            this.buttonModeloOutrosNomes.Click += new System.EventHandler(this.buttonModeloOutrosNomes_Click);
             // 
             // panel2
             // 
@@ -310,7 +311,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonModeloClubes);
             this.Controls.Add(this.buttonModeloOutrosNomes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBoxModeloClube6);
@@ -358,7 +359,7 @@
         private System.Windows.Forms.PictureBox pictureBoxModeloClube6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonModeloOutrosNomes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonModeloClubes;
         private System.Windows.Forms.Label labelModeloNGalerias;
         private System.Windows.Forms.Label labelModeloNFotos;
         private System.Windows.Forms.Label labelModeloNClubes;
