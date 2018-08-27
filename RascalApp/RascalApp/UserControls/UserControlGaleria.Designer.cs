@@ -28,14 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelContadorModelos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listViewGaleria = new System.Windows.Forms.ListView();
             this.colummImagens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.labelContadorModelos = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.labelContadorModelos);
+            this.panel2.Location = new System.Drawing.Point(1491, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(120, 36);
+            this.panel2.TabIndex = 33;
+            // 
+            // labelContadorModelos
+            // 
+            this.labelContadorModelos.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContadorModelos.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelContadorModelos.Location = new System.Drawing.Point(-5, 7);
+            this.labelContadorModelos.Name = "labelContadorModelos";
+            this.labelContadorModelos.Size = new System.Drawing.Size(131, 22);
+            this.labelContadorModelos.TabIndex = 21;
+            this.labelContadorModelos.Text = "32535";
+            this.labelContadorModelos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -61,27 +82,7 @@
             this.listViewGaleria.Size = new System.Drawing.Size(1608, 910);
             this.listViewGaleria.TabIndex = 31;
             this.listViewGaleria.UseCompatibleStateImageBehavior = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.bricks_brickwork;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.labelContadorModelos);
-            this.panel2.Location = new System.Drawing.Point(1491, 27);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(120, 36);
-            this.panel2.TabIndex = 33;
-            // 
-            // labelContadorModelos
-            // 
-            this.labelContadorModelos.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContadorModelos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelContadorModelos.Location = new System.Drawing.Point(-5, 7);
-            this.labelContadorModelos.Name = "labelContadorModelos";
-            this.labelContadorModelos.Size = new System.Drawing.Size(131, 22);
-            this.labelContadorModelos.TabIndex = 21;
-            this.labelContadorModelos.Text = "32535";
-            this.labelContadorModelos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.listViewGaleria.DoubleClick += new System.EventHandler(this.listViewGaleria_DoubleClick);
             // 
             // UserControlGaleria
             // 
@@ -94,8 +95,8 @@
             this.Name = "UserControlGaleria";
             this.Size = new System.Drawing.Size(1614, 987);
             this.Load += new System.EventHandler(this.UserControlGaleria_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

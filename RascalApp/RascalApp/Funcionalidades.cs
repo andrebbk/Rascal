@@ -127,6 +127,124 @@ namespace RascalApp
             return listaModelos;
         }
 
+        public static void EditarModelo(string NNome, string NcaminhoFoto, Modelo _este)
+        {
+            string NovoCaminho = "nada";
+
+            //Se for para atualizar a foto
+            if (NcaminhoFoto != _este.CaminhoFoto)
+            {
+                //apagar foto
+                File.Delete(_este.CaminhoFoto);
+
+                //Guardar nova foto
+                string[] parts = NcaminhoFoto.Split('\\');
+                string[] Nomes = parts[parts.Count() - 1].Split('.');
+
+                NovoCaminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)) + "\\FotoDela." + Nomes[1];
+                File.Move(NcaminhoFoto, NovoCaminho);
+
+                NcaminhoFoto = NovoCaminho;
+            }
+
+            //Se for para atualizar o Nome
+            if (NNome != _este.Nome)
+            {
+                string novoCa = "E:\\Rascal\\Modelos\\" + Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(NNome));
+                Directory.CreateDirectory(novoCa);
+
+                MudarSitioGalerias(novoCa, NNome, _este);
+
+                //Atualizar foto
+                string[] parts = _este.CaminhoFoto.Split('\\');
+                string[] Nomes = parts[parts.Count() - 1].Split('.');
+
+                NovoCaminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "\\FotoDela." + Nomes[1];
+                File.Move(NcaminhoFoto, NovoCaminho);
+
+                //Apagar diretorio antigo
+                Directory.Delete("E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)), true);
+            }
+
+            if (NovoCaminho == "nada")
+                NovoCaminho = _este.CaminhoFoto;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Modelo SET Nome='" + NNome + "', CaminhoFoto='" + NovoCaminho + "' WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();            
+        }
+
+        public static void MudarSitioGalerias(string novoCaminho, string NNome, Modelo _esta)
+        {
+            List<Galeria> GaleriasDela = BuscarGaleriasDELA(_esta.ID);
+            List<Foto> Fotos = BuscarFotos();
+
+            foreach(Galeria glr in GaleriasDela)
+            {                
+                foreach(Foto ft in Fotos)
+                {
+                    if(ft.IdGaleria == glr.ID)
+                    {
+                        string[] Nome = ft.CaminhoFoto.Split('\\');
+
+                        //Diretorio da galeria
+                        if (!Directory.Exists(novoCaminho + "\\" + Nome[Nome.Count() - 2]))
+                            Directory.CreateDirectory(novoCaminho + "\\" + Nome[Nome.Count() - 2]);
+                        
+                        //Editar Registo
+                        EditarFoto(novoCaminho + "\\" + Nome[Nome.Count() - 2] + "\\" + Nome[Nome.Count() - 1], ft.ID);
+
+                        //Mover foto
+                        File.Move(ft.CaminhoFoto, novoCaminho + "\\" + Nome[Nome.Count() - 2] + "\\" + Nome[Nome.Count() - 1]);
+                    }
+                }                
+            }
+        }
+
+        public static void EliminarModelo(Modelo _este)
+        {
+            //apagar registos de fotos e galerias
+            foreach(Galeria glr in BuscarGalerias().ToList())
+            {
+                if(glr.Identificador == _este.ID)
+                {
+                    //apagar fotos
+                    foreach(Foto ft in BuscarFotos().ToList())
+                    {
+                        if (ft.IdGaleria == glr.ID)
+                            EliminarFoto(ft);
+                    }
+
+                    //apagar galeria
+                    string caminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)) + "\\" + glr.Designacao;
+                    EliminarGaleria(caminho, glr.ID);
+                }
+            }
+
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Apagar modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Modelo WHERE ID=" + _este.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();            
+        }
+
         //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
@@ -479,8 +597,7 @@ namespace RascalApp
                         string[] Nomes = Acaminho.Split('\\');
 
                         //Editar
-                        ft.CaminhoFoto = NovoCaminho + Nomes[Nomes.Count() - 1];
-                        EditarFoto(ft);
+                        EditarFoto(NovoCaminho + Nomes[Nomes.Count() - 1], ft.ID);
 
                         //Move-la
                         File.Move(Acaminho, NovoCaminho + Nomes[Nomes.Count() - 1]);
@@ -535,6 +652,114 @@ namespace RascalApp
 
             //Apagar fotos e directorio
             Directory.Delete("E:\\Rascal\\Ermos\\" + _este.Designacao, true);
+        }
+
+        //GALERIAS
+        public static List<Galeria> BuscarGalerias()
+        {
+            List<Galeria> listaGalerias = new List<Galeria>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Galeria", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaGalerias.Add(new Galeria
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Identificador = Convert.ToInt32(reader.GetValue(1)),
+                        Tipo = Convert.ToInt32(reader.GetValue(2)),
+                        Designacao = reader.GetString(3),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(4)),
+                        DateCreated = DateTime.Parse(reader.GetValue(5).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listaGalerias;
+        }
+
+        public static List<Galeria> BuscarGaleriasDELA(int _ID)
+        {
+            List<Galeria> listaGalerias = new List<Galeria>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Galeria WHERE ID=" + _ID, _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaGalerias.Add(new Galeria
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Identificador = Convert.ToInt32(reader.GetValue(1)),
+                        Tipo = Convert.ToInt32(reader.GetValue(2)),
+                        Designacao = reader.GetString(3),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(4)),
+                        DateCreated = DateTime.Parse(reader.GetValue(5).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listaGalerias;
+        }
+
+        public static void EliminarGaleria(string caminho, int _ID)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Galeria WHERE ID=" + _ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Apagar tudo
+            Directory.Delete(caminho, true);
         }
 
         //FOTOS
@@ -609,7 +834,7 @@ namespace RascalApp
             return listFotos;
         }
 
-        public static void EditarFoto(Foto _esta)
+        public static void EditarFoto(string Newpath, int _ID)
         {
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -619,12 +844,30 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "UPDATE Foto SET CaminhoFoto='" + _esta.CaminhoFoto + "' WHERE ID=" + _esta.ID;
+            _command.CommandText = "UPDATE Foto SET CaminhoFoto='" + Newpath + "' WHERE ID=" + _ID;
             _command.ExecuteNonQuery();
 
             _connection.Close();
         }
 
-        
+        public static void EliminarFoto(Foto _esta)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM Foto WHERE ID=" + _esta.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Apagar foto
+            File.Delete(_esta.CaminhoFoto);
+        }
+
     }
 }

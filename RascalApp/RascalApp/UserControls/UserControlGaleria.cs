@@ -82,5 +82,65 @@ namespace RascalApp.UserControls
                 _FormInicio.EscreverNaConsola("Erro ao carregar os Modelos!");
             }
         }
+
+        private void listViewGaleria_DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewGaleria.SelectedIndices.Count <= 0)
+                return;
+
+            int _ID = Convert.ToInt32(listViewGaleria.GetSelectedItem().Tag);
+
+            foreach (Modelo mdl in ListaModelos)
+            {
+                if (mdl.ID == _ID)
+                {
+                    FormEditarModelo PopupEditar = new FormEditarModelo(mdl);
+                    DialogResult resultado = PopupEditar.ShowDialog();
+
+                    if (resultado == DialogResult.OK)
+                    {
+                        string NovoNome = PopupEditar.NomeEditado;
+                        string NovaFoto = PopupEditar.FotoEditada;
+
+                        //Verificar se os dados foram editados
+                        if (NovoNome == mdl.Nome && NovaFoto == mdl.CaminhoFoto)
+                            return;
+
+                        //Editar
+                        if ((!String.IsNullOrEmpty(NovoNome) && NovoNome != mdl.Nome) || (!String.IsNullOrEmpty(NovaFoto) && NovaFoto != mdl.CaminhoFoto))
+                        {
+                            Funcionalidades.EditarModelo(NovoNome, NovaFoto, mdl);
+                            _FormInicio.EscreverNaConsola(NovoNome + " editado!");
+                            CarregarModelos();
+                        }
+
+                    }
+                    else if (resultado == DialogResult.Ignore)
+                    {
+                        //Apagar
+                        FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
+                        DialogResult resultadoPopup = PopupConfirmation.ShowDialog();
+
+                        if (resultadoPopup == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                Funcionalidades.EliminarModelo(mdl);
+                                _FormInicio.EscreverNaConsola(mdl.Nome + " eliminado!");
+                                CarregarModelos();
+                            }
+                            catch
+                            {
+                                _FormInicio.EscreverNaConsola("Erro ao eliminar o clube...");
+                            }
+
+                        }
+
+                    }
+
+                    break;
+                }
+            }
+        }
     }
 }

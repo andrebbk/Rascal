@@ -44,13 +44,14 @@ namespace RascalApp.UserControls
 
             try
             {
+                string NomeLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(textBoxNovoNome.Text));
                 //Criar diretório para o modelo 
-                if (!Directory.Exists("E:\\Rascal\\Modelos\\" + textBoxNovoNome.Text))
-                    Directory.CreateDirectory("E:\\Rascal\\Modelos\\" + textBoxNovoNome.Text);
+                if (!Directory.Exists("E:\\Rascal\\Modelos\\" + NomeLimpo))
+                    Directory.CreateDirectory("E:\\Rascal\\Modelos\\" + NomeLimpo);
 
                 //Guardar Foto
                 string[] parts = Fotografia.Split('.');
-                string NovaFotografia = "E:\\Rascal\\Modelos\\" + textBoxNovoNome.Text + "\\FotoDela." + parts[parts.Count() - 1];
+                string NovaFotografia = "E:\\Rascal\\Modelos\\" + NomeLimpo + "\\FotoDela." + parts[parts.Count() - 1];
                 File.Move(Fotografia, NovaFotografia);
 
                 //Registar novo modelo

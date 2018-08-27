@@ -70,6 +70,12 @@
     <Compile Include="Forms\FormEditarErmo.Designer.cs">
       <DependentUpon>FormEditarErmo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormEditarModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditarModelo.Designer.cs">
+      <DependentUpon>FormEditarModelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarErmo.resx">
       <DependentUpon>FormEditarErmo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditarModelo.resx">
+      <DependentUpon>FormEditarModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
@@ -289,6 +298,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Galeria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditarModelo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
