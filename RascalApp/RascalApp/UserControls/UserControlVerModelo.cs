@@ -29,6 +29,9 @@ namespace RascalApp.UserControls
             _listaClubes = new List<Clube>();
 
             CarregarDados();
+
+            //Aumentar visualizacoes deste modelo
+            Funcionalidades.AumentarModeloVisu(EsteModelo.ID, EsteModelo.Visualizacoes + 1);
         }
 
         private void UserControlVerModelo_Load(object sender, EventArgs e)

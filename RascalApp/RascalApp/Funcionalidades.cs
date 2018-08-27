@@ -288,6 +288,22 @@ namespace RascalApp
             _connection.Close();            
         }
 
+        public static void AumentarModeloVisu(int _ID, int visus)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Modelo SET Visualizacoes=" + visus + " WHERE ID=" + _ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
         //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
