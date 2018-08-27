@@ -299,7 +299,8 @@ namespace RascalApp
             OleDbCommand _command = new OleDbCommand();
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
-            _command.CommandText = "INSERT INTO Clube (Nome, NomeFoto, DateCreated) VALUES ('" + Nome + "', '" + NomeFoto + "', '" + DateTime.Now + "')";
+            _command.CommandText = "INSERT INTO Clube (Nome, NomeFoto, DateCreated) VALUES (@nomedele, '" + NomeFoto + "', '" + DateTime.Now + "')";
+            _command.Parameters.Add("@nomedele", OleDbType.VarWChar).Value = Nome;
             _command.ExecuteNonQuery();
 
             _connection.Close();
@@ -433,49 +434,6 @@ namespace RascalApp
             return listClubes.FirstOrDefault();
         }
 
-        public static List<PertenceA> BuscarClubesModelo(int _ID)
-        {
-            List<PertenceA> listClubesPertence = new List<PertenceA>();
-
-            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
-
-            OleDbConnection _connection = new OleDbConnection();
-            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
-
-            try
-            {
-                _connection.Open();
-                OleDbCommand cmd = new OleDbCommand("SELECT * FROM PertenceA WHERE Identificador=" + _ID + "AND Tipo=1", _connection);
-                 
-                OleDbDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    listClubesPertence.Add(new PertenceA
-                    {
-                        ID = Convert.ToInt32(reader.GetValue(0)),
-                        Identificador = Convert.ToInt32(reader.GetValue(1)),
-                        IdClube = Convert.ToInt32(reader.GetValue(2)),
-                        Tipo = Convert.ToInt32(reader.GetValue(3)),
-                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo)
-                    });
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-            finally
-            {
-                _connection.Close();
-            }
-
-            return listClubesPertence;
-        }
-
         public static void EliminarTodosClubes()
         {            
             OleDbConnection _connection = new OleDbConnection();
@@ -516,6 +474,82 @@ namespace RascalApp
 
             //apagar foto
             File.Delete("E:\\Rascal\\CLubes\\" + _este.NomeFoto);
+        }
+
+        //PERTENCE A
+        public static List<PertenceA> BuscarClubesModelo(int _ID)
+        {
+            List<PertenceA> listClubesPertence = new List<PertenceA>();
+
+            CultureInfo PTCultureInfo = new CultureInfo("pt-PT");
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM PertenceA WHERE Identificador=" + _ID + "AND Tipo=1", _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listClubesPertence.Add(new PertenceA
+                    {
+                        ID = Convert.ToInt32(reader.GetValue(0)),
+                        Identificador = Convert.ToInt32(reader.GetValue(1)),
+                        IdClube = Convert.ToInt32(reader.GetValue(2)),
+                        Tipo = Convert.ToInt32(reader.GetValue(3)),
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo)
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return listClubesPertence;
+        }
+
+        public static void EliminarAssociacoes(int _ID)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Apagar modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "DELETE FROM PertenceA WHERE Identificador=" + _ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        public static void CriarNovaAssociacao(int ide, int IDclube, int Tipo)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO PertenceA (Identificador, IdClube, Tipo, DateCreated) VALUES (" + ide + ", " + IDclube + ", " + Tipo + ", '" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
         }
 
         //OUTRAS

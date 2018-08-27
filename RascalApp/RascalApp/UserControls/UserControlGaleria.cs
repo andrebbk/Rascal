@@ -152,7 +152,7 @@ namespace RascalApp.UserControls
                             }
                             catch
                             {
-                                _FormInicio.EscreverNaConsola("Erro ao eliminar o clube...");
+                                _FormInicio.EscreverNaConsola("Erro ao eliminar o Modelo!");
                             }
 
                         }

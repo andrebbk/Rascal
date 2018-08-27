@@ -114,7 +114,7 @@ namespace RascalApp.UserControls
                 listaCLubes = Funcionalidades.BuscarClubes();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(256, 125);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 foreach (Clube clb in listaCLubes)

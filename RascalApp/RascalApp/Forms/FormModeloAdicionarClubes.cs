@@ -18,6 +18,7 @@ namespace RascalApp.Forms
         private int ModeloID;
         private List<PertenceA> _listaAssociacoes;
         private List<Clube> _listaClubes;
+        public bool RefreshCLubes;
 
         public FormModeloAdicionarClubes(FormInicio _formI, int _ID)
         {
@@ -27,10 +28,61 @@ namespace RascalApp.Forms
             ModeloID = _ID;
             _listaAssociacoes = new List<PertenceA>();
             _listaClubes = new List<Clube>();
+            RefreshCLubes = false;
+
+            CarregarLista();
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            //Verificar alterações
+            foreach(ListViewItem item in listViewClubes.Items)
+            {
+                if (listViewClubes.Items[item.Index].Selected)
+                {
+                    RefreshCLubes = false;
+
+                    foreach(PertenceA prtnc in _listaAssociacoes)
+                    {
+                        if(prtnc.IdClube == Convert.ToInt32(item.Tag))
+                        {
+                            RefreshCLubes = true;
+                        }
+                    }
+                }
+            }
+
+            //Senao houve alterações, sair!
+            if (!RefreshCLubes)
+                return;
+
+            try
+            {
+                //Apagar todas as associacoes com o Id do Modelo
+                Funcionalidades.EliminarAssociacoes(ModeloID);
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao apagar associações!");
+            }
+
+            try
+            {
+                foreach (ListViewItem item in listViewClubes.Items)
+                {
+                    if (listViewClubes.Items[item.Index].Selected)
+                    {
+                        //Se o clube estiver selecionado, criar associacao
+                        Funcionalidades.CriarNovaAssociacao(ModeloID, Convert.ToInt32(item.Tag), 1);
+                    }
+                }
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao guardar associações!");
+            }
+
+            RefreshCLubes = true;
 
         }
 
@@ -47,13 +99,12 @@ namespace RascalApp.Forms
                 _listaClubes = Funcionalidades.BuscarClubes();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(200, 70);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 foreach (Clube clb in _listaClubes)
                 {
-                    string[] rmImagens = Directory.GetFiles("E:\\Rascal\\Clubes\\" + Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(clb.Nome)));
-                    byte[] buff = System.IO.File.ReadAllBytes(rmImagens[0]);
+                    byte[] buff = System.IO.File.ReadAllBytes("E:\\Rascal\\Clubes\\" + clb.NomeFoto);
 
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
@@ -72,6 +123,7 @@ namespace RascalApp.Forms
                     lst.Tag = clb.ID;
                     lst.ImageKey = Funcionalidades.RemoveWhitespace(clb.Nome);
                     listViewClubes.Items.Add(lst);
+
                 }
 
                 labelNClubesSelected.Text = _listaAssociacoes.Count().ToString();
@@ -82,6 +134,20 @@ namespace RascalApp.Forms
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.Message);
                 _FormInicio.EscreverNaConsola("Erro ao carregar os Clubes!");
+            }
+
+            listViewClubes.HideSelection = false;
+
+            //Selecionar os items
+            foreach (PertenceA prtnc in _listaAssociacoes)
+            {
+                foreach(ListViewItem item in listViewClubes.Items)
+                {
+                    if(prtnc.IdClube.ToString() == item.Tag.ToString())
+                    {
+                        listViewClubes.Items[item.Index].Selected = true;
+                    }
+                }
             }
         }
     }
