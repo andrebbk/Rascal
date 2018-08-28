@@ -34,7 +34,10 @@
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.buttonSelectFold = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelShowDirectory = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelShowDirectory.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelCaminho
@@ -42,7 +45,7 @@
             this.labelCaminho.AutoSize = true;
             this.labelCaminho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCaminho.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelCaminho.Location = new System.Drawing.Point(42, 851);
+            this.labelCaminho.Location = new System.Drawing.Point(9, 31);
             this.labelCaminho.Name = "labelCaminho";
             this.labelCaminho.Size = new System.Drawing.Size(17, 16);
             this.labelCaminho.TabIndex = 38;
@@ -125,13 +128,34 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelShowDirectory
+            // 
+            this.panelShowDirectory.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.panelShowDirectory.Controls.Add(this.label1);
+            this.panelShowDirectory.Controls.Add(this.labelCaminho);
+            this.panelShowDirectory.Location = new System.Drawing.Point(45, 854);
+            this.panelShowDirectory.Name = "panelShowDirectory";
+            this.panelShowDirectory.Size = new System.Drawing.Size(277, 54);
+            this.panelShowDirectory.TabIndex = 40;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(7, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Diretório:";
+            // 
             // UserControlNovasGalerias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.panelShowDirectory);
             this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.labelCaminho);
             this.Controls.Add(this.listViewNovasGalerias);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.buttonSelectFold);
@@ -139,8 +163,9 @@
             this.Name = "UserControlNovasGalerias";
             this.Size = new System.Drawing.Size(1614, 987);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelShowDirectory.ResumeLayout(false);
+            this.panelShowDirectory.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -152,5 +177,7 @@
         private System.Windows.Forms.ListView listViewNovasGalerias;
         private System.Windows.Forms.Label labelCaminho;
         private System.Windows.Forms.Button buttonGuardar;
+        private System.Windows.Forms.Panel panelShowDirectory;
+        private System.Windows.Forms.Label label1;
     }
 }

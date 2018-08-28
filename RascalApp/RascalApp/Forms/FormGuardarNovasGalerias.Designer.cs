@@ -36,6 +36,7 @@
             this.labelCOntador = new System.Windows.Forms.Label();
             this.buttonSair = new System.Windows.Forms.Button();
             this.pictureBoxImagem1 = new System.Windows.Forms.PictureBox();
+            this.buttonProximo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem1)).BeginInit();
             this.SuspendLayout();
@@ -81,9 +82,9 @@
             this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGuardar.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonGuardar.Location = new System.Drawing.Point(51, 304);
+            this.buttonGuardar.Location = new System.Drawing.Point(273, 320);
             this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(301, 78);
+            this.buttonGuardar.Size = new System.Drawing.Size(233, 62);
             this.buttonGuardar.TabIndex = 35;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
@@ -112,9 +113,9 @@
             this.buttonSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSair.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSair.Location = new System.Drawing.Point(451, 304);
+            this.buttonSair.Location = new System.Drawing.Point(519, 320);
             this.buttonSair.Name = "buttonSair";
-            this.buttonSair.Size = new System.Drawing.Size(301, 78);
+            this.buttonSair.Size = new System.Drawing.Size(233, 62);
             this.buttonSair.TabIndex = 37;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
@@ -129,6 +130,24 @@
             this.pictureBoxImagem1.TabIndex = 38;
             this.pictureBoxImagem1.TabStop = false;
             // 
+            // buttonProximo
+            // 
+            this.buttonProximo.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonProximo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonProximo.FlatAppearance.BorderSize = 0;
+            this.buttonProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProximo.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProximo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonProximo.Location = new System.Drawing.Point(27, 320);
+            this.buttonProximo.Name = "buttonProximo";
+            this.buttonProximo.Size = new System.Drawing.Size(233, 62);
+            this.buttonProximo.TabIndex = 39;
+            this.buttonProximo.Text = "Proximo";
+            this.buttonProximo.UseVisualStyleBackColor = true;
+            this.buttonProximo.Click += new System.EventHandler(this.buttonProximo_Click);
+            // 
             // FormGuardarNovasGalerias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +155,7 @@
             this.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.ClientSize = new System.Drawing.Size(798, 415);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonProximo);
             this.Controls.Add(this.pictureBoxImagem1);
             this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.labelCOntador);
@@ -164,5 +184,6 @@
         private System.Windows.Forms.Label labelCOntador;
         private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.PictureBox pictureBoxImagem1;
+        private System.Windows.Forms.Button buttonProximo;
     }
 }

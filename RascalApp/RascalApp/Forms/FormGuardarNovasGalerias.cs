@@ -39,6 +39,8 @@ namespace RascalApp.Forms
 
         private void CarregarForm(int n)
         {
+            textBoxGalNovoNome.Clear();
+
             //Foto
             using (FileStream stream = new FileStream(ListaDados[n].caminhoFotos[0], FileMode.Open, FileAccess.Read))
             {
@@ -54,13 +56,43 @@ namespace RascalApp.Forms
 
         private void buttonGuardar_Click_1(object sender, EventArgs e)
         {
+            DateTime _SaveTimeGal;
+
             if(textBoxGalNovoNome.Text == " " || String.IsNullOrEmpty(textBoxGalNovoNome.Text))
             {
-                _FormInicio.EscreverNaConsola("Nome em falta;");
+                _FormInicio.EscreverNaConsola("Nome em falta");
                 return;
             }
 
-            //Guardar Galeria
+            try
+            {
+                //Guardar Galeria
+                _SaveTimeGal = Funcionalidades.NovaGaleria(EsteModelo.ID, 1, textBoxGalNovoNome.Text);
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao guardar a galeria!");
+                return;
+            }
+
+            try
+            {
+                //Guardar Fotos da Galeria
+                string nomeFolder = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(textBoxGalNovoNome.Text));
+                int index_ = 0;
+
+                foreach (string path_ in ListaDados[contador].caminhoFotos)
+                {
+                    Funcionalidades.GuardarNovaGaleriaFoto(Funcionalidades.BuscarUltimaGaleria(_SaveTimeGal, EsteModelo.ID).ID, textBoxGalNovoNome.Text, EsteModelo, path_, index_);
+                    index_++;
+                }
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao guardar fotos!");
+                return;
+            }
+
 
             //Mover para a proxima
             contador++; 
@@ -69,6 +101,22 @@ namespace RascalApp.Forms
             {
                 this.Close();
                 DialogResult = DialogResult.OK;
+                return;
+            }
+
+            CarregarForm(contador);
+        }
+
+        private void buttonProximo_Click(object sender, EventArgs e)
+        {
+            //Mover para a proxima
+            contador++;
+
+            if (contador > (ListaDados.Count - 1))
+            {
+                this.Close();
+                DialogResult = DialogResult.OK;
+                return;
             }
 
             CarregarForm(contador);

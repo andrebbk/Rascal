@@ -27,6 +27,8 @@ namespace RascalApp.UserControls
             _FormInicio = _formI;
             EsteModelo = Este_;
             ListaDados = new List<ngModel>();
+
+            panelShowDirectory.Hide();
         }
 
         private void buttonCarregarFotos_Click(object sender, EventArgs e)
@@ -46,8 +48,9 @@ namespace RascalApp.UserControls
                 labelCaminho.Text = folderBrowser.FileName.Replace("Folder Selection", "");
                 CarregarLista();
             }
-            
-           
+
+            panelShowDirectory.Show();
+
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)
@@ -99,11 +102,13 @@ namespace RascalApp.UserControls
             {
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.Message);
-                _FormInicio.EscreverNaConsola("Erro ao carregar as novas galerias!");
-            }          
+                _FormInicio.EscreverNaConsola("Erro ao carregar novas galerias!");
+            }
 
-            
-           
+            if (ListaDados.Count < 1)
+                panelShowDirectory.Hide();
+            else
+                panelShowDirectory.Show();
         }
 
         private void OrganizarDados()
@@ -118,6 +123,13 @@ namespace RascalApp.UserControls
                 {
                     string[] parts = str.Split('\\');
                     string[] nome = parts[parts.Count() - 1].Split('.');
+
+                    int aux = 0;
+                    if(int.TryParse(nome[0], out aux))
+                    {
+                        _FormInicio.EscreverNaConsola("Erro nome numérico!");
+                        return;
+                    }
 
                     string NomeGal = Funcionalidades.BuscarNomeGaleria(nome[0]);
                     bool eIgual = false;
@@ -157,7 +169,7 @@ namespace RascalApp.UserControls
 
             if(resultado == DialogResult.OK)
             {
-
+                CarregarLista();
             }
         }
     }

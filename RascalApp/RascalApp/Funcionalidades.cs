@@ -875,6 +875,7 @@ namespace RascalApp
                         este.ID = Convert.ToInt32(reader.GetValue(0));
                         este.Designacao = reader.GetString(1);
                         este.DateCreated = DateTime.Parse(reader.GetValue(2).ToString());
+                        break;
                     }                    
                 }
 
@@ -1130,6 +1131,71 @@ namespace RascalApp
             Directory.Delete(caminho, true);
         }
 
+        public static DateTime NovaGaleria(int IdModelo, int Tipo, string Designacao)
+        {
+            DateTime MesmoAgora = DateTime.Now;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir nova galeria
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Galeria (Identificador, Tipo, Designacao, Visualizacoes, DateCreated) " +
+                "VALUES (" + IdModelo + ", " + Tipo + ", '" + TitleStyle(Designacao) + "', " + 0 + ", '" + MesmoAgora + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            return MesmoAgora;
+        }
+
+        public static Galeria BuscarUltimaGaleria(DateTime DatetimeRegistado, int _IDmodelo)
+        {
+            Galeria este = new Galeria();
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Galeria WHERE Identificador=" + _IDmodelo + "AND Tipo=1" , _connection);
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DateTime x = DateTime.Parse(reader.GetValue(4).ToString());
+
+                    if (EqualsUpToSeconds(x, DatetimeRegistado))
+                    {                    
+                        este.ID = Convert.ToInt32(reader.GetValue(0));
+                        este.Identificador = Convert.ToInt32(reader.GetValue(1));
+                        este.Tipo = Convert.ToInt32(reader.GetValue(2));
+                        este.Designacao = reader.GetString(3);                                                     
+                        este.DateCreated = DateTime.Parse(reader.GetValue(4).ToString());
+                        este.Visualizacoes = Convert.ToInt32(reader.GetValue(5));
+                        break;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return este;
+        }
+
         //FOTOS
         public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
         {
@@ -1151,6 +1217,36 @@ namespace RascalApp
             _command.Connection = _connection;
             _command.CommandType = CommandType.Text;
             _command.CommandText = "INSERT INTO Foto (IdGaleria, CaminhoFoto, Visualizacoes, DateCreated) VALUES (" + EsteErmo.ID + ", '" + NovoCaminho + "', " + 0  +", '" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Deslocar foto
+            File.Move(caminhoFoto, NovoCaminho);
+        }
+
+        public static void GuardarNovaGaleriaFoto(int idGaleria, string nomeGal, Modelo EsteModelo, string caminhoFoto, int index)
+        {
+            string nomeModeloLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(EsteModelo.Nome));
+            string nomeGalLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(nomeGal));
+            //Verificar diretório
+            if (!Directory.Exists("E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo))
+                Directory.CreateDirectory("E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo);
+
+            //Novo caminho
+            string[] parts = caminhoFoto.Split('\\');
+            string[] nome = parts[parts.Count() - 1].Split('.');
+            string NovoCaminho = "E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo + "\\FOTOGAL" + index + "." + nome[1];
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Foto (IdGaleria, CaminhoFoto, Visualizacoes, DateCreated) VALUES (" + idGaleria + ", '" + NovoCaminho + "', " + 0 + ", '" + DateTime.Now + "')";
             _command.ExecuteNonQuery();
 
             _connection.Close();
