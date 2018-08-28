@@ -28,6 +28,12 @@ namespace RascalApp.Forms
         {
             listBoxConsole.Items.Clear();
 
+            if(Dados.Count < 1)
+            {
+                listBoxConsole.Items.Add("Sem registos...");
+                return;
+            }
+
             foreach(ClassConsole Cssl in Dados)
             {
                 string consoleLinha = "RASCAL>>> " + Cssl.Texto + " | ";
@@ -53,6 +59,26 @@ namespace RascalApp.Forms
 
                 listBoxConsole.Items.Add(consoleLinha);
             }
+        }
+
+        private void listBoxConsole_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //DrawMode = OwnerDrawFixed para mudar a altura dos items (precisamos tbm deste bloco)
+
+            e.DrawBackground();
+            if (e.State == DrawItemState.Focus)
+                e.DrawFocusRectangle();
+            var index = e.Index;
+            if (index < 0 || index >= listBoxConsole.Items.Count) return;
+            var item = listBoxConsole.Items[index];
+            string text = (item == null) ? "(null)" : item.ToString();
+            using (var brush = new SolidBrush(e.ForeColor))
+            {
+                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+                e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+            }
+
+            //Ate Aqui
         }
     }
 }

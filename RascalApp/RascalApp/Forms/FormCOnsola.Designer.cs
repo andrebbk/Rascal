@@ -57,11 +57,16 @@
             // listBoxConsole
             // 
             this.listBoxConsole.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.listBoxConsole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBoxConsole.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxConsole.ForeColor = System.Drawing.Color.IndianRed;
             this.listBoxConsole.FormattingEnabled = true;
+            this.listBoxConsole.ItemHeight = 30;
             this.listBoxConsole.Location = new System.Drawing.Point(12, 14);
             this.listBoxConsole.Name = "listBoxConsole";
-            this.listBoxConsole.Size = new System.Drawing.Size(745, 433);
+            this.listBoxConsole.Size = new System.Drawing.Size(745, 424);
             this.listBoxConsole.TabIndex = 39;
+            this.listBoxConsole.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBoxConsole_DrawItem);
             // 
             // pictureBox1
             // 

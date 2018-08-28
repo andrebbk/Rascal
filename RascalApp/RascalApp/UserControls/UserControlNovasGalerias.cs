@@ -124,8 +124,9 @@ namespace RascalApp.UserControls
                     string[] parts = str.Split('\\');
                     string[] nome = parts[parts.Count() - 1].Split('.');
 
+                    //Verificar se o nome é constituido so por numeros
                     int aux = 0;
-                    if(int.TryParse(nome[0], out aux))
+                    if (!int.TryParse(nome[0], out aux))
                     {
                         _FormInicio.EscreverNaConsola("Erro nome numérico!");
                         return;
