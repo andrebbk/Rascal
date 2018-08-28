@@ -15,6 +15,7 @@ namespace RascalApp.Forms
     public partial class FormInicio : Form
     {
         private bool EParaEditar;
+        private List<ClassConsole> ListaCONSOLA;
 
         public FormInicio()
         {
@@ -28,6 +29,8 @@ namespace RascalApp.Forms
             panelContainer.Controls.Add(new UserControlInicio());
 
             EParaEditar = false;
+
+            ListaCONSOLA = new List<ClassConsole>(); 
 
         }
 
@@ -195,6 +198,7 @@ namespace RascalApp.Forms
         public void EscreverNaConsola(string texto)
         {
             labelConsola.Text = texto;
+            ListaCONSOLA.Add(new ClassConsole { Texto = texto, Tempo = DateTime.Now });
         }
 
         public bool VerificarEditarInstrucao()
@@ -260,6 +264,12 @@ namespace RascalApp.Forms
                 Console.WriteLine(ex.Message);
                 EscreverNaConsola("Erro ao entrar nas NovasGaleria!");
             }
+        }
+
+        private void labelopenConsola_Click(object sender, EventArgs e)
+        {
+            //Abrir Consola
+            new FormCOnsola(ListaCONSOLA).Show();
         }
     }
 }

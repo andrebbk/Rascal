@@ -220,4 +220,10 @@
   <data name="NovaGal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NovaGal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RascalConsole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RascalConsole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RascalLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RascalLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

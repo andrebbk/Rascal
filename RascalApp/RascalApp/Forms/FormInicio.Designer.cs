@@ -34,7 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSideBar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelopenConsola = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelConsola = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,8 +46,8 @@
             this.buttonGaleria = new System.Windows.Forms.Button();
             this.buttonInicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelContainer = new System.Windows.Forms.Panel();
             this.pictureBoxEditarCOisas = new System.Windows.Forms.PictureBox();
+            this.panelContainer = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxButtonQuit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,7 +109,7 @@
             this.panelSideBar.BackColor = System.Drawing.Color.Transparent;
             this.panelSideBar.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.panelSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelSideBar.Controls.Add(this.label2);
+            this.panelSideBar.Controls.Add(this.labelopenConsola);
             this.panelSideBar.Controls.Add(this.panel3);
             this.panelSideBar.Controls.Add(this.labelConsola);
             this.panelSideBar.Controls.Add(this.pictureBox2);
@@ -128,16 +128,17 @@
             this.panelSideBar.Size = new System.Drawing.Size(286, 1084);
             this.panelSideBar.TabIndex = 9;
             // 
-            // label2
+            // labelopenConsola
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(0, 992);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Output:";
+            this.labelopenConsola.AutoSize = true;
+            this.labelopenConsola.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelopenConsola.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelopenConsola.Location = new System.Drawing.Point(0, 992);
+            this.labelopenConsola.Name = "labelopenConsola";
+            this.labelopenConsola.Size = new System.Drawing.Size(60, 16);
+            this.labelopenConsola.TabIndex = 18;
+            this.labelopenConsola.Text = "Output:";
+            this.labelopenConsola.Click += new System.EventHandler(this.labelopenConsola_Click);
             // 
             // panel3
             // 
@@ -309,14 +310,6 @@
             this.panel2.Size = new System.Drawing.Size(1635, 48);
             this.panel2.TabIndex = 10;
             // 
-            // panelContainer
-            // 
-            this.panelContainer.BackColor = System.Drawing.Color.Transparent;
-            this.panelContainer.Location = new System.Drawing.Point(294, 50);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1614, 987);
-            this.panelContainer.TabIndex = 11;
-            // 
             // pictureBoxEditarCOisas
             // 
             this.pictureBoxEditarCOisas.BackgroundImage = global::RascalApp.Properties.Resources.pencil_case;
@@ -327,6 +320,14 @@
             this.pictureBoxEditarCOisas.TabIndex = 7;
             this.pictureBoxEditarCOisas.TabStop = false;
             this.pictureBoxEditarCOisas.Click += new System.EventHandler(this.pictureBoxEditarCOisas_Click);
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.BackColor = System.Drawing.Color.Transparent;
+            this.panelContainer.Location = new System.Drawing.Point(294, 50);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1614, 987);
+            this.panelContainer.TabIndex = 11;
             // 
             // FormInicio
             // 
@@ -374,7 +375,7 @@
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelConsola;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelopenConsola;
         private System.Windows.Forms.PictureBox pictureBoxEditarCOisas;
     }
 }

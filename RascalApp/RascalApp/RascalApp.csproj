@@ -59,6 +59,12 @@
     <Compile Include="Forms\FormAdicionarOutras.Designer.cs">
       <DependentUpon>FormAdicionarOutras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCOnsola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCOnsola.Designer.cs">
+      <DependentUpon>FormCOnsola.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormEditarClube.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,7 @@
       <DependentUpon>FormGuardarNovasGalerias.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades.cs" />
+    <Compile Include="Models\ClassConsole.cs" />
     <Compile Include="Models\Clube.cs" />
     <Compile Include="Models\Ermo.cs" />
     <Compile Include="Models\Foto.cs" />
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAdicionarOutras.resx">
       <DependentUpon>FormAdicionarOutras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCOnsola.resx">
+      <DependentUpon>FormCOnsola.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarClube.resx">
       <DependentUpon>FormEditarClube.cs</DependentUpon>
@@ -363,6 +373,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NovaGal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RascalConsole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RascalLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
