@@ -56,11 +56,17 @@ namespace RascalApp.Forms
 
         private void buttonGuardar_Click_1(object sender, EventArgs e)
         {
+            if(ListaDados[contador].caminhoFotos.Count < 1)
+            {
+                _FormInicio.EscreverNaConsola("Erro galeria sem fotos!");
+                return;
+            }
+
             DateTime _SaveTimeGal;
 
             if(textBoxGalNovoNome.Text == " " || String.IsNullOrEmpty(textBoxGalNovoNome.Text))
             {
-                _FormInicio.EscreverNaConsola("Nome em falta");
+                _FormInicio.EscreverNaConsola("Nome em falta!");
                 return;
             }
 
