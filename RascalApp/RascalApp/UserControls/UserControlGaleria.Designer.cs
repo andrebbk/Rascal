@@ -82,6 +82,7 @@
             this.listViewGaleria.Size = new System.Drawing.Size(1608, 910);
             this.listViewGaleria.TabIndex = 31;
             this.listViewGaleria.UseCompatibleStateImageBehavior = false;
+            this.listViewGaleria.SelectedIndexChanged += new System.EventHandler(this.listViewGaleria_SelectedIndexChanged);
             this.listViewGaleria.DoubleClick += new System.EventHandler(this.listViewGaleria_DoubleClick);
             // 
             // UserControlGaleria

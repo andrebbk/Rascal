@@ -110,7 +110,7 @@ namespace RascalApp.UserControls
                 return;
             }
                
-
+            //PARA EDITAR
             foreach (Modelo mdl in ListaModelos)
             {
                 if (mdl.ID == _ID)
@@ -130,9 +130,19 @@ namespace RascalApp.UserControls
                         //Editar
                         if ((!String.IsNullOrEmpty(NovoNome) && NovoNome != mdl.Nome) || (!String.IsNullOrEmpty(NovaFoto) && NovaFoto != mdl.CaminhoFoto))
                         {
-                            Funcionalidades.EditarModelo(NovoNome, NovaFoto, mdl);
-                            _FormInicio.EscreverNaConsola(NovoNome + " editado!");
-                            CarregarModelos();
+                            try
+                            {
+                                Funcionalidades.EditarModelo(NovoNome, NovaFoto, mdl);
+                                _FormInicio.EscreverNaConsola(NovoNome + " editado!");
+                                CarregarModelos();
+                            }
+                            catch(Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
+                                Console.WriteLine(ex.Message);
+                                _FormInicio.EscreverNaConsola("Erro ao editar" + NovoNome);
+                            }
+                            
                         }
 
                     }
@@ -162,6 +172,11 @@ namespace RascalApp.UserControls
                     break;
                 }
             }
+        }
+
+        private void listViewGaleria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
