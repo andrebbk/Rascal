@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.listViewGaleriasDela = new System.Windows.Forms.ListView();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelModeloNFotos = new System.Windows.Forms.Label();
             this.labelModeloNClubes = new System.Windows.Forms.Label();
@@ -49,7 +51,6 @@
             this.buttonModeloApagar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxModeloPic = new System.Windows.Forms.PictureBox();
-            this.buttonVoltar = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloClube6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloClube5)).BeginInit();
@@ -59,6 +60,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloClube1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloPic)).BeginInit();
             this.SuspendLayout();
+            // 
+            // listViewGaleriasDela
+            // 
+            this.listViewGaleriasDela.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listViewGaleriasDela.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
+            this.listViewGaleriasDela.BackgroundImageTiled = true;
+            this.listViewGaleriasDela.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewGaleriasDela.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewGaleriasDela.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewGaleriasDela.Location = new System.Drawing.Point(41, 603);
+            this.listViewGaleriasDela.Name = "listViewGaleriasDela";
+            this.listViewGaleriasDela.Size = new System.Drawing.Size(1548, 325);
+            this.listViewGaleriasDela.TabIndex = 52;
+            this.listViewGaleriasDela.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonVoltar.FlatAppearance.BorderSize = 0;
+            this.buttonVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVoltar.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVoltar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonVoltar.Location = new System.Drawing.Point(1363, 494);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(226, 49);
+            this.buttonVoltar.TabIndex = 51;
+            this.buttonVoltar.Text = "Voltar";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // panel3
             // 
@@ -309,29 +342,12 @@
             this.pictureBoxModeloPic.TabIndex = 34;
             this.pictureBoxModeloPic.TabStop = false;
             // 
-            // buttonVoltar
-            // 
-            this.buttonVoltar.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
-            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonVoltar.FlatAppearance.BorderSize = 0;
-            this.buttonVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.buttonVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVoltar.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVoltar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonVoltar.Location = new System.Drawing.Point(1363, 494);
-            this.buttonVoltar.Name = "buttonVoltar";
-            this.buttonVoltar.Size = new System.Drawing.Size(226, 49);
-            this.buttonVoltar.TabIndex = 51;
-            this.buttonVoltar.Text = "Voltar";
-            this.buttonVoltar.UseVisualStyleBackColor = true;
-            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
-            // 
             // UserControlVerModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.listViewGaleriasDela);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.buttonModeloClubes);
@@ -388,5 +404,6 @@
         private System.Windows.Forms.Label labelModeloNClubes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonVoltar;
+        private System.Windows.Forms.ListView listViewGaleriasDela;
     }
 }

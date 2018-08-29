@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RascalApp.Models;
 using RascalApp.Forms;
+using RascalApp.Properties;
+using System.IO;
 
 namespace RascalApp.UserControls
 {
@@ -16,6 +18,7 @@ namespace RascalApp.UserControls
     {
         private FormInicio _FormInicio;
         private Modelo EsteModelo;
+        List<Galeria> _listaGalerias;
         List<PertenceA> _listaAssociacoes;
         List<Clube> _listaClubes;
 
@@ -25,6 +28,7 @@ namespace RascalApp.UserControls
 
             _FormInicio = _formIni;
             EsteModelo = _este;
+            _listaGalerias = new List<Galeria>();
             _listaAssociacoes = new List<PertenceA>();
             _listaClubes = new List<Clube>();
 
@@ -39,6 +43,74 @@ namespace RascalApp.UserControls
 
         }
 
+        private void CarregarGalerias()
+        {
+            listViewGaleriasDela.Items.Clear();
+            _listaGalerias.Clear();
+
+            try
+            {
+                //Listas de clubes
+                _listaGalerias = Funcionalidades.BuscarGaleriasDELA(EsteModelo.ID);
+
+                ImageList ListaImagens = new ImageList();
+                ListaImagens.ImageSize = new Size(256, 256);
+                ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
+
+                foreach (Galeria glr in _listaGalerias)
+                {
+                    List<Foto> _Fotos = Funcionalidades.BuscarFotosGaleria(glr.ID);
+
+                    try
+                    {
+                        if (_Fotos.Count() > 0)
+                        {
+                            byte[] buff = System.IO.File.ReadAllBytes(_Fotos[0].CaminhoFoto);
+
+                            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
+                            {
+                                ListaImagens.Images.Add(glr.Designacao, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
+                            }
+                        }
+                        else
+                        {
+                            ListaImagens.Images.Add(glr.Designacao, Funcionalidades.getThumbnaiImage(Resources.no_photo));
+                        }
+                    }
+                    catch
+                    {
+                        _FormInicio.EscreverNaConsola(glr.Designacao + " sem fotos");
+                        ListaImagens.Images.Add(glr.Designacao, Funcionalidades.getThumbnaiImage(Resources.no_photo));
+                    }                                        
+                }
+
+                listViewGaleriasDela.View = View.LargeIcon;
+                listViewGaleriasDela.LargeImageList = ListaImagens;
+
+                foreach (Galeria glr in _listaGalerias)
+                {
+                    ListViewItem lst = new ListViewItem();
+                    lst.Text = glr.Designacao;
+                    lst.ImageIndex = 0;
+                    lst.Tag = glr.ID;
+                    lst.ImageKey = glr.Designacao;
+                    listViewGaleriasDela.Items.Add(lst);
+                }
+
+                if (_listaGalerias.Count() == 1)
+                    labelModeloNGalerias.Text = "1 galeria";
+                else
+                    labelModeloNGalerias.Text = _listaGalerias.Count().ToString() + " galerias";
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                _FormInicio.EscreverNaConsola("Erro ao carregar galerias!");
+            }
+        }
+
         private void CarregarDados()
         {
             labelModeloNome.Text = EsteModelo.Nome;
@@ -51,10 +123,13 @@ namespace RascalApp.UserControls
                 pictureBoxModeloPic.BackgroundImage = Image.FromStream(ms);
             }
 
-            //Clubes
+            //GALERIAS
+            CarregarGalerias();
+
+            //CLUBES
             CarregarClubes();
 
-            //Outros nomes
+            //OUTROS NOMES
             CarregarOutrosNomes();
 
             //N Galerias e N Fotos

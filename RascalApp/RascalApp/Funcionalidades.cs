@@ -1080,7 +1080,7 @@ namespace RascalApp
             try
             {
                 _connection.Open();
-                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Galeria WHERE ID=" + _ID, _connection);
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM Galeria WHERE Identificador=" + _ID, _connection);
 
                 OleDbDataReader reader = cmd.ExecuteReader();
 
@@ -1092,8 +1092,8 @@ namespace RascalApp
                         Identificador = Convert.ToInt32(reader.GetValue(1)),
                         Tipo = Convert.ToInt32(reader.GetValue(2)),
                         Designacao = reader.GetString(3),
-                        Visualizacoes = Convert.ToInt32(reader.GetValue(4)),
-                        DateCreated = DateTime.Parse(reader.GetValue(5).ToString(), PTCultureInfo)
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(5))                        
                     });
                 }
 

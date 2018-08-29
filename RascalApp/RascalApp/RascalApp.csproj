@@ -380,5 +380,8 @@
   <ItemGroup>
     <None Include="Resources\RascalLogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-photo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
