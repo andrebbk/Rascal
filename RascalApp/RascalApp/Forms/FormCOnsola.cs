@@ -56,7 +56,7 @@ namespace RascalApp.Forms
                     else
                         consoleLinha += "Há " + tSpan.Minutes + " minutos";
                 }
-
+                
                 listBoxConsole.Items.Add(consoleLinha);
             }
         }
@@ -72,11 +72,23 @@ namespace RascalApp.Forms
             if (index < 0 || index >= listBoxConsole.Items.Count) return;
             var item = listBoxConsole.Items[index];
             string text = (item == null) ? "(null)" : item.ToString();
-            using (var brush = new SolidBrush(e.ForeColor))
+
+            if(text.ToLower().Contains("erro"))
             {
-                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-                e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+                using (var brush = new SolidBrush(Color.Red))
+                {
+                    e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+                    e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+                }
             }
+            else
+            {
+                using (var brush = new SolidBrush(e.ForeColor))
+                {
+                    e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+                    e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+                }
+            }            
 
             //Ate Aqui
         }
