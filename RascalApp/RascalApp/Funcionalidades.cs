@@ -183,6 +183,11 @@ namespace RascalApp
 
         }
 
+        public static string NomeLimpo(string str)
+        {
+            return RemoveWhitespace(RemoveSpecialCharacters(str));
+        }
+
 
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)
@@ -683,6 +688,7 @@ namespace RascalApp
             _connection.Close();
         }
 
+        //################################# substituir por NomeLimpo ################## visto daqui ta ao fim, FALTA PRA CIMA
         //PERTENCE A
         public static List<PertenceA> BuscarClubesModelo(int _ID)
         {
@@ -847,7 +853,7 @@ namespace RascalApp
             _connection.Close();
 
             //Criar novo diretório
-            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(designacao));
+            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + NomeLimpo(designacao));
 
             return MesmoAgora;
         }
@@ -950,12 +956,12 @@ namespace RascalApp
             _connection.Close();
 
             //Criar novo Directorio
-            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(novaDesignacao));
-            string NovoCaminho = "E:\\Rascal\\Ermos\\" + RemoveWhitespace(novaDesignacao) + "\\";
+            Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + NomeLimpo(novaDesignacao));
+            string NovoCaminho = "E:\\Rascal\\Ermos\\" + NomeLimpo(novaDesignacao) + "\\";
 
             //Atualizar fotos
             List<Foto> _pics = BuscarFotos();
-            string[] CaminhosAntigos = Directory.GetFiles("E:\\Rascal\\Ermos\\" + RemoveWhitespace(_este.Designacao));
+            string[] CaminhosAntigos = Directory.GetFiles("E:\\Rascal\\Ermos\\" + NomeLimpo(_este.Designacao));
 
             foreach (Foto ft in _pics)
             {
@@ -975,7 +981,7 @@ namespace RascalApp
             }
 
             //Apagar Diretorio antigo
-            Directory.Delete("E:\\Rascal\\Ermos\\" + RemoveWhitespace(_este.Designacao));
+            Directory.Delete("E:\\Rascal\\Ermos\\" + NomeLimpo(_este.Designacao));
         }
 
         public static void ApagarTodosErmos()
@@ -986,7 +992,7 @@ namespace RascalApp
             //Apagar todos os diretórios e todas as suas fotos
             foreach(Ermo rm in TodosErmos)
             {
-                Directory.Delete("E:\\Rascal\\Ermos\\" + RemoveWhitespace(rm.Designacao), true);
+                Directory.Delete("E:\\Rascal\\Ermos\\" + NomeLimpo(rm.Designacao), true);
             }
 
             //Apagar dados da tabela
@@ -1020,7 +1026,7 @@ namespace RascalApp
             _connection.Close();
 
             //Apagar fotos e directorio
-            Directory.Delete("E:\\Rascal\\Ermos\\" + _este.Designacao, true);
+            Directory.Delete("E:\\Rascal\\Ermos\\" + NomeLimpo(_este.Designacao), true);
         }
 
         //GALERIAS
@@ -1200,13 +1206,13 @@ namespace RascalApp
         public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
         {
             //Verificar diretório
-            if (!Directory.Exists("E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao)))
-                Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao));
+            if (!Directory.Exists("E:\\Rascal\\Ermos\\" + NomeLimpo(EsteErmo.Designacao)))
+                Directory.CreateDirectory("E:\\Rascal\\Ermos\\" + NomeLimpo(EsteErmo.Designacao));
 
             //Novo caminho
             string[] parts = caminhoFoto.Split('\\');
             string[] parts2 = parts[parts.Count() - 1].Split('.');
-            string NovoCaminho = "E:\\Rascal\\Ermos\\" + RemoveWhitespace(EsteErmo.Designacao) + "\\" + RemoveWhitespace(EsteErmo.Designacao) + index + "." + parts2[1];
+            string NovoCaminho = "E:\\Rascal\\Ermos\\" + NomeLimpo(EsteErmo.Designacao) + "\\" + NomeLimpo(EsteErmo.Designacao) + index + "." + parts2[1];
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -1227,8 +1233,8 @@ namespace RascalApp
 
         public static void GuardarNovaGaleriaFoto(int idGaleria, string nomeGal, Modelo EsteModelo, string caminhoFoto, int index)
         {
-            string nomeModeloLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(EsteModelo.Nome));
-            string nomeGalLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(nomeGal));
+            string nomeModeloLimpo = NomeLimpo(EsteModelo.Nome);
+            string nomeGalLimpo = NomeLimpo(nomeGal);
             //Verificar diretório
             if (!Directory.Exists("E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo))
                 Directory.CreateDirectory("E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo);
