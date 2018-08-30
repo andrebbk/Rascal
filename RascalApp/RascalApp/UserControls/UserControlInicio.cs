@@ -116,7 +116,17 @@ namespace RascalApp.UserControls
                 });
             }
             else
-            {
+            {               
+                try
+                {
+                    Funcionalidades.NovaAbertura();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.Message);
+                }
+
                 VerificarConecao();
                 CarregarEstatisticas();
             }                
@@ -223,9 +233,7 @@ namespace RascalApp.UserControls
                     _FormInicio.EscreverNaConsola("Erro ao contar ficheiros!");
                 }                
             }
-        }
-
-        
+        }        
 
     }
 }

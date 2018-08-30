@@ -53,11 +53,17 @@ namespace RascalApp.Forms
 
         private void pictureBoxButtonQuit_Click(object sender, EventArgs e)
         {
+            if(!BLoquearInteracoes)
+            {
+                Application.Exit();
+                return;
+            }
+
             //Sair
             try
             {
                 Funcionalidades.RegistarSaida();
-                Application.Exit();
+               
             }
             catch
             {
