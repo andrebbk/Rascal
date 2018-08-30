@@ -1053,8 +1053,9 @@ namespace RascalApp
                         Identificador = Convert.ToInt32(reader.GetValue(1)),
                         Tipo = Convert.ToInt32(reader.GetValue(2)),
                         Designacao = reader.GetString(3),
-                        Visualizacoes = Convert.ToInt32(reader.GetValue(4)),
-                        DateCreated = DateTime.Parse(reader.GetValue(5).ToString(), PTCultureInfo)
+                        DateCreated = DateTime.Parse(reader.GetValue(4).ToString(), PTCultureInfo),
+                        Visualizacoes = Convert.ToInt32(reader.GetValue(5))
+                        
                     });
                 }
 
@@ -1199,6 +1200,36 @@ namespace RascalApp
             }
 
             return este;
+        }
+
+        public static void EditarGaleria(string novaDesignacao, string nomeModelom, Galeria _gal)
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            //Inserir novo modelo
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Galeria SET Designacao='" + novaDesignacao + "' WHERE ID=" + _gal.ID;
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+
+            //Mover a pasta
+            Directory.Move("E:\\Rascal\\Modelos\\" + NomeLimpo(nomeModelom) + "\\" + NomeLimpo(_gal.Designacao),
+                "E:\\Rascal\\Modelos\\" + NomeLimpo(nomeModelom) + "\\" + NomeLimpo(novaDesignacao));
+
+            //Atualizar fotos
+            List<Foto> _pics = BuscarFotosGaleria(_gal.ID);
+            string novoCam = "E:\\Rascal\\Modelos\\" + NomeLimpo(nomeModelom) + "\\" + NomeLimpo(novaDesignacao) + "\\";
+
+            foreach (Foto ft in _pics)
+            {
+                string[] nomes = ft.CaminhoFoto.Split('\\');
+                EditarFoto(novoCam + nomes[nomes.Count() - 1], ft.ID);
+            }
         }
 
         //FOTOS

@@ -170,6 +170,29 @@ namespace RascalApp.Forms
                 return;
             }
 
+            if(String.IsNullOrEmpty(textBoxNNomeGal.Text) || textBoxNNomeGal.Text == " ")
+            {
+                _FormInicio.EscreverNaConsola("Erro nome incorreto!");
+                return;
+            }
+
+            //Se o nome for igual
+            /*if (textBoxNNomeGal.Text.Equals(listaGalerias[listBoxGalerias.SelectedIndex].Designacao))
+                return;*/
+
+            try
+            {
+                //Editar Galeria
+                Funcionalidades.EditarGaleria(textBoxNNomeGal.Text, _este.Nome, listaGalerias[listBoxGalerias.SelectedIndex]);
+
+                listBoxGalerias.SelectedIndex = -1;
+                textBoxNNomeGal.Clear();
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao editar galeria");
+            }
+
             buttonSair.Hide();
             atualizar = true;
         }
