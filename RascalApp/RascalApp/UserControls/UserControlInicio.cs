@@ -16,13 +16,16 @@ namespace RascalApp.UserControls
     public partial class UserControlInicio : UserControl
     {
         private FormInicio _FormInicio;
+        private bool lockedData;
 
         public UserControlInicio(FormInicio _fInit)
         {
             InitializeComponent();
 
             _FormInicio = _fInit;
+            lockedData = true;
             CarregarINFOdisco();
+            CarregarEstatisticas();
         }
 
         private void UserControlInicio_Load(object sender, EventArgs e)
@@ -67,6 +70,7 @@ namespace RascalApp.UserControls
                     }
                 }
 
+                lockedData = false;
                 _FormInicio.BloquearInteracoes(true);
             }
             else
@@ -91,6 +95,7 @@ namespace RascalApp.UserControls
                 labelDiscoEOcupado.Text = "N/A";
                 labelUsedPercent.Text = "";
 
+                lockedData = true;
                 _FormInicio.BloquearInteracoes(false);
 
                 Thread _Thread = new Thread(new ThreadStart(VerificarConecao));
@@ -112,7 +117,26 @@ namespace RascalApp.UserControls
             else
             {
                 VerificarConecao();
+                CarregarEstatisticas();
             }                
+        }
+
+        private void CarregarEstatisticas()
+        {
+            if(lockedData)
+            {
+                label2Modelos.Text = "-";
+                label2Ermos.Text = "-";
+                label2Outras.Text = "-";
+                label2Clubes.Text = "-";
+            }
+            else
+            {
+                //Modelos
+                //Ermos
+                //Outras
+                //Clubes
+            }
         }
 
     }
