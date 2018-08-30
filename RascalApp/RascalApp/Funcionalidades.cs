@@ -394,6 +394,17 @@ namespace RascalApp
                 }
             }
 
+            //apagar outros nomes
+            foreach(OutrosNomes _outro in BuscarOutrosNomesDela(_este.ID).ToList())
+            {
+                RemoverOutroNome(_outro.ID);
+            }
+
+            //apagar clubes
+            foreach (PertenceA prtencA in BuscarClubesModelo(_este.ID).ToList())
+            {
+                EliminarAssociacoes(prtencA.IdClube);
+            }
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -406,7 +417,10 @@ namespace RascalApp
             _command.CommandText = "DELETE FROM Modelo WHERE ID=" + _este.ID;
             _command.ExecuteNonQuery();
 
-            _connection.Close();            
+            _connection.Close();
+
+            string caminhoDela = "E:\\Rascal\\Modelos\\" + NomeLimpo(_este.Nome);
+            Directory.Delete(caminhoDela, true);
         }
 
         public static void AumentarModeloVisu(int _ID, int visus)
