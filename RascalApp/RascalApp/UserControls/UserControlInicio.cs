@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using RascalApp.Forms;
+using System.Threading;
 
 namespace RascalApp.UserControls
 {
     public partial class UserControlInicio : UserControl
     {
-        public UserControlInicio()
+        private FormInicio _FormInicio;
+
+        public UserControlInicio(FormInicio _fInit)
         {
             InitializeComponent();
 
+            _FormInicio = _fInit;
             CarregarINFOdisco();
         }
 
@@ -60,8 +65,9 @@ namespace RascalApp.UserControls
 
                         break;
                     }
-                }                                                                
-                
+                }
+
+                _FormInicio.BloquearInteracoes(true);
             }
             else
             {
@@ -84,7 +90,29 @@ namespace RascalApp.UserControls
                 //Espaço Ocupado
                 labelDiscoEOcupado.Text = "N/A";
                 labelUsedPercent.Text = "";
+
+                _FormInicio.BloquearInteracoes(false);
+
+                Thread _Thread = new Thread(new ThreadStart(VerificarConecao));
+                _Thread.IsBackground = true;
+                _Thread.Start();
             }
+        }
+
+        private void VerificarConecao()
+        {
+            System.Threading.Thread.Sleep(5000);
+
+            if (Directory.Exists("E:\\Rascal"))
+            {
+                Invoke((MethodInvoker)delegate {
+                    CarregarINFOdisco();
+                });
+            }
+            else
+            {
+                VerificarConecao();
+            }                
         }
 
     }

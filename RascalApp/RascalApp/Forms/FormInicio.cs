@@ -17,6 +17,7 @@ namespace RascalApp.Forms
     {
         private bool EParaEditar;
         private List<ClassConsole> ListaCONSOLA;
+        private bool BLoquearInteracoes;
 
         public FormInicio()
         {
@@ -27,7 +28,9 @@ namespace RascalApp.Forms
             this.MaximizedBounds = Screen.GetWorkingArea(this);
             this.WindowState = FormWindowState.Maximized;
 
-            panelContainer.Controls.Add(new UserControlInicio());
+            BLoquearInteracoes = true;
+
+            panelContainer.Controls.Add(new UserControlInicio(this));
 
             EParaEditar = false;
 
@@ -129,9 +132,18 @@ namespace RascalApp.Forms
         }
 
         private void buttonInicio_Click(object sender, EventArgs e)
-        {
-            panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(new UserControlInicio());
+        {          
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlInicio(this));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar no Inicio!");
+            }
         }
 
         private void buttonClubes_Click(object sender, EventArgs e)
@@ -147,7 +159,6 @@ namespace RascalApp.Forms
                 Console.WriteLine(ex.Message);
                 EscreverNaConsola("Erro ao entrar nos Clubes!");
             }
-
         }
 
         private void buttonOutras_Click(object sender, EventArgs e)
@@ -187,6 +198,9 @@ namespace RascalApp.Forms
 
         private void pictureBoxEditarCOisas_Click(object sender, EventArgs e)
         {
+            if (!BLoquearInteracoes)
+                return;
+
             EParaEditar = !EParaEditar;
 
             if (EParaEditar)
@@ -284,6 +298,19 @@ namespace RascalApp.Forms
 
                 labelConsola.Text = "...";
             });
+        }
+
+        public void BloquearInteracoes(bool estado)
+        {
+            buttonInicio.Enabled = estado;
+            buttonGaleria.Enabled = estado;
+            buttonNovoModelo.Enabled = estado;
+            buttonErmos.Enabled = estado;
+            buttonOutras.Enabled = estado;
+            buttonClubes.Enabled = estado;
+
+            //para os outros usar esta flag
+            BLoquearInteracoes = estado;
         }
     }
 }
