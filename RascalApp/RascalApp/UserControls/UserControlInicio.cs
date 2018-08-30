@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using RascalApp.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace RascalApp.UserControls
 {
@@ -126,9 +127,14 @@ namespace RascalApp.UserControls
             if(lockedData)
             {
                 label2Modelos.Text = "-";
+                label2Galerias.Text = "-";
+                label2Fotos.Text = "-";
                 label2Ermos.Text = "-";
                 label2Outras.Text = "-";
                 label2Clubes.Text = "-";
+                label2Uso.Text = "-";
+                label2Diretorios.Text = "-";
+                label2Ficheiros.Text = "-";
             }
             else
             {
@@ -140,8 +146,7 @@ namespace RascalApp.UserControls
                 catch
                 {
                     _FormInicio.EscreverNaConsola("Erro ao contar Modelos!");
-                }
-                
+                }                
                 
 
                 //Ermos
@@ -184,6 +189,16 @@ namespace RascalApp.UserControls
                     _FormInicio.EscreverNaConsola("Erro ao contar Fotos!");
                 }
 
+                //Galerias
+                try
+                {
+                    label2Galerias.Text = Funcionalidades.QuantasGalerias().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar galerias!");
+                }
+
                 //Uso
                 try
                 {
@@ -192,9 +207,25 @@ namespace RascalApp.UserControls
                 catch
                 {
                     _FormInicio.EscreverNaConsola("Erro ao contar a serventia!");
+                }                
+
+                //Contar ficheiros
+                try
+                {
+                    int fCount = Directory.GetFiles("E:\\Rascal", "*", SearchOption.AllDirectories).Length;
+                    int directoryCount = System.IO.Directory.GetDirectories("E:\\Rascal", "*", SearchOption.AllDirectories).Count();
+
+                    label2Diretorios.Text = directoryCount.ToString(); 
+                    label2Ficheiros.Text = fCount.ToString();
                 }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar ficheiros!");
+                }                
             }
         }
+
+        
 
     }
 }

@@ -1354,6 +1354,33 @@ namespace RascalApp
             }
         }
 
+        public static int QuantasGalerias()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Galeria", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
+        }
+
         //FOTOS
         public static void GuardarNovaErmoFoto(Ermo EsteErmo, string caminhoFoto, int index)
         {
