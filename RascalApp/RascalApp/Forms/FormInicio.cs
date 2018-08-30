@@ -63,7 +63,7 @@ namespace RascalApp.Forms
             try
             {
                 Funcionalidades.RegistarSaida();
-               
+                Application.Exit();
             }
             catch
             {

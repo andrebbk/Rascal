@@ -112,24 +112,23 @@ namespace RascalApp.UserControls
             if (Directory.Exists("E:\\Rascal"))
             {
                 Invoke((MethodInvoker)delegate {
+
+                    try
+                    {
+                        Funcionalidades.NovaAbertura();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                        Console.WriteLine(ex.Message);
+                    }
+
                     CarregarINFOdisco();
+                    CarregarEstatisticas();
                 });
             }
             else
-            {               
-                try
-                {
-                    Funcionalidades.NovaAbertura();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                    Console.WriteLine(ex.Message);
-                }
-
                 VerificarConecao();
-                CarregarEstatisticas();
-            }                
         }
 
         private void CarregarEstatisticas()
