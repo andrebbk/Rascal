@@ -162,6 +162,12 @@
     <Compile Include="UserControls\UserControlInicio.Designer.cs">
       <DependentUpon>UserControlInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlNovaGaleria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlNovaGaleria.Designer.cs">
+      <DependentUpon>UserControlNovaGaleria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlNovasGalerias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlInicio.resx">
       <DependentUpon>UserControlInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNovaGaleria.resx">
+      <DependentUpon>UserControlNovaGaleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlNovasGalerias.resx">
       <DependentUpon>UserControlNovasGalerias.cs</DependentUpon>
@@ -382,6 +391,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\no-photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file-manage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -173,5 +173,10 @@ namespace RascalApp.UserControls
                 CarregarLista();
             }
         }
+
+        private void pictureBoxOldMethod_Click(object sender, EventArgs e)
+        {
+            _FormInicio.MudarParaAcrescerGaleria1a1(EsteModelo);
+        }
     }
 }

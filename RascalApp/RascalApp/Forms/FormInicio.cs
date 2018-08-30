@@ -279,7 +279,7 @@ namespace RascalApp.Forms
             {
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.Message);
-                EscreverNaConsola("Erro ao entrar nas NovasGaleria!");
+                EscreverNaConsola("Erro ao entrar nas NovasGalerias!");
             }
         }
 
@@ -325,6 +325,21 @@ namespace RascalApp.Forms
 
             //para os outros usar esta flag
             BLoquearInteracoes = estado;
+        }
+
+        public void MudarParaAcrescerGaleria1a1(Modelo este)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlNovaGaleria(this, este));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar na Nova Galeria!");
+            }
         }
     }
 }

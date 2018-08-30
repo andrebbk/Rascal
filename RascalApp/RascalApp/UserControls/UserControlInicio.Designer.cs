@@ -335,13 +335,13 @@
             // label2Diretorios
             // 
             this.label2Diretorios.AutoSize = true;
-            this.label2Diretorios.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Diretorios.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2Diretorios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Diretorios.Location = new System.Drawing.Point(878, 81);
+            this.label2Diretorios.Location = new System.Drawing.Point(878, 82);
             this.label2Diretorios.Name = "label2Diretorios";
-            this.label2Diretorios.Size = new System.Drawing.Size(42, 42);
+            this.label2Diretorios.Size = new System.Drawing.Size(58, 45);
             this.label2Diretorios.TabIndex = 30;
-            this.label2Diretorios.Text = "A";
+            this.label2Diretorios.Text = "12";
             // 
             // label14
             // 
@@ -357,11 +357,11 @@
             // label2Ficheiros
             // 
             this.label2Ficheiros.AutoSize = true;
-            this.label2Ficheiros.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Ficheiros.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Ficheiros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Ficheiros.Location = new System.Drawing.Point(878, 163);
+            this.label2Ficheiros.Location = new System.Drawing.Point(878, 165);
             this.label2Ficheiros.Name = "label2Ficheiros";
-            this.label2Ficheiros.Size = new System.Drawing.Size(42, 42);
+            this.label2Ficheiros.Size = new System.Drawing.Size(43, 45);
             this.label2Ficheiros.TabIndex = 28;
             this.label2Ficheiros.Text = "A";
             // 
@@ -379,11 +379,11 @@
             // label2Galerias
             // 
             this.label2Galerias.AutoSize = true;
-            this.label2Galerias.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Galerias.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Galerias.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Galerias.Location = new System.Drawing.Point(358, 162);
+            this.label2Galerias.Location = new System.Drawing.Point(358, 159);
             this.label2Galerias.Name = "label2Galerias";
-            this.label2Galerias.Size = new System.Drawing.Size(42, 42);
+            this.label2Galerias.Size = new System.Drawing.Size(43, 45);
             this.label2Galerias.TabIndex = 26;
             this.label2Galerias.Text = "A";
             // 
@@ -417,11 +417,11 @@
             // label2Uso
             // 
             this.label2Uso.AutoSize = true;
-            this.label2Uso.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Uso.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Uso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Uso.Location = new System.Drawing.Point(878, 243);
+            this.label2Uso.Location = new System.Drawing.Point(878, 244);
             this.label2Uso.Name = "label2Uso";
-            this.label2Uso.Size = new System.Drawing.Size(42, 42);
+            this.label2Uso.Size = new System.Drawing.Size(43, 45);
             this.label2Uso.TabIndex = 22;
             this.label2Uso.Text = "A";
             // 
@@ -439,11 +439,11 @@
             // label2Fotos
             // 
             this.label2Fotos.AutoSize = true;
-            this.label2Fotos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Fotos.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Fotos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Fotos.Location = new System.Drawing.Point(358, 242);
+            this.label2Fotos.Location = new System.Drawing.Point(358, 239);
             this.label2Fotos.Name = "label2Fotos";
-            this.label2Fotos.Size = new System.Drawing.Size(42, 42);
+            this.label2Fotos.Size = new System.Drawing.Size(43, 45);
             this.label2Fotos.TabIndex = 20;
             this.label2Fotos.Text = "A";
             // 
@@ -461,44 +461,44 @@
             // label2Clubes
             // 
             this.label2Clubes.AutoSize = true;
-            this.label2Clubes.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Clubes.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Clubes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Clubes.Location = new System.Drawing.Point(358, 496);
+            this.label2Clubes.Location = new System.Drawing.Point(358, 497);
             this.label2Clubes.Name = "label2Clubes";
-            this.label2Clubes.Size = new System.Drawing.Size(42, 42);
+            this.label2Clubes.Size = new System.Drawing.Size(43, 45);
             this.label2Clubes.TabIndex = 18;
             this.label2Clubes.Text = "A";
             // 
             // label2Outras
             // 
             this.label2Outras.AutoSize = true;
-            this.label2Outras.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Outras.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Outras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Outras.Location = new System.Drawing.Point(358, 406);
+            this.label2Outras.Location = new System.Drawing.Point(358, 402);
             this.label2Outras.Name = "label2Outras";
-            this.label2Outras.Size = new System.Drawing.Size(42, 42);
+            this.label2Outras.Size = new System.Drawing.Size(43, 45);
             this.label2Outras.TabIndex = 17;
             this.label2Outras.Text = "A";
             // 
             // label2Ermos
             // 
             this.label2Ermos.AutoSize = true;
-            this.label2Ermos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Ermos.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Ermos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Ermos.Location = new System.Drawing.Point(358, 326);
+            this.label2Ermos.Location = new System.Drawing.Point(358, 327);
             this.label2Ermos.Name = "label2Ermos";
-            this.label2Ermos.Size = new System.Drawing.Size(42, 42);
+            this.label2Ermos.Size = new System.Drawing.Size(43, 45);
             this.label2Ermos.TabIndex = 16;
             this.label2Ermos.Text = "A";
             // 
             // label2Modelos
             // 
             this.label2Modelos.AutoSize = true;
-            this.label2Modelos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Modelos.Font = new System.Drawing.Font("Yu Gothic", 26.25F);
             this.label2Modelos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Modelos.Location = new System.Drawing.Point(358, 80);
+            this.label2Modelos.Location = new System.Drawing.Point(358, 77);
             this.label2Modelos.Name = "label2Modelos";
-            this.label2Modelos.Size = new System.Drawing.Size(42, 42);
+            this.label2Modelos.Size = new System.Drawing.Size(43, 45);
             this.label2Modelos.TabIndex = 15;
             this.label2Modelos.Text = "A";
             // 

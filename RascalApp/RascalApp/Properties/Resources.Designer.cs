@@ -183,6 +183,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_manage {
+            get {
+                object obj = ResourceManager.GetObject("file_manage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap full_trash_container {
             get {
                 object obj = ResourceManager.GetObject("full_trash_container", resourceCulture);

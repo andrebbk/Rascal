@@ -51,7 +51,7 @@ namespace RascalApp.Forms
                 CaminhoFotos.Clear();
 
                 ImageList ListaImagens = new ImageList();
-                ListaImagens.ImageSize = new Size(256, 190);
+                ListaImagens.ImageSize = new Size(256, 256);
                 ListaImagens.ColorDepth = ColorDepth.Depth32Bit;
 
                 int contador = 0;
@@ -61,7 +61,7 @@ namespace RascalApp.Forms
                     byte[] buff = System.IO.File.ReadAllBytes(files);
                     using (System.IO.MemoryStream ms = new System.IO.MemoryStream(buff))
                     {
-                        ListaImagens.Images.Add("img" + contador, Image.FromStream(ms));
+                        ListaImagens.Images.Add("img" + contador, Funcionalidades.getThumbnaiImage(Image.FromStream(ms)));
                         contador++;
                     }
                 }
