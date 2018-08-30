@@ -305,7 +305,7 @@ namespace RascalApp
                 string[] parts = NcaminhoFoto.Split('\\');
                 string[] Nomes = parts[parts.Count() - 1].Split('.');
 
-                NovoCaminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)) + "\\FotoDela." + Nomes[1];
+                NovoCaminho = "E:\\Rascal\\Modelos\\" + NomeLimpo(_este.Nome) + "\\FotoDela." + Nomes[1];
                 File.Move(NcaminhoFoto, NovoCaminho);
 
                 NcaminhoFoto = NovoCaminho;
@@ -314,7 +314,7 @@ namespace RascalApp
             //Se for para atualizar o Nome
             if (NNome != _este.Nome)
             {
-                string novoCa = "E:\\Rascal\\Modelos\\" + Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(NNome));
+                string novoCa = "E:\\Rascal\\Modelos\\" + NomeLimpo(NNome);
                 Directory.CreateDirectory(novoCa);
 
                 MudarSitioGalerias(novoCa, NNome, _este);
@@ -323,11 +323,11 @@ namespace RascalApp
                 string[] parts = _este.CaminhoFoto.Split('\\');
                 string[] Nomes = parts[parts.Count() - 1].Split('.');
 
-                NovoCaminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "\\FotoDela." + Nomes[1];
+                NovoCaminho = "E:\\Rascal\\Modelos\\" + NomeLimpo(NNome) + "\\FotoDela." + Nomes[1];
                 File.Move(NcaminhoFoto, NovoCaminho);
 
                 //Apagar diretorio antigo
-                Directory.Delete("E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)), true);
+                Directory.Delete("E:\\Rascal\\Modelos\\" + NomeLimpo(_este.Nome), true);
             }
 
             if (NovoCaminho == "nada")
@@ -361,14 +361,14 @@ namespace RascalApp
                         string[] Nome = ft.CaminhoFoto.Split('\\');
 
                         //Diretorio da galeria
-                        if (!Directory.Exists(novoCaminho + "\\" + Nome[Nome.Count() - 2]))
-                            Directory.CreateDirectory(novoCaminho + "\\" + Nome[Nome.Count() - 2]);
+                        if (!Directory.Exists(novoCaminho + "\\" + NomeLimpo(Nome[Nome.Count() - 2])))
+                            Directory.CreateDirectory(novoCaminho + "\\" + NomeLimpo(Nome[Nome.Count() - 2]));
                         
                         //Editar Registo
-                        EditarFoto(novoCaminho + "\\" + Nome[Nome.Count() - 2] + "\\" + Nome[Nome.Count() - 1], ft.ID);
+                        EditarFoto(novoCaminho + "\\" + NomeLimpo(Nome[Nome.Count() - 2]) + "\\" + NomeLimpo(Nome[Nome.Count() - 1]), ft.ID);
 
                         //Mover foto
-                        File.Move(ft.CaminhoFoto, novoCaminho + "\\" + Nome[Nome.Count() - 2] + "\\" + Nome[Nome.Count() - 1]);
+                        File.Move(ft.CaminhoFoto, novoCaminho + "\\" + (Nome[Nome.Count() - 2]) + "\\" + (Nome[Nome.Count() - 1]));
                     }
                 }                
             }
@@ -389,7 +389,7 @@ namespace RascalApp
                     }
 
                     //apagar galeria
-                    string caminho = "E:\\Rascal\\Modelos\\" + RemoveWhitespace(RemoveSpecialCharacters(_este.Nome)) + "\\" + glr.Designacao;
+                    string caminho = "E:\\Rascal\\Modelos\\" + NomeLimpo(_este.Nome) + "\\" + NomeLimpo(glr.Designacao);
                     EliminarGaleria(caminho, glr.ID);
                 }
             }
@@ -455,9 +455,9 @@ namespace RascalApp
                 NNome = _este.Nome;
 
             if (NNomeFoto == "nop")
-                NNomeFoto = RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "." + parts2[parts2.Count() - 1];
+                NNomeFoto = NomeLimpo(NNome) + "." + parts2[parts2.Count() - 1];
             else
-                NNomeFoto = RemoveWhitespace(RemoveSpecialCharacters(NNome)) + "." + parts[parts.Count() - 1];
+                NNomeFoto = NomeLimpo(NNome) + "." + parts[parts.Count() - 1];
 
             OleDbConnection _connection = new OleDbConnection();
             _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
@@ -477,16 +477,16 @@ namespace RascalApp
             if(NovoCaminhoFoto != "nop")
             {
                 //apagar foto
-                File.Delete("E:\\Rascal\\Clubes\\" + _este.NomeFoto);
+                File.Delete("E:\\Rascal\\Clubes\\" + NomeLimpo(_este.NomeFoto));
 
                 //Guardar nova foto
-                string NovaFoto = "E:\\Rascal\\Clubes\\" + NNomeFoto;
+                string NovaFoto = "E:\\Rascal\\Clubes\\" + NomeLimpo(NNomeFoto);
                 File.Move(NovoCaminhoFoto, NovaFoto);
             } 
             else
             {
                 //Atualizar nome da foto existente
-                File.Move("E:\\Rascal\\Clubes\\" + _este.NomeFoto, "E:\\Rascal\\Clubes\\" + NNomeFoto);
+                File.Move("E:\\Rascal\\Clubes\\" + NomeLimpo(_este.NomeFoto), "E:\\Rascal\\Clubes\\" + NomeLimpo(NNomeFoto));
             }
         }
 
@@ -611,7 +611,7 @@ namespace RascalApp
             _connection.Close();
 
             //apagar foto
-            File.Delete("E:\\Rascal\\CLubes\\" + _este.NomeFoto);
+            File.Delete("E:\\Rascal\\CLubes\\" + NomeLimpo(_este.NomeFoto));
         }
 
         //OUTROS NOMES
@@ -688,7 +688,6 @@ namespace RascalApp
             _connection.Close();
         }
 
-        //################################# substituir por NomeLimpo ################## visto daqui ta ao fim, FALTA PRA CIMA
         //PERTENCE A
         public static List<PertenceA> BuscarClubesModelo(int _ID)
         {

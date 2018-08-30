@@ -44,7 +44,7 @@ namespace RascalApp.UserControls
 
             try
             {
-                string NomeLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(textBoxNovoNome.Text));
+                string NomeLimpo = Funcionalidades.NomeLimpo(textBoxNovoNome.Text);
                 //Criar diretório para o modelo 
                 if (!Directory.Exists("E:\\Rascal\\Modelos\\" + NomeLimpo))
                     Directory.CreateDirectory("E:\\Rascal\\Modelos\\" + NomeLimpo);

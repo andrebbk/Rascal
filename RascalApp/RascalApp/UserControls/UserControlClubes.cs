@@ -157,8 +157,9 @@ namespace RascalApp.UserControls
 
         private void pictureBoxButtonReset_Click(object sender, EventArgs e)
         {
-            if (listaCLubes.Count < 1)
-                return;
+            if(listaCLubes != null)
+                if (listaCLubes.Count < 1)
+                    return;
 
             FormPopUp PopupConfirmation = new FormPopUp("Tem a certeza que pertende continuar?");
             DialogResult resultado = PopupConfirmation.ShowDialog();
