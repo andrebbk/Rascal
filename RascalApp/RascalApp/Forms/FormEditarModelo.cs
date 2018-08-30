@@ -19,6 +19,7 @@ namespace RascalApp.Forms
         public string NomeEditado;
         public string FotoEditada;
         private List<Galeria> listaGalerias;
+        public bool atualizar = false;
 
         public FormEditarModelo(Modelo _VenhaEle, bool PermitirApagar, FormInicio _fInit)
         {
@@ -27,6 +28,7 @@ namespace RascalApp.Forms
             _este = _VenhaEle;
             _FormInicio = _fInit;
             listaGalerias = new List<Galeria>();
+            atualizar = false;
 
             if (!PermitirApagar)
             {
@@ -34,7 +36,8 @@ namespace RascalApp.Forms
                 buttonEditar.Location = buttonApagar.Location;
             }
 
-            CarregarForm();            
+            CarregarForm();
+            buttonSair.Show();
         }        
 
         private void CarregarForm()
@@ -108,13 +111,67 @@ namespace RascalApp.Forms
         }
 
         private void buttonApagarGal_Click(object sender, EventArgs e)
-        {
-            //Apagar nome galeria
+        {            
+            if (listBoxGalerias.SelectedIndex == -1)
+            {
+                _FormInicio.EscreverNaConsola("Galeria em falta!");
+                return;
+            }
+
+            FormPopUp _JanelaConfi = new FormPopUp("Tem a certeza que pertende continuar?");
+            DialogResult resultado = _JanelaConfi.ShowDialog();
+
+            if(resultado == DialogResult.Yes)
+            {
+                buttonSair.Hide();
+                atualizar = true;
+
+                //Apagar galeria
+                List<Foto> _FotosGaleria = Funcionalidades.BuscarFotosGaleria(listaGalerias[listBoxGalerias.SelectedIndex].ID);
+
+                foreach (Foto ft in _FotosGaleria)
+                {
+                    try
+                    {
+                        Funcionalidades.EliminarFoto(ft);
+                    }
+                    catch
+                    {
+                        _FormInicio.EscreverNaConsola("Erro ao apagar fotos!");
+                    }
+                }
+
+                string nomeModeloLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(_este.Nome));
+                string nomeGalLimpo = Funcionalidades.RemoveWhitespace(Funcionalidades.RemoveSpecialCharacters(listaGalerias[listBoxGalerias.SelectedIndex].Designacao));
+                string caminhoGal = "E:\\Rascal\\Modelos\\" + nomeModeloLimpo + "\\" + nomeGalLimpo;
+
+                try
+                {
+                    Funcionalidades.EliminarGaleria(caminhoGal, listaGalerias[listBoxGalerias.SelectedIndex].ID);
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao apagar galeria!");
+                }
+
+                //Reset gal part
+                textBoxNNomeGal.Clear();
+                listBoxGalerias.SelectedIndex = -1;
+                CarregarGalerias();
+            }            
         }
 
         private void buttonOKNome_Click(object sender, EventArgs e)
         {
             //Editar nome galeria
+            if (listBoxGalerias.SelectedIndex == -1)
+            {
+                _FormInicio.EscreverNaConsola("Galeria em falta!");
+                return;
+            }
+
+            buttonSair.Hide();
+            atualizar = true;
         }
 
         private void listBoxGalerias_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,6 +185,11 @@ namespace RascalApp.Forms
                 textBoxNNomeGal.Text = listaGalerias[listBoxGalerias.SelectedIndex].Designacao;
             }
                 
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

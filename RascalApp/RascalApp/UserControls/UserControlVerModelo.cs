@@ -291,7 +291,13 @@ namespace RascalApp.UserControls
 
                 //Verificar se os dados foram editados
                 if (NovoNome == EsteModelo.Nome && NovaFoto == EsteModelo.CaminhoFoto)
+                {
+                    if (PopupEditar.atualizar)
+                        CarregarGalerias();
+
                     return;
+                }
+                    
 
                 //Editar
                 if ((!String.IsNullOrEmpty(NovoNome) && NovoNome != EsteModelo.Nome) || (!String.IsNullOrEmpty(NovaFoto) && NovaFoto != EsteModelo.CaminhoFoto))
