@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -199,6 +200,9 @@ namespace RascalApp.Forms
         {
             labelConsola.Text = texto;
             ListaCONSOLA.Add(new ClassConsole { Texto = texto, Tempo = DateTime.Now });
+
+            Thread _Thread = new Thread(new ThreadStart(ResetConsole));
+            _Thread.Start();
         }
 
         public bool VerificarEditarInstrucao()
@@ -270,6 +274,16 @@ namespace RascalApp.Forms
         {
             //Abrir Consola
             new FormCOnsola(ListaCONSOLA).Show();
+        }
+
+        private void ResetConsole()
+        {
+            System.Threading.Thread.Sleep(5000);
+
+            labelConsola.Invoke((MethodInvoker)delegate {
+
+                labelConsola.Text = "...";
+            });
         }
     }
 }
