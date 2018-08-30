@@ -133,9 +133,66 @@ namespace RascalApp.UserControls
             else
             {
                 //Modelos
+                try
+                {
+                    label2Modelos.Text = Funcionalidades.QuantosModelos().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar Modelos!");
+                }
+                
+                
+
                 //Ermos
+                try
+                {
+                    label2Ermos.Text = Funcionalidades.QuantosErmos().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar Ermos!");
+                }
+
                 //Outras
+                try
+                {
+                    label2Outras.Text = Funcionalidades.QuantasOutras().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar Outras!");
+                }
+
                 //Clubes
+                try
+                {
+                    label2Clubes.Text = Funcionalidades.QuantosClubes().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar Clubes!");
+                }
+
+                //Fotos
+                try
+                {
+                    label2Fotos.Text = Funcionalidades.QuantasFotos().ToString();
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar Fotos!");
+                }
+
+                //Uso
+                try
+                {
+                    label2Uso.Text = "24";
+                }
+                catch
+                {
+                    _FormInicio.EscreverNaConsola("Erro ao contar a serventia!");
+                }
             }
         }
 

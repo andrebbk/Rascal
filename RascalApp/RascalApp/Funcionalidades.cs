@@ -439,6 +439,33 @@ namespace RascalApp
             _connection.Close();
         }
 
+        public static int QuantosModelos()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Modelo", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
+        }
+
         //CLUBE
         public static void GuardarNovoClube(string Nome, string NomeFoto)
         {
@@ -626,6 +653,33 @@ namespace RascalApp
 
             //apagar foto
             File.Delete("E:\\Rascal\\CLubes\\" + NomeLimpo(_este.NomeFoto));
+        }
+
+        public static int QuantosClubes()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Clube", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
         }
 
         //OUTROS NOMES
@@ -847,6 +901,33 @@ namespace RascalApp
             return listOutras;
         }
 
+        public static int QuantasOutras()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Outras", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
+        }
+
         //ERMOS
         public static DateTime GuardarNovoErmo(string designacao)
         {
@@ -1040,6 +1121,33 @@ namespace RascalApp
 
             //Apagar fotos e directorio
             Directory.Delete("E:\\Rascal\\Ermos\\" + NomeLimpo(_este.Designacao), true);
+        }
+
+        public static int QuantosErmos()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Ermo", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
         }
 
         //GALERIAS
@@ -1424,6 +1532,33 @@ namespace RascalApp
 
             //Apagar foto
             File.Delete(_esta.CaminhoFoto);
+        }
+
+        public static int QuantasFotos()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Foto", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
         }
 
     }

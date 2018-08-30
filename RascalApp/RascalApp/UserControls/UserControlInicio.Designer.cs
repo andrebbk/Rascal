@@ -55,6 +55,11 @@
             this.label2Ermos = new System.Windows.Forms.Label();
             this.label2Outras = new System.Windows.Forms.Label();
             this.label2Clubes = new System.Windows.Forms.Label();
+            this.label2Fotos = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2Uso = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -111,9 +116,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label2.Location = new System.Drawing.Point(159, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Disco:";
+            this.label2.Text = "Disco";
             // 
             // label3
             // 
@@ -122,9 +127,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label3.Location = new System.Drawing.Point(627, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 25);
+            this.label3.Size = new System.Drawing.Size(144, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Espaço Total:";
+            this.label3.Text = "Espaço Total";
             // 
             // labelsfafas
             // 
@@ -133,9 +138,9 @@
             this.labelsfafas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.labelsfafas.Location = new System.Drawing.Point(1082, 67);
             this.labelsfafas.Name = "labelsfafas";
-            this.labelsfafas.Size = new System.Drawing.Size(155, 25);
+            this.labelsfafas.Size = new System.Drawing.Size(145, 25);
             this.labelsfafas.TabIndex = 3;
-            this.labelsfafas.Text = "Espaço Livre:";
+            this.labelsfafas.Text = "Espaço Livre";
             // 
             // labelsfasfa
             // 
@@ -144,9 +149,9 @@
             this.labelsfasfa.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.labelsfasfa.Location = new System.Drawing.Point(1082, 120);
             this.labelsfasfa.Name = "labelsfasfa";
-            this.labelsfasfa.Size = new System.Drawing.Size(196, 25);
+            this.labelsfasfa.Size = new System.Drawing.Size(186, 25);
             this.labelsfasfa.TabIndex = 4;
-            this.labelsfasfa.Text = "Espaço Ocupado:";
+            this.labelsfasfa.Text = "Espaço Ocupado";
             // 
             // label6
             // 
@@ -155,9 +160,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label6.Location = new System.Drawing.Point(159, 120);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 25);
+            this.label6.Size = new System.Drawing.Size(105, 25);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Diretório:";
+            this.label6.Text = "Diretório";
             // 
             // label7
             // 
@@ -166,9 +171,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label7.Location = new System.Drawing.Point(627, 67);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 25);
+            this.label7.Size = new System.Drawing.Size(57, 25);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Tipo:";
+            this.label7.Text = "Tipo";
             // 
             // labelDiscoNome
             // 
@@ -274,26 +279,31 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label19.Location = new System.Drawing.Point(159, 98);
+            this.label19.Location = new System.Drawing.Point(159, 84);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(162, 38);
+            this.label19.Size = new System.Drawing.Size(147, 38);
             this.label19.TabIndex = 1;
-            this.label19.Text = "Modelos:";
+            this.label19.Text = "Modelos";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 24F);
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label15.Location = new System.Drawing.Point(159, 187);
+            this.label15.Location = new System.Drawing.Point(159, 173);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 38);
+            this.label15.Size = new System.Drawing.Size(118, 38);
             this.label15.TabIndex = 5;
-            this.label15.Text = "Ermos:";
+            this.label15.Text = "Ermos";
             // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label2Uso);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label2Fotos);
+            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label2Clubes);
             this.panel2.Controls.Add(this.label2Outras);
             this.panel2.Controls.Add(this.label2Ermos);
@@ -313,29 +323,29 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 24F);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label4.Location = new System.Drawing.Point(159, 275);
+            this.label4.Location = new System.Drawing.Point(159, 261);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 38);
+            this.label4.Size = new System.Drawing.Size(124, 38);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Outras:";
+            this.label4.Text = "Outras";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 24F);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label5.Location = new System.Drawing.Point(157, 364);
+            this.label5.Location = new System.Drawing.Point(157, 350);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 38);
+            this.label5.Size = new System.Drawing.Size(124, 38);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Clubes:";
+            this.label5.Text = "Clubes";
             // 
             // label2Modelos
             // 
             this.label2Modelos.AutoSize = true;
             this.label2Modelos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2Modelos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Modelos.Location = new System.Drawing.Point(358, 94);
+            this.label2Modelos.Location = new System.Drawing.Point(358, 80);
             this.label2Modelos.Name = "label2Modelos";
             this.label2Modelos.Size = new System.Drawing.Size(42, 42);
             this.label2Modelos.TabIndex = 15;
@@ -346,7 +356,7 @@
             this.label2Ermos.AutoSize = true;
             this.label2Ermos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2Ermos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Ermos.Location = new System.Drawing.Point(358, 183);
+            this.label2Ermos.Location = new System.Drawing.Point(358, 169);
             this.label2Ermos.Name = "label2Ermos";
             this.label2Ermos.Size = new System.Drawing.Size(42, 42);
             this.label2Ermos.TabIndex = 16;
@@ -357,7 +367,7 @@
             this.label2Outras.AutoSize = true;
             this.label2Outras.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2Outras.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Outras.Location = new System.Drawing.Point(358, 271);
+            this.label2Outras.Location = new System.Drawing.Point(358, 257);
             this.label2Outras.Name = "label2Outras";
             this.label2Outras.Size = new System.Drawing.Size(42, 42);
             this.label2Outras.TabIndex = 17;
@@ -368,11 +378,63 @@
             this.label2Clubes.AutoSize = true;
             this.label2Clubes.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2Clubes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2Clubes.Location = new System.Drawing.Point(358, 360);
+            this.label2Clubes.Location = new System.Drawing.Point(358, 346);
             this.label2Clubes.Name = "label2Clubes";
             this.label2Clubes.Size = new System.Drawing.Size(42, 42);
             this.label2Clubes.TabIndex = 18;
             this.label2Clubes.Text = "A";
+            // 
+            // label2Fotos
+            // 
+            this.label2Fotos.AutoSize = true;
+            this.label2Fotos.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Fotos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2Fotos.Location = new System.Drawing.Point(358, 433);
+            this.label2Fotos.Name = "label2Fotos";
+            this.label2Fotos.Size = new System.Drawing.Size(42, 42);
+            this.label2Fotos.TabIndex = 20;
+            this.label2Fotos.Text = "A";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Verdana", 24F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label9.Location = new System.Drawing.Point(159, 437);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 38);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Fotos";
+            // 
+            // label2Uso
+            // 
+            this.label2Uso.AutoSize = true;
+            this.label2Uso.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2Uso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2Uso.Location = new System.Drawing.Point(358, 515);
+            this.label2Uso.Name = "label2Uso";
+            this.label2Uso.Size = new System.Drawing.Size(42, 42);
+            this.label2Uso.TabIndex = 22;
+            this.label2Uso.Text = "A";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Verdana", 24F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label10.Location = new System.Drawing.Point(157, 518);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(171, 38);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Serventia";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
+            this.panel3.Location = new System.Drawing.Point(141, 75);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 490);
+            this.panel3.TabIndex = 23;
             // 
             // UserControlInicio
             // 
@@ -423,5 +485,10 @@
         private System.Windows.Forms.Label label2Outras;
         private System.Windows.Forms.Label label2Ermos;
         private System.Windows.Forms.Label label2Modelos;
+        private System.Windows.Forms.Label label2Fotos;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2Uso;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel3;
     }
 }
