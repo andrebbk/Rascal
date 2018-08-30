@@ -54,7 +54,15 @@ namespace RascalApp.Forms
         private void pictureBoxButtonQuit_Click(object sender, EventArgs e)
         {
             //Sair
-            Application.Exit();
+            try
+            {
+                Funcionalidades.RegistarSaida();
+                Application.Exit();
+            }
+            catch
+            {
+                EscreverNaConsola("Erro ao registar saida!");
+            }            
         }
 
         private void pictureBoxButtonMinimize_Click(object sender, EventArgs e)

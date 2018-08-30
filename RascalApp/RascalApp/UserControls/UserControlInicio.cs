@@ -187,7 +187,7 @@ namespace RascalApp.UserControls
                 //Uso
                 try
                 {
-                    label2Uso.Text = "24";
+                    label2Uso.Text = Funcionalidades.QuantasAberturas().ToString();
                 }
                 catch
                 {

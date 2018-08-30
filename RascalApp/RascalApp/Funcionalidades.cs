@@ -1561,5 +1561,62 @@ namespace RascalApp
             return rowCount;
         }
 
+        //SERVENTIA
+        public static void NovaAbertura()
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "INSERT INTO Serventia (Aberto) VALUES ('" + DateTime.Now + "')";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        public static void RegistarSaida()
+        {
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+            _connection.Open();
+
+            OleDbCommand _command = new OleDbCommand();
+            _command.Connection = _connection;
+            _command.CommandType = CommandType.Text;
+            _command.CommandText = "UPDATE Serventia SET Fechado='" + DateTime.Now + "' WHERE Aberto = (SELECT MAX(Aberto) FROM Serventia)";
+            _command.ExecuteNonQuery();
+
+            _connection.Close();
+        }
+
+        public static int QuantasAberturas()
+        {
+            int rowCount = 0;
+
+            OleDbConnection _connection = new OleDbConnection();
+            _connection.ConnectionString = ConfigurationManager.ConnectionStrings["BDRascalconnectionString"].ToString();
+
+            try
+            {
+                _connection.Open();
+                OleDbCommand cmd = new OleDbCommand("SELECT COUNT(*) FROM Serventia", _connection);
+                rowCount = (int)cmd.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return 0;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+
+            return rowCount;
+        }
     }
 }

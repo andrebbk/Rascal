@@ -14,9 +14,19 @@ namespace RascalApp
         [STAThread]
         static void Main()
         {
+            try
+            {
+                Funcionalidades.NovaAbertura();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSeguranca());
+            Application.Run(new FormSeguranca());            
         }
     }
 }

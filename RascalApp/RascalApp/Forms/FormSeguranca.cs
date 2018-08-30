@@ -40,7 +40,16 @@ namespace RascalApp
         private void pictureBoxButtonQuit_Click(object sender, EventArgs e)
         {
             //Sair
-            Application.Exit();
+            try
+            {
+                Funcionalidades.RegistarSaida();
+                Application.Exit();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void pictureBoxButtonMinimize_Click(object sender, EventArgs e)
