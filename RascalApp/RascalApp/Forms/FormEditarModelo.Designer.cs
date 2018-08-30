@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNNomeGal = new System.Windows.Forms.TextBox();
             this.buttonOKNome = new System.Windows.Forms.Button();
+            this.buttonApagarGal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModeloPic)).BeginInit();
             this.SuspendLayout();
@@ -129,7 +130,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(59, 122);
+            this.label2.Location = new System.Drawing.Point(59, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 29;
@@ -137,19 +138,22 @@
             // 
             // textBoxNovoNome
             // 
-            this.textBoxNovoNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNovoNome.Location = new System.Drawing.Point(62, 143);
+            this.textBoxNovoNome.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNovoNome.Location = new System.Drawing.Point(62, 136);
             this.textBoxNovoNome.Name = "textBoxNovoNome";
-            this.textBoxNovoNome.Size = new System.Drawing.Size(299, 29);
+            this.textBoxNovoNome.Size = new System.Drawing.Size(299, 31);
             this.textBoxNovoNome.TabIndex = 28;
             // 
             // listBoxGalerias
             // 
+            this.listBoxGalerias.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxGalerias.FormattingEnabled = true;
-            this.listBoxGalerias.Location = new System.Drawing.Point(62, 214);
+            this.listBoxGalerias.ItemHeight = 23;
+            this.listBoxGalerias.Location = new System.Drawing.Point(62, 200);
             this.listBoxGalerias.Name = "listBoxGalerias";
-            this.listBoxGalerias.Size = new System.Drawing.Size(299, 238);
+            this.listBoxGalerias.Size = new System.Drawing.Size(299, 234);
             this.listBoxGalerias.TabIndex = 35;
+            this.listBoxGalerias.SelectedIndexChanged += new System.EventHandler(this.listBoxGalerias_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -157,7 +161,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label1.Location = new System.Drawing.Point(59, 193);
+            this.label1.Location = new System.Drawing.Point(59, 179);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 18);
             this.label1.TabIndex = 36;
@@ -169,7 +173,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(59, 470);
+            this.label3.Location = new System.Drawing.Point(59, 447);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 18);
             this.label3.TabIndex = 38;
@@ -178,7 +182,7 @@
             // textBoxNNomeGal
             // 
             this.textBoxNNomeGal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNNomeGal.Location = new System.Drawing.Point(62, 491);
+            this.textBoxNNomeGal.Location = new System.Drawing.Point(62, 468);
             this.textBoxNNomeGal.Name = "textBoxNNomeGal";
             this.textBoxNNomeGal.Size = new System.Drawing.Size(299, 29);
             this.textBoxNNomeGal.TabIndex = 37;
@@ -193,13 +197,31 @@
             this.buttonOKNome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOKNome.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOKNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonOKNome.Location = new System.Drawing.Point(367, 491);
+            this.buttonOKNome.Location = new System.Drawing.Point(62, 503);
             this.buttonOKNome.Name = "buttonOKNome";
-            this.buttonOKNome.Size = new System.Drawing.Size(46, 31);
+            this.buttonOKNome.Size = new System.Drawing.Size(93, 37);
             this.buttonOKNome.TabIndex = 39;
-            this.buttonOKNome.Text = "OK";
+            this.buttonOKNome.Text = "Guardar";
             this.buttonOKNome.UseVisualStyleBackColor = true;
             this.buttonOKNome.Click += new System.EventHandler(this.buttonOKNome_Click);
+            // 
+            // buttonApagarGal
+            // 
+            this.buttonApagarGal.BackgroundImage = global::RascalApp.Properties.Resources.Wooddownload;
+            this.buttonApagarGal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonApagarGal.FlatAppearance.BorderSize = 0;
+            this.buttonApagarGal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonApagarGal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.buttonApagarGal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApagarGal.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarGal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonApagarGal.Location = new System.Drawing.Point(268, 503);
+            this.buttonApagarGal.Name = "buttonApagarGal";
+            this.buttonApagarGal.Size = new System.Drawing.Size(93, 37);
+            this.buttonApagarGal.TabIndex = 40;
+            this.buttonApagarGal.Text = "Apagar";
+            this.buttonApagarGal.UseVisualStyleBackColor = true;
+            this.buttonApagarGal.Click += new System.EventHandler(this.buttonApagarGal_Click);
             // 
             // FormEditarModelo
             // 
@@ -209,6 +231,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1006, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonApagarGal);
             this.Controls.Add(this.buttonOKNome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxNNomeGal);
@@ -247,5 +270,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNNomeGal;
         private System.Windows.Forms.Button buttonOKNome;
+        private System.Windows.Forms.Button buttonApagarGal;
     }
 }

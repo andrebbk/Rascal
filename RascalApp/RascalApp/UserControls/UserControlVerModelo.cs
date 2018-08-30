@@ -281,7 +281,7 @@ namespace RascalApp.UserControls
 
         private void buttonModeloEditar_Click(object sender, EventArgs e)
         {
-            FormEditarModelo PopupEditar = new FormEditarModelo(EsteModelo, false);
+            FormEditarModelo PopupEditar = new FormEditarModelo(EsteModelo, false, _FormInicio);
             DialogResult resultado = PopupEditar.ShowDialog();
 
             if (resultado == DialogResult.OK)

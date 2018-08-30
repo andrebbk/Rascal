@@ -115,7 +115,7 @@ namespace RascalApp.UserControls
             {
                 if (mdl.ID == _ID)
                 {
-                    FormEditarModelo PopupEditar = new FormEditarModelo(mdl, true);
+                    FormEditarModelo PopupEditar = new FormEditarModelo(mdl, true, _FormInicio);
                     DialogResult resultado = PopupEditar.ShowDialog();
 
                     if (resultado == DialogResult.OK)
