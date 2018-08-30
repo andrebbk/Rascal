@@ -177,8 +177,12 @@ namespace RascalApp.Forms
             }
 
             //Se o nome for igual
-            /*if (textBoxNNomeGal.Text.Equals(listaGalerias[listBoxGalerias.SelectedIndex].Designacao))
-                return;*/
+            if (textBoxNNomeGal.Text.Equals(listaGalerias[listBoxGalerias.SelectedIndex].Designacao))
+            {
+                _FormInicio.EscreverNaConsola("Nome já existe!");
+                return;
+            }
+                
 
             try
             {
@@ -187,6 +191,8 @@ namespace RascalApp.Forms
 
                 listBoxGalerias.SelectedIndex = -1;
                 textBoxNNomeGal.Clear();
+
+                CarregarGalerias();
             }
             catch
             {
