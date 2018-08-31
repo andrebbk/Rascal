@@ -310,7 +310,7 @@ namespace RascalApp.Forms
 
             labelConsola.Invoke((MethodInvoker)delegate {
 
-                labelConsola.Text = "...";
+                labelConsola.Text = "";
             });
         }
 

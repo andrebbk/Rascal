@@ -25,6 +25,7 @@ namespace RascalApp.UserControls
             _FormInicio = _formIni;
             Esta = _este;
             CaminhosFotos = new List<string>();
+            CaminhosFotos.Clear();
 
             CarregarDados();
         }
@@ -92,5 +93,61 @@ namespace RascalApp.UserControls
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //NOME
+            if(String.IsNullOrEmpty(textBoxNovaDesignacao.Text) || textBoxNovaDesignacao.Text == " ")
+            {
+                _FormInicio.EscreverNaConsola("Nome em falta!");
+                return;
+            }
+
+            //FOTOS
+            if(CaminhosFotos.Count < 2)
+            {
+                _FormInicio.EscreverNaConsola("Fotos em falta!");
+                return;
+            }
+
+            //Guardar Nova Galeria
+            DateTime _SaveTimeGal;
+
+            try
+            {
+                //Guardar Galeria
+                _SaveTimeGal = Funcionalidades.NovaGaleria(Esta.ID, 1, textBoxNovaDesignacao.Text);
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao guardar a galeria!");
+                return;
+            }
+
+            try
+            {
+                //Guardar Fotos da Galeria
+                string nomeFolder = Funcionalidades.NomeLimpo(textBoxNovaDesignacao.Text);
+
+                int index_ = 0;
+                foreach (string path_ in CaminhosFotos)
+                {
+                    Funcionalidades.GuardarNovaGaleriaFoto(Funcionalidades.BuscarUltimaGaleria(_SaveTimeGal, Esta.ID).ID, textBoxNovaDesignacao.Text, Esta, path_, index_);
+                    index_++;
+                }
+            }
+            catch
+            {
+                _FormInicio.EscreverNaConsola("Erro ao guardar fotos!");
+                return;
+            }
+
+            //Limpar Form
+            _FormInicio.EscreverNaConsola("Nova galeria registada!");
+            textBoxNovaDesignacao.Clear();
+            listViewNovaGaleria.Items.Clear();
+            CaminhosFotos.Clear();
+        }
     }
 }
+ 
