@@ -188,6 +188,20 @@ namespace RascalApp
             return RemoveWhitespace(RemoveSpecialCharacters(str));
         }
 
+        public static long GetDirSize(string path)
+        {
+            try
+            {
+                return Directory.EnumerateFiles(path).Sum(x => new FileInfo(x).Length)
+                    +
+                       Directory.EnumerateDirectories(path).Sum(x => GetDirSize(x));
+            }
+            catch
+            {
+                return 0L;
+            }
+        }
+
 
         //MODELO
         public static void GuardarNovoModelo(string Nome, string caminhoFoto)

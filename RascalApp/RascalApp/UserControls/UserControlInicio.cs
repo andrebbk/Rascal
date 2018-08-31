@@ -25,6 +25,7 @@ namespace RascalApp.UserControls
 
             _FormInicio = _fInit;
             lockedData = true;
+
             CarregarINFOdisco();
             CarregarEstatisticas();
         }
@@ -56,6 +57,22 @@ namespace RascalApp.UserControls
                         totalSpace = (totalSpace / Math.Pow(1024, 3));
                         labelDiscoETotal.Text = totalSpace.ToString("0.") + " GB";
 
+                        //Espaço Rascal
+                        double totalRascal = Funcionalidades.GetDirSize("E:\\Rascal");
+                        totalRascal = (totalRascal / Math.Pow(1024, 3));
+
+                        if(totalRascal.ToString("0.").Equals("0"))
+                        {
+                            totalRascal = Funcionalidades.GetDirSize("E:\\Rascal");
+                            totalRascal = (totalRascal / Math.Pow(1024, 2));
+                            labelDiscoRascal.Text = totalRascal.ToString("0.00") + " MB";
+                        }
+                        else
+                        {
+                            labelDiscoRascal.Text = totalRascal.ToString("0.00") + " GB";
+                        }
+                        
+
                         //Espaço Livre
                         double freeSpace = drive.TotalFreeSpace;
                         freeSpace = (freeSpace / Math.Pow(1024, 3));
@@ -83,10 +100,13 @@ namespace RascalApp.UserControls
                 labelDiscoDiretorio.Text = "N/A";
 
                 //Tipo
-                labelDiscoTipo.Text = "N/A";
+                labelDiscoTipo.Text = "";
 
                 //Espaço Total
                 labelDiscoETotal.Text = "N/A";
+
+                //Espaço Rascal
+                labelDiscoRascal.Text = "N/A";
 
                 //Espaço Livre
                 labelDiscoELivre.Text = "N/A";

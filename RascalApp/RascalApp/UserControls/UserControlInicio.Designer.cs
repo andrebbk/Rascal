@@ -35,10 +35,8 @@
             this.labelDiscoEOcupado = new System.Windows.Forms.Label();
             this.labelDiscoELivre = new System.Windows.Forms.Label();
             this.labelDiscoETotal = new System.Windows.Forms.Label();
-            this.labelDiscoTipo = new System.Windows.Forms.Label();
             this.labelDiscoDiretorio = new System.Windows.Forms.Label();
             this.labelDiscoNome = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelsfasfa = new System.Windows.Forms.Label();
             this.labelsfafas = new System.Windows.Forms.Label();
@@ -67,6 +65,9 @@
             this.label2Modelos = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelDiscoTipo = new System.Windows.Forms.Label();
+            this.labelDiscoRascal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,15 +86,16 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.panel1.Controls.Add(this.labelDiscoRascal);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.labelDiscoTipo);
             this.panel1.Controls.Add(this.labelUsedPercent);
             this.panel1.Controls.Add(this.labelFreePercent);
             this.panel1.Controls.Add(this.labelDiscoEOcupado);
             this.panel1.Controls.Add(this.labelDiscoELivre);
             this.panel1.Controls.Add(this.labelDiscoETotal);
-            this.panel1.Controls.Add(this.labelDiscoTipo);
             this.panel1.Controls.Add(this.labelDiscoDiretorio);
             this.panel1.Controls.Add(this.labelDiscoNome);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.labelsfasfa);
             this.panel1.Controls.Add(this.labelsfafas);
@@ -154,22 +156,11 @@
             this.labelDiscoETotal.AutoSize = true;
             this.labelDiscoETotal.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDiscoETotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelDiscoETotal.Location = new System.Drawing.Point(800, 120);
+            this.labelDiscoETotal.Location = new System.Drawing.Point(820, 67);
             this.labelDiscoETotal.Name = "labelDiscoETotal";
             this.labelDiscoETotal.Size = new System.Drawing.Size(75, 25);
             this.labelDiscoETotal.TabIndex = 10;
             this.labelDiscoETotal.Text = "14 GB";
-            // 
-            // labelDiscoTipo
-            // 
-            this.labelDiscoTipo.AutoSize = true;
-            this.labelDiscoTipo.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDiscoTipo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelDiscoTipo.Location = new System.Drawing.Point(800, 67);
-            this.labelDiscoTipo.Name = "labelDiscoTipo";
-            this.labelDiscoTipo.Size = new System.Drawing.Size(67, 25);
-            this.labelDiscoTipo.TabIndex = 9;
-            this.labelDiscoTipo.Text = "NTFS";
             // 
             // labelDiscoDiretorio
             // 
@@ -192,17 +183,6 @@
             this.labelDiscoNome.Size = new System.Drawing.Size(161, 25);
             this.labelDiscoNome.TabIndex = 7;
             this.labelDiscoNome.Text = "External Insys";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label7.Location = new System.Drawing.Point(627, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 25);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Tipo";
             // 
             // label6
             // 
@@ -242,7 +222,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label3.Location = new System.Drawing.Point(627, 120);
+            this.label3.Location = new System.Drawing.Point(647, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 25);
             this.label3.TabIndex = 2;
@@ -524,6 +504,39 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Outras";
             // 
+            // labelDiscoTipo
+            // 
+            this.labelDiscoTipo.AutoSize = true;
+            this.labelDiscoTipo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDiscoTipo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelDiscoTipo.Location = new System.Drawing.Point(429, 92);
+            this.labelDiscoTipo.Name = "labelDiscoTipo";
+            this.labelDiscoTipo.Size = new System.Drawing.Size(37, 16);
+            this.labelDiscoTipo.TabIndex = 15;
+            this.labelDiscoTipo.Text = "70%";
+            // 
+            // labelDiscoRascal
+            // 
+            this.labelDiscoRascal.AutoSize = true;
+            this.labelDiscoRascal.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDiscoRascal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelDiscoRascal.Location = new System.Drawing.Point(820, 120);
+            this.labelDiscoRascal.Name = "labelDiscoRascal";
+            this.labelDiscoRascal.Size = new System.Drawing.Size(75, 25);
+            this.labelDiscoRascal.TabIndex = 17;
+            this.labelDiscoRascal.Text = "14 GB";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label13.Location = new System.Drawing.Point(647, 120);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(162, 25);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Espaço Rascal";
+            // 
             // UserControlInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,11 +566,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelsfasfa;
         private System.Windows.Forms.Label labelsfafas;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelDiscoNome;
         private System.Windows.Forms.Label labelDiscoETotal;
-        private System.Windows.Forms.Label labelDiscoTipo;
         private System.Windows.Forms.Label labelDiscoDiretorio;
         private System.Windows.Forms.Label labelDiscoELivre;
         private System.Windows.Forms.Label labelDiscoEOcupado;
@@ -585,5 +596,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label2Ficheiros;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelDiscoTipo;
+        private System.Windows.Forms.Label labelDiscoRascal;
+        private System.Windows.Forms.Label label13;
     }
 }
