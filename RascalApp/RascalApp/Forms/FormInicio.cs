@@ -80,7 +80,7 @@ namespace RascalApp.Forms
         //BOTOES HOVER/LEAVE
         private void buttonInicio_MouseHover(object sender, EventArgs e)
         {
-            buttonInicio.ForeColor = Color.Blue;
+            buttonInicio.ForeColor = Color.DimGray;
         }
 
         private void buttonInicio_MouseLeave(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace RascalApp.Forms
 
         private void buttonGaleria_MouseHover(object sender, EventArgs e)
         {
-            buttonGaleria.ForeColor = Color.Blue;
+            buttonGaleria.ForeColor = Color.DimGray;
         }
 
         private void buttonGaleria_MouseLeave(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace RascalApp.Forms
 
         private void buttonNovoModelo_MouseHover(object sender, EventArgs e)
         {
-            buttonNovoModelo.ForeColor = Color.Blue;
+            buttonNovoModelo.ForeColor = Color.DimGray;
         }
 
         private void buttonNovoModelo_MouseLeave(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace RascalApp.Forms
 
         private void buttonErmos_MouseHover(object sender, EventArgs e)
         {
-            buttonErmos.ForeColor = Color.Blue;
+            buttonErmos.ForeColor = Color.DimGray;
         }
 
         private void buttonErmos_MouseLeave(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace RascalApp.Forms
 
         private void buttonOutras_MouseHover(object sender, EventArgs e)
         {
-            buttonOutras.ForeColor = Color.Blue;
+            buttonOutras.ForeColor = Color.DimGray;
         }
 
         private void buttonOutras_MouseLeave(object sender, EventArgs e)
@@ -130,12 +130,22 @@ namespace RascalApp.Forms
 
         private void buttonClubes_MouseHover(object sender, EventArgs e)
         {
-            buttonClubes.ForeColor = Color.Blue;
+            buttonClubes.ForeColor = Color.DimGray;
         }
 
         private void buttonClubes_MouseLeave(object sender, EventArgs e)
         {
             buttonClubes.ForeColor = Color.White;
+        }
+
+        private void buttonDesconhecidas_MouseHover(object sender, EventArgs e)
+        {
+            buttonDesconhecidas.ForeColor = Color.DimGray;
+        }
+
+        private void buttonDesconhecidas_MouseLeave(object sender, EventArgs e)
+        {
+            buttonDesconhecidas.ForeColor = Color.White;
         }
         //BOTOES HOVER/LEAVE
 
@@ -322,6 +332,7 @@ namespace RascalApp.Forms
             buttonErmos.Enabled = estado;
             buttonOutras.Enabled = estado;
             buttonClubes.Enabled = estado;
+            buttonDesconhecidas.Enabled = estado;
 
             //para os outros usar esta flag
             BLoquearInteracoes = estado;
@@ -341,5 +352,21 @@ namespace RascalApp.Forms
                 EscreverNaConsola("Erro ao entrar na Nova Galeria!");
             }
         }
+
+        private void buttonDesconhecidas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                panelContainer.Controls.Clear();
+                panelContainer.Controls.Add(new UserControlDesconhecidos(this));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.Message);
+                EscreverNaConsola("Erro ao entrar nas Anônimas!");
+            }
+        }
+        
     }
 }

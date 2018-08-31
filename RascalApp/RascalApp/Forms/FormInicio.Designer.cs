@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSideBar = new System.Windows.Forms.Panel();
+            this.buttonDesconhecidas = new System.Windows.Forms.Button();
             this.labelopenConsola = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelConsola = new System.Windows.Forms.Label();
@@ -109,6 +110,7 @@
             this.panelSideBar.BackColor = System.Drawing.Color.Transparent;
             this.panelSideBar.BackgroundImage = global::RascalApp.Properties.Resources.wallpaper2you;
             this.panelSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelSideBar.Controls.Add(this.buttonDesconhecidas);
             this.panelSideBar.Controls.Add(this.labelopenConsola);
             this.panelSideBar.Controls.Add(this.panel3);
             this.panelSideBar.Controls.Add(this.labelConsola);
@@ -127,6 +129,26 @@
             this.panelSideBar.Name = "panelSideBar";
             this.panelSideBar.Size = new System.Drawing.Size(286, 1084);
             this.panelSideBar.TabIndex = 9;
+            // 
+            // buttonDesconhecidas
+            // 
+            this.buttonDesconhecidas.BackgroundImage = global::RascalApp.Properties.Resources.blackwood;
+            this.buttonDesconhecidas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDesconhecidas.FlatAppearance.BorderSize = 0;
+            this.buttonDesconhecidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonDesconhecidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDesconhecidas.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDesconhecidas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDesconhecidas.Location = new System.Drawing.Point(3, 676);
+            this.buttonDesconhecidas.Name = "buttonDesconhecidas";
+            this.buttonDesconhecidas.Size = new System.Drawing.Size(280, 73);
+            this.buttonDesconhecidas.TabIndex = 19;
+            this.buttonDesconhecidas.Text = "    Anônimos";
+            this.buttonDesconhecidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDesconhecidas.UseVisualStyleBackColor = true;
+            this.buttonDesconhecidas.Click += new System.EventHandler(this.buttonDesconhecidas_Click);
+            this.buttonDesconhecidas.MouseLeave += new System.EventHandler(this.buttonDesconhecidas_MouseLeave);
+            this.buttonDesconhecidas.MouseHover += new System.EventHandler(this.buttonDesconhecidas_MouseHover);
             // 
             // labelopenConsola
             // 
@@ -163,9 +185,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::RascalApp.Properties.Resources.woman_silhueta;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(106, 688);
+            this.pictureBox2.Location = new System.Drawing.Point(156, 792);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(132, 270);
+            this.pictureBox2.Size = new System.Drawing.Size(82, 166);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -377,5 +399,6 @@
         private System.Windows.Forms.Label labelConsola;
         private System.Windows.Forms.Label labelopenConsola;
         private System.Windows.Forms.PictureBox pictureBoxEditarCOisas;
+        private System.Windows.Forms.Button buttonDesconhecidas;
     }
 }

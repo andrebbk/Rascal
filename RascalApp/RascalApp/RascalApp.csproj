@@ -144,6 +144,12 @@
     <Compile Include="UserControls\UserControlClubes.Designer.cs">
       <DependentUpon>UserControlClubes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlDesconhecidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlDesconhecidos.Designer.cs">
+      <DependentUpon>UserControlDesconhecidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlErmos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\UserControlClubes.resx">
       <DependentUpon>UserControlClubes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDesconhecidos.resx">
+      <DependentUpon>UserControlDesconhecidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlErmos.resx">
       <DependentUpon>UserControlErmos.cs</DependentUpon>
@@ -394,6 +403,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\file-manage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DesconhecidasLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
