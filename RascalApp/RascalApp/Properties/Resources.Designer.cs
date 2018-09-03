@@ -63,6 +63,16 @@ namespace RascalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddAnonimas {
+            get {
+                object obj = ResourceManager.GetObject("AddAnonimas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddErmo {
             get {
                 object obj = ResourceManager.GetObject("AddErmo", resourceCulture);

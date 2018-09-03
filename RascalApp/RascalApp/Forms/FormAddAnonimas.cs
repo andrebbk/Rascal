@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +10,13 @@ using System.Windows.Forms;
 
 namespace RascalApp.Forms
 {
-    public partial class FormAdicionarOutras : Form
+    public partial class FormAddAnonimas : Form
     {
-        FormInicio _FormInicio;
         public List<string> CaminhoFotos;
 
-        public FormAdicionarOutras(FormInicio _fInit)
+        public FormAddAnonimas()
         {
             InitializeComponent();
-
-            _FormInicio = _fInit;
             CaminhoFotos = new List<string>();
         }
 
@@ -40,14 +36,13 @@ namespace RascalApp.Forms
         private void buttonCarregarFotos_Click(object sender, EventArgs e)
         {
             //Mudar foto
-
             OpenFileDialog open = new OpenFileDialog();
             open.Multiselect = true;
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
 
             if (open.ShowDialog() == DialogResult.OK)
             {
-                listViewNovasOutras.Items.Clear();
+                listViewNovasAnonimas.Items.Clear();
                 CaminhoFotos.Clear();
 
                 ImageList ListaImagens = new ImageList();
@@ -66,8 +61,8 @@ namespace RascalApp.Forms
                     }
                 }
 
-                listViewNovasOutras.View = View.LargeIcon;
-                listViewNovasOutras.LargeImageList = ListaImagens;
+                listViewNovasAnonimas.View = View.LargeIcon;
+                listViewNovasAnonimas.LargeImageList = ListaImagens;
                 contador = 0;
 
                 foreach (String files in open.FileNames)
@@ -75,24 +70,14 @@ namespace RascalApp.Forms
                     ListViewItem lst = new ListViewItem();
                     lst.ImageIndex = 0;
                     lst.ImageKey = "img" + contador;
-                    listViewNovasOutras.Items.Add(lst);
+                    listViewNovasAnonimas.Items.Add(lst);
 
                     CaminhoFotos.Add(files);
 
                     contador++;
                 }
-                    
+
             }
-        }
-
-        private void buttonGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSair_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

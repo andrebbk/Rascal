@@ -99,6 +99,7 @@
             this.buttonGuardar.TabIndex = 29;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // buttonSair
             // 
@@ -117,6 +118,7 @@
             this.buttonSair.TabIndex = 30;
             this.buttonSair.Text = "Sair";
             this.buttonSair.UseVisualStyleBackColor = true;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             // 
             // FormAdicionarOutras
             // 

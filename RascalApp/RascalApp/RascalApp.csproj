@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormAddAnonimas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddAnonimas.Designer.cs">
+      <DependentUpon>FormAddAnonimas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAdicionarErmo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     <Compile Include="UserControls\UserControlVerModelo.Designer.cs">
       <DependentUpon>UserControlVerModelo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\FormAddAnonimas.resx">
+      <DependentUpon>FormAddAnonimas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAdicionarErmo.resx">
       <DependentUpon>FormAdicionarErmo.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +415,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DesconhecidasLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddAnonimas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
